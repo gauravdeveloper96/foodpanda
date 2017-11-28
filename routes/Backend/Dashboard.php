@@ -5,4 +5,6 @@
  */
 Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
-Route::get('resturant', 'DashboardController@addRestro')->name('addRestro');
+Route::get('restaurant', 'RestaurantController@addRestro')->name('addRestro');
+
+Route::get('foodcategory', 'FoodCategoryController@addFoodCategory')->name('addFoodCategory');
