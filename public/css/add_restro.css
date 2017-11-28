@@ -1,0 +1,44 @@
+.form{
+    padding-top: 43px;
+}
+h1{
+    color:#008CBA;
+}
+h1 small{
+     color:#008CBA;
+}
+
+.enter-text{
+    width: 100%;
+    height: 38px;
+    border: 2px inset #008CBA;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    color: #008CBA;
+    font-size: 22px;
+    margin-top: 6px;
+}
+
+.display-text{
+    font-size: 17px;
+    color: #008CBA;
+    margin-top: 4px;
+    margin-bottom: 32px;
+}
+.feature{
+    padding-top: 35px;
+    color:#008CBA;
+    font-size:17px;
+}
+.add-restaurant{
+    background-color: #008CBA;
+    color: white;
+    border: 2px solid #008CBA;
+    width: 29%;
+    height: 50px;
+    border-radius: 15px;
+    font-size: 34px;
+    padding-bottom: 51px;
+    box-shadow: 2px 2px 2px black;
+    margin-top: 46px;
+}
