@@ -19,9 +19,12 @@
         <!-- Check if the language is set to RTL, so apply the RTL layouts -->
         <!-- Otherwise apply the normal LTR layouts -->
         @langRTL
-            {{ Html::style(getRtlCss(mix('css/backend.css'))) }}
+        {{ Html::style(getRtlCss(('css/backend.css'))) }}
         @else
-            {{ Html::style(mix('css/backend.css')) }}
+        {{ Html::style('css/backend.css') }}
+        {{ Html::style('css/buttons.css') }}
+        {{ Html::style('css/add_restro.css') }}
+
         @endif
 
         @yield('after-styles')
@@ -35,9 +38,11 @@
 
         <!-- Scripts -->
         <script>
-            window.Laravel = <?php echo json_encode([
-                'csrfToken' => csrf_token(),
-            ]); ?>
+            window.Laravel = <?php
+echo json_encode([
+    'csrfToken' => csrf_token(),
+]);
+?>
         </script>
     </head>
     <body class="skin-{{ config('backend.theme') }} {{ config('backend.layout') }}">
