@@ -13,7 +13,9 @@
 <a href="{{route ('admin.addRestro')}}">
 {{Form::submit('ADD RESTURANTS',['class'=>'add-restro'])}}
 </a>
-    
+    <a href="{{route ('admin.addFoodCategory')}}">
+{{Form::submit('ADD FOOD CATEGORIES',['class'=>'add-food'])}}
+    </a>
 {!! Form::close() !!}
 </div>
 @endsection
