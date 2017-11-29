@@ -1,4 +1,4 @@
-<!--<nav class="navbar navbar-default">
+<nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#frontend-navbar-collapse">
@@ -9,7 +9,7 @@
             </button>
 
             {{ link_to_route('frontend.index', app_name(), [], ['class' => 'navbar-brand']) }}
-        </div>navbar-header
+        </div>
 
         <div class="collapse navbar-collapse" id="frontend-navbar-collapse">
             <ul class="nav navbar-nav">
@@ -56,24 +56,6 @@
 
                 <li>{{ link_to_route('frontend.contact', trans('navs.frontend.contact'), [], ['class' => active_class(Active::checkRoute('frontend.contact')) ]) }}</li>
             </ul>
-        </div>navbar-collapse
-    </div>container
-</nav>-->
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#"> 
-          {{ HTML::image('img/frontend/foodpanda_logo.png') }}
-          
-      </a>
-     
+        </div>
     </div>
-   
-<!--    <div class="nav navbar-nav navbar-right">-->
-      <a href="#" class="user_account"><i class="fa fa-user"></i> My Account</a>
-    
-<!--    </div>-->
-  </div>
 </nav>
-  
-
