@@ -62,10 +62,11 @@ class RestaurantController extends Controller
 			$destinationPath = public_path('/images');
 			$image->move($destinationPath, $name);
 			//$this->save();
-                        dd($name);
+                       
 			$restro->restro_img = $name;
                     }
-                    dd($restro->toArray());
+
+                    
                     $restro->save();
 
 
