@@ -12,6 +12,7 @@
     <div class="col-xs-12">
 
         @foreach($restroDetail as $restro)
+        
         <div class="col-sm-4" >
             <img width=300 height=300 src="{{ asset("images/$restro->restro_img")}}" > <br><br>
 
@@ -19,7 +20,10 @@
 
             <font size="3" color="blue"> <strong >Address: </strong></font><i>{{$restro->address}}</i><br>
 
-            <a class="btn btn-primary" href="{{ route ('admin.editRestro',['restro_id'=>$restro->id]) }}">Edit Restaurant</a><br><br>
+            <a class="btn btn-primary" href="{{ route ('admin.editRestro',['restro_id'=>$restro->id]) }}">Edit Restaurant</a><br>
+            <br>
+
+            <a class="btn btn-primary" href="{{ route ('admin.deleteRestro',['restro_id'=>$restro->id]) }}">Delete Restaurant</a><br><br>
             <br>
             
         </div>

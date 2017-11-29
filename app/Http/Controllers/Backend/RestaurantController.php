@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 
@@ -67,8 +68,7 @@ class RestaurantController extends Controller
 
 
         $restro->save();
-
-
+        //session()->flash('message', 'Restaurant added successfully!');
         return back();
     }
 
@@ -76,7 +76,14 @@ class RestaurantController extends Controller
     {
         $restroDetail = Restaurant::where('id', $restro_id)->get();
 
-        dd($restroDetail);
+        //dd($restroDetail);
         return view('backend.edit_restro', compact('restroDetail'));
+    }
+
+    public function deleteRestro($restro_id)
+    {
+        Restaurant::where('id', $restro_id)->delete();
+        $restroDetail = Restaurant::select('id','restro_name', 'address','restro_img')->get();
+        return view('backend.dashboard',  compact('restroDetail'));
     }
 }
