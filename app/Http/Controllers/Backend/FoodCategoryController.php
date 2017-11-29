@@ -24,7 +24,7 @@ class FoodCategoryController extends Controller
         ]);
        $food = new FoodCategory;
        $food->item_types= request('food-category');
-       dd($food);
+       
        $food->save();
        return back();
     }
