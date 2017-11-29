@@ -8,7 +8,7 @@
 @endsection
 @section('content')
 <div class="form-add-category">
-    {!! Form::open(['url' => 'foo/bar']) !!} 
+    {{ Form::open(['route' => 'admin.storeFoodTypes']) }}
   
     <div class="labels col-sm-2">
 
@@ -23,6 +23,6 @@
     </div>
     <a href="#">{{Form::submit('Add Food Category',['class'=>'add-category'])}}
     </a>
-    {!! Form::close() !!}
+    {{ Form::close() }}
 </div>
 @endsection
