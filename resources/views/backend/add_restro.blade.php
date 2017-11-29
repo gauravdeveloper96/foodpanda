@@ -8,8 +8,10 @@
 @endsection
 @section('content')
 <div class="form-add-restro">
-    {!! Form::open(['url' => 'foo/bar']) !!} 
-  
+    {{ Form::open(['route' => 'admin.storeRestro', 'file'=>'true']) }}
+
+        {{csrf_field()}}
+
     <div class="labels col-sm-2">
 
         {{Form::label('restro-name', 'Restaurant Name', ['class' => 'display-text'])}}<br>
@@ -17,8 +19,8 @@
         {{Form::label('radius', 'Delivery Radius', ['class' => 'display-text'])}}<br>
         {{Form::label('owner', 'Owner Name',['class' => 'display-text'])}}<br>
         {{Form::label('phone', 'Restaurant Contact', ['class' => 'display-text'])}}<br>
-         {{Form::label('latitude', 'Latitude', ['class' => 'display-text'])}}<br>
-          {{Form::label('longitude', 'Longitude', ['class' => 'display-text'])}}<br>
+        {{Form::label('latitude', 'Latitude', ['class' => 'display-text'])}}<br>
+        {{Form::label('longitude', 'Longitude', ['class' => 'display-text'])}}<br>
         {{Form::label('features', 'Restaurant Features', ['class' => 'display-text'])}}<br>
 
     </div>
@@ -31,13 +33,13 @@
         {{Form::text('latitude','30.7515° N', ['class' => 'enter-text'])}}<br>
         {{Form::text('longitude','76.7726° E', ['class' => 'enter-text'])}}<br>
         {{Form::label('true', 'True', ['class' => 'feature'])}}
-        {{Form::radio('1')}}
+        {{Form::radio('feature','1')}}
         {{Form::label('false', 'False', ['class' => 'feature'])}}
-        {{Form::radio('0')}}
+        {{Form::radio('feature','0')}}
 
     </div>
-    <a href="#">{{Form::submit('Add Restaurant',['class'=>'add-restaurant'])}}
-    </a>
-    {!! Form::close() !!}
+    {{Form::submit('Add Restaurant',['class'=>'add-restaurant'])}}
+
+    {{ Form::close() }}
 </div>
 @endsection
