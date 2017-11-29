@@ -19,18 +19,21 @@
         <!-- Check if the language is set to RTL, so apply the RTL layouts -->
         <!-- Otherwise apply the normal LTR layouts -->
         @langRTL
-            {{ Html::style(getRtlCss(mix('css/frontend.css'))) }}
+        {{ Html::style(getRtlCss('css/frontend.css')) }}
         @else
-            {{ Html::style(mix('css/frontend.css')) }}
+        {{ Html::style('css/frontend.css') }}
+        {{ Html::style('css/home.css') }}
         @endif
 
         @yield('after-styles')
 
         <!-- Scripts -->
         <script>
-            window.Laravel = <?php echo json_encode([
-                'csrfToken' => csrf_token(),
-            ]); ?>
+            window.Laravel = <?php
+echo json_encode([
+    'csrfToken' => csrf_token(),
+]);
+?>
         </script>
     </head>
     <body id="app-layout">
