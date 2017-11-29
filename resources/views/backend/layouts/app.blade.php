@@ -24,6 +24,7 @@
         {{ Html::style('css/backend.css') }}
         {{ Html::style('css/buttons.css') }}
         {{ Html::style('css/add_restro.css') }}
+        {{ Html::style('css/add_category.css') }}
 
         @endif
 

@@ -1,0 +1,20 @@
+.form-add-category{
+    padding-top: 104px;
+}
+
+.add-category{
+    background-color: #008CBA;
+    color: white;
+    border: 2px solid #008CBA;
+    width: 47%;
+    height: 66px;
+    border-radius: 15px;
+    font-size: 44px;
+    padding-bottom: 66px;
+    box-shadow: 2px 2px 2px black;
+    margin-top: 46px;
+    padding-left: 11px;
+    margin-left: 189px;
+    padding-top: 5px;
+
+}

@@ -9,7 +9,8 @@ class FoodCategoryController extends Controller
 {
     public function addFoodCategory()
     {
-        return ;
-        //view('backend.add_restro');
+        
+        return view('backend.add_category') ;
+      
     }
 }
