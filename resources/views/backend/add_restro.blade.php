@@ -41,6 +41,6 @@
     </div>
     <a href="#">{{Form::submit('Add Restaurant',['class'=>'add-restaurant'])}}
     </a>
-    {!! Form::close() !!}
+    {{ Form::close() }}
 </div>
 @endsection
