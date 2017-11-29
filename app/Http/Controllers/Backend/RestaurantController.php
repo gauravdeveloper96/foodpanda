@@ -72,18 +72,87 @@ class RestaurantController extends Controller
         return back();
     }
 
-     public function editRestro($restro_id)
+    public function editRestro($restro_id)
     {
-        $restroDetail = Restaurant::where('id', $restro_id)->get();
+        $restroDetail = Restaurant::find($restro_id);
 
         //dd($restroDetail);
         return view('backend.edit_restro', compact('restroDetail'));
     }
 
+    public function updateRestro(Request $request, $restro_id)
+    {
+        $restroDetail = Restaurant::find($restro_id);
+        $this->validate(request(),
+            [
+
+            'restro_name' => 'required|min:5',
+            'address' => 'required|min:5',
+            'radius' => 'required|min:1',
+            'restro_owner' => 'required|min:3',
+            'restro_contact' => 'required|min:7',
+            'restroLat' => 'required',
+            'restroLong' => 'required',
+            'feature_restro' => 'required',
+        ]);
+        //dd($request->toArray());
+
+        if (isset($restroDetail)) {
+
+            $restroDetail->restro_name     = request('restro_name');
+            $restroDetail->address         = request('address');
+            $restroDetail->delivery_radius = request('radius');
+            $restroDetail->restro_owner    = request('restro_owner');
+            $restroDetail->restroLat       = request('restroLat');
+            $restroDetail->restroLong      = request('restroLong');
+            $restroDetail->feature_restro  = request('feature_restro');
+            $restroDetail->restro_contact  = request('restro_contact');
+
+            //dd($restro);
+
+
+            if ($request->hasFile('image')) {
+
+
+                $image = $request->file('image');
+
+
+                $name = date('d-m-y-h-i-s-').preg_replace('/\s+/', '-',
+                        trim($image->getClientOriginalName()));
+
+                $destinationPath = public_path('/images');
+                $image->move($destinationPath, $name);
+                //$this->save();
+
+                $restroDetail->restro_img = $name;
+            }
+
+
+            $restroDetail->save();
+
+            $restro = $restroDetail->restro_name;
+
+            Session::flash('message',
+                ucwords($restro).' restaurant updated successfully!');
+            // Session::flash('restro', $restro);
+            Session::flash('alert-class', 'alert-danger');
+        }
+
+        else{
+             Session::flash('message','Whoops!'.
+                ucwords($restro).' restaurant update unsuccessful!');
+            // Session::flash('restro', $restro);
+            Session::flash('alert-class', 'alert-danger');
+        }
+        $restroDetail = Restaurant::all();
+        return view('backend.dashboard', compact('restroDetail'));
+    }
+
     public function deleteRestro($restro_id)
     {
         Restaurant::where('id', $restro_id)->delete();
-        $restroDetail = Restaurant::select('id','restro_name', 'address','restro_img')->get();
-        return view('backend.dashboard',  compact('restroDetail'));
+        $restroDetail = Restaurant::select('id', 'restro_name', 'address',
+                'restro_img')->get();
+        return view('backend.dashboard', compact('restroDetail'));
     }
 }

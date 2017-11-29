@@ -8,11 +8,21 @@
 @endsection
 
 @section('content')
+@if(Session::has('message'))
+<div class="row">
+    <div class="col-xs-4"></div>
+    <div class="col-xs-4">
+        <div align="center">
+            <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+        </div>
+    </div>
+</div>
+@endif
 <div class="row" ><br>
     <div class="col-xs-12">
 
         @foreach($restroDetail as $restro)
-        
+
         <div class="col-sm-4" >
             <img width=300 height=300 src="{{ asset("images/$restro->restro_img")}}" > <br><br>
 
@@ -25,7 +35,7 @@
 
             <a class="btn btn-primary" href="{{ route ('admin.deleteRestro',['restro_id'=>$restro->id]) }}">Delete Restaurant</a><br><br>
             <br>
-            
+
         </div>
         @endforeach
     </div>
