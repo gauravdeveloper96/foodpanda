@@ -9,7 +9,7 @@
 @section('content')
 <div class="form">
     {!! Form::open(['url' => 'foo/bar']) !!} 
-    <div class="col-sm-2"></div>
+  
     <div class="labels col-sm-2">
 
         {{Form::label('restro-name', 'Restaurant Name', ['class' => 'display-text'])}}<br>
@@ -20,7 +20,7 @@
         {{Form::label('features', 'Restaurant Features', ['class' => 'display-text'])}}<br>
 
     </div>
-    <div class="text-fields col-sm-6">
+    <div class="text-fields col-sm-10">
         {{Form::text('restro-name','',['class' => 'enter-text'])}}<br>
         {{Form::text('address', '',['class' => 'enter-text'])}}<br>
         {{Form::number('radius','', ['class' => 'enter-text'])}}<br>
@@ -32,8 +32,8 @@
         {{Form::radio('feature')}}
 
     </div>
-    {{Form::submit('Add Resturant',['class'=>'add-restaurant'])}}
-
+    <a href="#">{{Form::submit('Add Restaurant',['class'=>'add-restaurant'])}}
+    </a>
     {!! Form::close() !!}
 </div>
 @endsection
