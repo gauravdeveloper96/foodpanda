@@ -19,12 +19,13 @@ class CreateRestaurantsTable extends Migration
             $table->increments('id');
             $table->string('restro_name');
             $table->string('address');
+            $table->string('restro_img');
+            $table->integer('restro_contact');
             $table->integer('delivery_radius');
             $table->integer('feature_restro');
             $table->string('restro_owner');
             $table->string('restroLat');
             $table->string('restroLong');
-            $table->integer('feature_restro');
 
             $table->timestamps();
         });
