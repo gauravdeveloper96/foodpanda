@@ -36,6 +36,7 @@ class RestaurantController extends Controller
 
 
 		 	]);
+                       //dd($request->toArray());
 
                 $restro = new Restaurant;
 		$restro->restro_name = request('restro-name');
@@ -45,28 +46,29 @@ class RestaurantController extends Controller
 		$restro->restroLat = request('latitude');
 		$restro->restroLong = request('longitude');
 		$restro->feature_restro = request('feature');
+		$restro->restro_contact = request('phone');
 
-                dd($restro);
-
-
-//		if ($request->hasFile('img')) {
-//
-//
-//			$image = $request->file('img');
-//
-//
-//			$name = date('d-m-y-h-i-s-') . preg_replace('/\s+/', '-', trim($image->getClientOriginalName()));
-//
-//			$destinationPath = public_path('/images');
-//			$image->move($destinationPath, $name);
-//			//$this->save();
-//
-//			$book->image_name = $name;
-//
-//
-//		}
+                //dd($restro);
 
 
-        return view('backend.add_restro');
+		if ($request->hasFile('image')) {
+                       
+
+			$image = $request->file('image');
+
+
+			$name = date('d-m-y-h-i-s-') . preg_replace('/\s+/', '-', trim($image->getClientOriginalName()));
+
+			$destinationPath = public_path('/images');
+			$image->move($destinationPath, $name);
+			//$this->save();
+                        dd($name);
+			$restro->restro_img = $name;
+                    }
+                    dd($restro->toArray());
+                    $restro->save();
+
+
+        return back();
     }
 }
