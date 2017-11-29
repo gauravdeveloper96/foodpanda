@@ -9,6 +9,8 @@ Route::get('restaurant', 'RestaurantController@addRestro')->name('addRestro');
 
 Route::post('storerestro', 'RestaurantController@storeRestro')->name('storeRestro');
 
+Route::get('edit/{restro_id}', 'RestaurantController@editRestro')->name('editRestro');
+
 Route::get('foodcategory', 'FoodCategoryController@addFoodCategory')->name('addFoodCategory');
 
 Route::post('storefood', 'FoodCategoryController@storeFoodTypes')->name('storeFoodTypes');

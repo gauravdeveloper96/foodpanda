@@ -71,4 +71,12 @@ class RestaurantController extends Controller
 
         return back();
     }
+
+     public function editRestro($restro_id)
+    {
+        $restroDetail = Restaurant::where('id', $restro_id)->get();
+
+        dd($restroDetail);
+        return view('backend.edit_restro', compact('restroDetail'));
+    }
 }

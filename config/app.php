@@ -12,7 +12,7 @@ return [
       |
      */
 
-    'name' => env('APP_NAME', 'foodpanda'),
+    'name' => env('APP_NAME', 'Food Panda'),
     /*
       |--------------------------------------------------------------------------
       | Application Environment
