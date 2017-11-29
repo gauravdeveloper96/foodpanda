@@ -39,8 +39,8 @@
         {{Form::radio('feature','0')}}
 
     </div>
-    <a href="#">{{Form::submit('Add Restaurant',['class'=>'add-restaurant'])}}
-    </a>
+    {{Form::submit('Add Restaurant',['class'=>'add-restaurant'])}}
+    
     {{ Form::close() }}
 </div>
 @endsection
