@@ -1,7 +1,7 @@
 @extends('frontend.layouts.app')
 
 @section('content')
-    <div class="row">
+<!--    <div class="row">
 
         <example></example>
 
@@ -15,9 +15,9 @@
                 <div class="panel-body">
                     {{ trans('strings.frontend.welcome_to', ['place' => app_name()]) }}
                 </div>
-            </div><!-- panel -->
+            </div> panel 
 
-        </div><!-- col-md-10 -->
+        </div> col-md-10 
 
         @role('Administrator')
             {{-- You can also send through the Role ID --}}
@@ -30,9 +30,9 @@
                     <div class="panel-body">
                         {{ trans('strings.frontend.test') . ' 1: ' . trans('strings.frontend.tests.you_can_see_because', ['role' => trans('roles.administrator')]) }}
                     </div>
-                </div><!-- panel -->
+                </div> panel 
 
-            </div><!-- col-md-10 -->
+            </div> col-md-10 
         @endauth
 
         @if (access()->hasRole('Administrator'))
@@ -44,9 +44,9 @@
                     <div class="panel-body">
                         {{ trans('strings.frontend.test') . ' 2: ' . trans('strings.frontend.tests.you_can_see_because', ['role' => trans('roles.administrator')]) }}
                     </div>
-                </div><!-- panel -->
+                </div> panel 
 
-            </div><!-- col-md-10 -->
+            </div> col-md-10 
         @endif
 
         @if (access()->hasRole(1))
@@ -58,9 +58,9 @@
                     <div class="panel-body">
                         {{ trans('strings.frontend.test') . ' 3: ' . trans('strings.frontend.tests.you_can_see_because', ['role' => trans('roles.administrator')]) }}
                     </div>
-                </div><!-- panel -->
+                </div> panel 
 
-            </div><!-- col-md-10 -->
+            </div> col-md-10 
         @endif
 
         @if (access()->hasRoles(['Administrator', 1]))
@@ -72,9 +72,9 @@
                     <div class="panel-body">
                         {{ trans('strings.frontend.test') . ' 4: ' . trans('strings.frontend.tests.you_can_see_because', ['role' => trans('roles.administrator')]) }}
                     </div>
-                </div><!-- panel -->
+                </div> panel 
 
-            </div><!-- col-md-10 -->
+            </div> col-md-10 
         @endif
 
         {{-- The second parameter says the user must have all the roles specified. Administrator does not have the role with an id of 2, so this will not show. --}}
@@ -87,9 +87,9 @@
                     <div class="panel-body">
                         {{ trans('strings.frontend.tests.you_can_see_because', ['role' => trans('roles.administrator')]) }}
                     </div>
-                </div><!-- panel -->
+                </div> panel 
 
-            </div><!-- col-md-10 -->
+            </div> col-md-10 
         @endif
 
         @permission('view-backend')
@@ -101,9 +101,9 @@
                     <div class="panel-body">
                         {{ trans('strings.frontend.test') . ' 5: ' . trans('strings.frontend.tests.you_can_see_because_permission', ['permission' => 'view-backend']) }}
                     </div>
-                </div><!-- panel -->
+                </div> panel 
 
-            </div><!-- col-md-10 -->
+            </div> col-md-10 
         @endauth
 
         @if (access()->hasPermission(1))
@@ -115,9 +115,9 @@
                     <div class="panel-body">
                         {{ trans('strings.frontend.test') . ' 6: ' . trans('strings.frontend.tests.you_can_see_because_permission', ['permission' => 'view_backend']) }}
                     </div>
-                </div><!-- panel -->
+                </div> panel 
 
-            </div><!-- col-md-10 -->
+            </div> col-md-10 
         @endif
 
         @if (access()->hasPermissions(['view-backend', 1]))
@@ -129,9 +129,9 @@
                     <div class="panel-body">
                         {{ trans('strings.frontend.test') . ' 7: ' . trans('strings.frontend.tests.you_can_see_because_permission', ['permission' => 'view_backend']) }}
                     </div>
-                </div><!-- panel -->
+                </div> panel 
 
-            </div><!-- col-md-10 -->
+            </div> col-md-10 
         @endif
 
         @if (access()->hasPermissions(['view-backend', 2], true))
@@ -143,9 +143,9 @@
                     <div class="panel-body">
                         {{ trans('strings.frontend.tests.you_can_see_because_permission', ['permission' => 'view_backend']) }}
                     </div>
-                </div><!-- panel -->
+                </div> panel 
 
-            </div><!-- col-md-10 -->
+            </div> col-md-10 
         @endif
 
         <div class="col-xs-12">
@@ -159,9 +159,9 @@
                     <span class="glyphicon glyphicon glyphicon-cloud" aria-hidden="true"></span>
                     <span class="glyphicon glyphicon glyphicon-envelope" aria-hidden="true"></span>
                 </div>
-            </div><!-- panel -->
+            </div> panel 
 
-        </div><!-- col-md-10 -->
+        </div> col-md-10 
 
         <div class="col-xs-12">
 
@@ -174,9 +174,9 @@
                     <i class="fa fa-twitter"></i>
                     <i class="fa fa-pinterest"></i>
                 </div>
-            </div><!-- panel -->
+            </div> panel 
 
-        </div><!-- col-md-10 -->
+        </div> col-md-10 
 
-    </div><!--row-->
+    </div>row-->
 @endsection
