@@ -6,6 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateRestaurantsTable extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -13,13 +14,18 @@ class CreateRestaurantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('restaurants', function (Blueprint $table) {
+        Schema::create('restaurants',
+            function (Blueprint $table) {
             $table->increments('id');
             $table->string('restro_name');
             $table->string('address');
             $table->integer('delivery_radius');
             $table->integer('feature_restro');
-           
+            $table->string('restro_owner');
+            $table->string('restroLat');
+            $table->string('restroLong');
+            $table->integer('feature_restro');
+
             $table->timestamps();
         });
     }

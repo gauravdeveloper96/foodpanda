@@ -8,7 +8,8 @@
 @endsection
 @section('content')
 <div class="form-add-restro">
-    {!! Form::open(['url' => 'foo/bar']) !!} 
+    {{ Form::open(['url' => 'foo/bar']) }}
+    {{csrf_field()}}
 
     <div class="labels col-sm-3">
 
