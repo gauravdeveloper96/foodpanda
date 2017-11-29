@@ -25,7 +25,7 @@
 
     </div>
     <div class="text-fields col-sm-9">
-            
+
         {{Form::text('restro_name',ucwords($restroDetail->restro_name), array('class' => 'enter-text'))}}<br>
 
         {{Form::text('address', $restroDetail->address, array('class' => 'enter-text'))}}<br>
