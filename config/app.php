@@ -12,7 +12,7 @@ return [
       |
      */
 
-    'name' => env('APP_NAME', 'Laravel 5 Boilerplate'),
+    'name' => env('APP_NAME', 'foodpanda'),
     /*
       |--------------------------------------------------------------------------
       | Application Environment
