@@ -12,8 +12,8 @@ class RestaurantController extends Controller
 
     public function index()
     {
-        //$restro = Restaurant::
-        return;
+       $restro = Restaurant::where('')
+        return view('backend.view_food_items',);
     }
 
     public function create()
@@ -142,7 +142,7 @@ class RestaurantController extends Controller
              Session::flash('message','Whoops!'.
                 ucwords($restro).' restaurant update unsuccessful!');
             // Session::flash('restro', $restro);
-            Session::flash('alert-class', 'alert-danger');
+            Session::flash('alert-class', 'success');
         }
         $restroDetail = Restaurant::all();
         return view('backend.dashboard', compact('restroDetail'));

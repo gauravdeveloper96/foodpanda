@@ -20,25 +20,25 @@ class RestaurantItemController extends Controller
         return view('backend.add_food_items', compact('category','restro_id'));
     }
     public function store(Request $request){
-
+        //dd($request->toArray());
         $this->validate(request(),
             [
 
-            'item-name' => 'required|min:5',
+            'item-name' => 'required|min:3',
             'price' => 'required|min:1',
             
         ]);
 
         $restro_items = new RestaurantItem;
 
-        $restro_items->item_name= request('item-name');
+        $restro_items->item_name= ucwords(request('item-name'));
         $restro_items->price= request('price');
-        $restro_items->restaurant_id= $restro_id;
-        $restro_items->category_id= $category->id;
+        $restro_items->restaurant_id= request('restro-id');
+        $restro_items->category_id=  request('food-category');
 
-        dd($restro_items);
+//        dd($restro_items);
+        $restro_items->save();
 
-
-        return ;
+        return back();
     }
 }
