@@ -14,7 +14,7 @@ class FoodCategoryController extends Controller
         return view('backend.add_category') ;
       
     }
-    public function storeFoodTypes(Request $request)
+    public function store(Request $request)
     {
 
         $this->validate(request(),

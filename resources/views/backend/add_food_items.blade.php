@@ -8,7 +8,7 @@
 @endsection
 @section('content')
 <div class="form-add-category">
-    {{ Form::open(['route' => 'admin.storeFoodTypes']) }}
+    {{ Form::open(['route' => 'admin.restaurantitems.store']) }}
   
     <div class="labels col-sm-2">
         {{Form::label('food-category', 'Select Food Category', ['class' => 'display-text'])}}<br>

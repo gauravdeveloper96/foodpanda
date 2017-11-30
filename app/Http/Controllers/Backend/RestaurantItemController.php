@@ -9,5 +9,16 @@ use Illuminate\Http\Request;
 
 class RestaurantItemController extends Controller
 {
-    //
+//    public function index(){
+//
+//        return view('backend.add_food_items');
+//    }
+    public function addFoodItems(){
+
+        return view('backend.add_food_items');
+    }
+    public function store($restro_id){
+
+        return ;
+    }
 }

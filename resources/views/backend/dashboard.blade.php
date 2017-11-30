@@ -31,7 +31,7 @@
             <font size="3" color="blue"> <strong >Address: </strong></font><i>{{$restro->address}}</i><br>
              <a class="btn btn-primary" href="{{ route ('admin.addFoodItems',['restro_id'=>$restro->id]) }}">Add Items</a><br>
             <br>
-            <a class="btn btn-primary" href="{{ route ('admin.restaurants.create',['restro_id'=>$restro->id]) }}">Edit Restaurant</a><br>
+            <a class="btn btn-primary" href="{{ route ('admin.restaurants.edit',['restro_id'=>$restro->id]) }}">Edit Restaurant</a><br>
             <br>
 
             <a class="btn btn-primary" href="{{ route ('admin.restaurants.destroy',['restro_id'=>$restro->id]) }}">Delete Restaurant</a><br><br>

@@ -8,7 +8,7 @@
 @endsection
 @section('content')
 <div class="form-add-restro">
-    {{ Form::open(['route' => 'admin.storeRestro', 'files'=>true]) }}
+    {{ Form::open(['route' => 'admin.restaurants.store', 'files'=>true]) }}
     {{csrf_field()}}
 
     <div class="labels col-sm-3">
