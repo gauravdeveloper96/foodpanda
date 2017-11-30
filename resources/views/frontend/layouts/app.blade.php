@@ -22,6 +22,7 @@
         {{ Html::style(getRtlCss('css/frontend.css')) }}
         @else
         {{ Html::style('css/frontend.css') }}
+        {{ Html::style('plugins/font-awesome/css/font-awesome.min.css') }}
         {{ Html::style('css/home.css') }}
         @endif
 

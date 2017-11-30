@@ -19,7 +19,7 @@
                 @endif
 
                 @if (! $logged_in_user)
-                    <li>{{ link_to_route('frontend.auth.login', trans('navs.frontend.login'), [], ['class' => active_class(Active::checkRoute('frontend.auth.login')) ]) }}</li>
+                    <li><a href="{{ route('frontend.auth.login') }}" class="{{ active_class(Active::checkRoute('frontend.auth.login')) }}"><i class="fa fa-user" aria-hidden="true"></i> Login</a></li>
 
                     @if (config('access.users.registration'))
                         <li>{{ link_to_route('frontend.auth.register', trans('navs.frontend.register'), [], ['class' => active_class(Active::checkRoute('frontend.auth.register')) ]) }}</li>
