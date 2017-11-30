@@ -8,9 +8,9 @@
 @endsection
 @section('content')
 <div class="form-add-restro">
-    {{Form::model($restroDetail, ['route' => ['admin.updateRestro', $restroDetail->id], 'files'=>true])}}
+    {{Form::model($restroDetail, ['route' => ['admin.restaurants.update', $restroDetail->id], 'files'=>true])}}
     {{csrf_field()}}
-
+        {{ method_field('PUT') }}
     <div class="labels col-sm-3">
 
         {{Form::label('restro-name', 'Restaurant Name', ['class' => 'display-text'])}}<br>

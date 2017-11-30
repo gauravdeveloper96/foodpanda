@@ -8,13 +8,13 @@ use App\Models\FoodCategory;
 
 class FoodCategoryController extends Controller
 {
-    public function addFoodCategory()
+    public function create()
     {
         
         return view('backend.add_category') ;
       
     }
-    public function storeFoodTypes(Request $request)
+    public function store(Request $request)
     {
 
         $this->validate(request(),

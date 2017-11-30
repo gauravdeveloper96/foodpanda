@@ -16,12 +16,12 @@ class RestaurantController extends Controller
         return;
     }
 
-    public function addRestro()
+    public function create()
     {
         return view('backend.add_restro');
     }
 
-    public function storeRestro(Request $request)
+    public function store(Request $request)
     {
         $this->validate(request(),
             [
@@ -72,7 +72,7 @@ class RestaurantController extends Controller
         return back();
     }
 
-    public function editRestro($restro_id)
+    public function edit($restro_id)
     {
         $restroDetail = Restaurant::find($restro_id);
 
@@ -80,7 +80,7 @@ class RestaurantController extends Controller
         return view('backend.edit_restro', compact('restroDetail'));
     }
 
-    public function updateRestro(Request $request, $restro_id)
+    public function update(Request $request, $restro_id)
     {
         $restroDetail = Restaurant::find($restro_id);
         $this->validate(request(),
@@ -148,7 +148,7 @@ class RestaurantController extends Controller
         return view('backend.dashboard', compact('restroDetail'));
     }
 
-    public function deleteRestro($restro_id)
+    public function destroy($restro_id)
     {
         Restaurant::where('id', $restro_id)->delete();
         $restroDetail = Restaurant::select('id', 'restro_name', 'address',
