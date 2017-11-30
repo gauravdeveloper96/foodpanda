@@ -33,3 +33,4 @@ Route::resource('restaurantitems', 'RestaurantItemController');
 
 
 Route::get('additems/{restro_id}', 'RestaurantItemController@addFoodItems')->name('addFoodItems');
+
