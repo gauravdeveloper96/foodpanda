@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use App\Models\RestaurantItem;
 use Illuminate\Http\Request;
+use App\Models\FoodCategory;
 
 class RestaurantItemController extends Controller
 {
@@ -15,8 +16,8 @@ class RestaurantItemController extends Controller
 //    }
     public function addFoodItems(){
 
-        $category = RestaurantItem::all('item_types');
-        dd($category);
+        $category = FoodCategory::all('item_types');
+        //dd($category->toArray());
         return view('backend.add_food_items', compact('category'));
     }
     public function store($restro_id){
