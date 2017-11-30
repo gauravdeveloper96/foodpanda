@@ -26,6 +26,7 @@ class CreateRestaurantsTable extends Migration
             $table->string('restro_owner');
             $table->string('restroLat');
             $table->string('restroLong');
+            $table->softDeletes();
 
             $table->timestamps();
         });
@@ -40,4 +41,6 @@ class CreateRestaurantsTable extends Migration
     {
         Schema::dropIfExists('restaurants');
     }
+
+  
 }

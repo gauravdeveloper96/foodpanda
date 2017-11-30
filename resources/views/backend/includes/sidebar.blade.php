@@ -15,20 +15,21 @@
         </div><!--user-panel-->
 
         <!-- search form (Optional) -->
-        {{ Form::open(['route' => 'admin.search.index', 'method' => 'get', 'class' => 'sidebar-form']) }}
+<!--        {{ Form::open(['route' => 'admin.search.index', 'method' => 'get', 'class' => 'sidebar-form']) }}
         <div class="input-group">
             {{ Form::text('q', Request::get('q'), ['class' => 'form-control', 'required' => 'required', 'placeholder' => trans('strings.backend.general.search_placeholder')]) }}
 
             <span class="input-group-btn">
                     <button type='submit' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
-                  </span><!--input-group-btn-->
-        </div><!--input-group-->
-    {{ Form::close() }}
+                  </span>input-group-btn
+        </div>input-group
+    {{ Form::close() }}-->
     <!-- /.search form -->
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
-            <li class="header">{{ trans('menus.backend.sidebar.general') }}</li>
+            <!--<li class="header">{{ trans('menus.backend.sidebar.general') }}</li>-->
+            <li class="header">Admin Menu</li>
 
             <li class="{{ active_class(Active::checkUriPattern('admin/dashboard')) }}">
                 <a href="{{ route('admin.dashboard') }}">
@@ -36,22 +37,54 @@
                     <span>{{ trans('menus.backend.sidebar.dashboard') }}</span>
                 </a>
             </li>
-            <li class="{{ active_class(Active::checkUriPattern('admin/restaurant')) }}">
-                <a href="{{ route('admin.restaurants.create') }}">
-                    <i class="fa fa-dashboard"></i>
-                    <span>Add Restaurant</span>
+
+            @role(1)
+             <li class="{{ active_class(Active::checkUriPattern('admin/restaurants*')) }} treeview">
+                <a href="#">
+                    <i class="fa fa-users"></i>
+                    <span>Restaurant Menu</span>
+
+                    @if ($pending_approval > 0)
+                        <span class="label label-danger pull-right">{{ $pending_approval }}</span>
+                    @else
+                        <i class="fa fa-angle-left pull-right"></i>
+                    @endif
                 </a>
+
+                <ul class="treeview-menu {{ active_class(Active::checkUriPattern('admin/restaurants/*'), 'menu-open') }}" style="display: none; {{ active_class(Active::checkUriPattern('admin/restaurants*'), 'display: block;') }}">
+                    <li class="{{ active_class(Active::checkUriPattern('admin/restaurants*')) }}">
+                        <a href="{{route('admin.restaurants.index')}}">
+                            <i class="fa fa-circle-o"></i>
+                            <span>Show Restaurant</span>
+                        </a>
+                    </li>
+
+                    <li class="{{ active_class(Active::checkUriPattern('admin/restaurants/create')) }}">
+                        <a href="{{ route('admin.restaurants.create') }}">
+                            <i class="fa fa-circle-o"></i>
+                            <span>Add Restaurant </span>
+
+                            @if ($pending_approval > 0)
+                                <span class="label label-danger pull-right">{{ $pending_approval }}</span>
+                            @endif
+                        </a>
+                    </li>
+
+                </ul>
             </li>
-            <li class="{{ active_class(Active::checkUriPattern('admin/foodcategory')) }}">
+             @endauth
+
+
+            <li class="{{ active_class(Active::checkUriPattern('admin/foodcategorys/create')) }}">
                 <a href="{{ route('admin.foodcategorys.create') }}">
                     <i class="fa fa-dashboard"></i>
                     <span>Add Food Category</span>
                 </a>
             </li>
 
-            <li class="header">{{ trans('menus.backend.sidebar.system') }}</li>
+            <!--<li class="header">{{ trans('menus.backend.sidebar.system') }}</li>-->
 
-            @role(1)
+<!--            @role(1)
             <li class="{{ active_class(Active::checkUriPattern('admin/access/*')) }} treeview">
                 <a href="#">
                     <i class="fa fa-users"></i>
@@ -84,9 +117,9 @@
                     </li>
                 </ul>
             </li>
-            @endauth
+            @endauth-->
 
-            <li class="{{ active_class(Active::checkUriPattern('admin/log-viewer*')) }} treeview">
+<!--            <li class="{{ active_class(Active::checkUriPattern('admin/log-viewer*')) }} treeview">
                 <a href="#">
                     <i class="fa fa-list"></i>
                     <span>{{ trans('menus.backend.log-viewer.main') }}</span>
@@ -107,7 +140,7 @@
                         </a>
                     </li>
                 </ul>
-            </li>
+            </li>-->
         </ul><!-- /.sidebar-menu -->
     </section><!-- /.sidebar -->
 </aside>

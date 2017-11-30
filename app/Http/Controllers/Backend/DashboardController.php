@@ -15,9 +15,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $restroDetail = Restaurant::select('id','restro_name', 'address','restro_img')->get();
-        //dd($restro->toArray());
-        return view('backend.dashboard', compact('restroDetail'));
+//        
+        return view('backend.dashboard');
     }
    
     

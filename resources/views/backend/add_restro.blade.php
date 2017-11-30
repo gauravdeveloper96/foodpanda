@@ -29,7 +29,7 @@
         {{Form::text('address', '',['class' => 'enter-text'])}}<br>
         {{Form::number('radius','', ['class' => 'enter-text'])}}<br>
         {{Form::text('owner', '',['class' => 'enter-text'])}}<br>
-        {{Form::text('phone','', ['class' => 'enter-text'])}}<br>
+        {{Form::number('phone','', ['class' => 'enter-text'])}}<br>
         {{Form::file('image', ['class' => 'enter-text'])}}<br>
         {{Form::text('latitude','30.7515° N', ['class' => 'enter-text'])}}<br>
         {{Form::text('longitude','76.7726° E', ['class' => 'enter-text'])}}<br>

@@ -2,11 +2,11 @@
 
 @section('content')
 
-@foreach($restro_items as $items)
-
+@foreach($restro_items->restaurantItem as $items)
+   
 {{$items->item_name}}
 {{$items->price}}
-
+<br>
 @endforeach 
 
 @endsection

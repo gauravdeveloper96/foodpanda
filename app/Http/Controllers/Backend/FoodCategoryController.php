@@ -23,7 +23,7 @@ class FoodCategoryController extends Controller
             'food-category' => 'required|min:3',
         ]);
        $food = new FoodCategory;
-       $food->item_types= request('food-category');
+       $food->food_category= ucwords(request('food-category'));
        
        $food->save();
        return back();
