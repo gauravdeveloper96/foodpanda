@@ -8,14 +8,12 @@
 
         <!-- logo for regular state and mobile devices -->
         <span class="logo-lg">
-            {{ app_name() }}
+          {{ Html::image('img/frontend/foodpanda_logo.png','',array('class' => 'thumb')) }}
         </span>
     </a>
 
     <nav class="navbar navbar-static-top" role="navigation">
-        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">{{ trans('labels.general.toggle_navigation') }}</span>
-        </a>
+        
 
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
