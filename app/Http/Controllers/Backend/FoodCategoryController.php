@@ -28,4 +28,9 @@ class FoodCategoryController extends Controller
        $food->save();
        return back();
     }
+    
+    public function addFoodItems(){
+        
+        return view('backend.add_food_items');
+    }
 }

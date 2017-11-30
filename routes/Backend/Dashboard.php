@@ -18,3 +18,5 @@ Route::get('delete/{restro_id}', 'RestaurantController@deleteRestro')->name('del
 Route::get('foodcategory', 'FoodCategoryController@addFoodCategory')->name('addFoodCategory');
 
 Route::post('storefood', 'FoodCategoryController@storeFoodTypes')->name('storeFoodTypes');
+
+Route::get('additems', 'FoodCategoryController@addFoodItems')->name('addFoodItems');
