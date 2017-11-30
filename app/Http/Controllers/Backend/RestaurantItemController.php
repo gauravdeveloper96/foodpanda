@@ -15,7 +15,9 @@ class RestaurantItemController extends Controller
 //    }
     public function addFoodItems(){
 
-        return view('backend.add_food_items');
+        $category = RestaurantItem::all('item_types');
+        dd($category);
+        return view('backend.add_food_items', compact('category'));
     }
     public function store($restro_id){
 
