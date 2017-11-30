@@ -11,6 +11,7 @@
     {{ Form::open(['route' => 'admin.restaurantitems.store']) }}
   
     <div class="labels col-sm-2">
+         {{Form::label('restro-id', 'Restaurant Id', ['class' => 'display-text restro-id'])}}<br>
         {{Form::label('food-category', 'Select Food Category', ['class' => 'display-text'])}}<br>
 
         {{Form::label('item-name', 'Item Name', ['class' => 'display-text'])}}<br>
@@ -19,6 +20,7 @@
 
     </div>
     <div class="text-fields col-sm-10">
+        {{Form::text('restro-id',$restro_id,['class' => 'enter-text restro-id'])}}<br>
          {{Form::select('food-category',$category, null,['class' => 'enter-text'])}}<br>
         {{Form::text('item-name','',['class' => 'enter-text'])}}<br>
        
