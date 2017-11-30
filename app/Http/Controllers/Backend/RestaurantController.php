@@ -16,7 +16,7 @@ class RestaurantController extends Controller
         return;
     }
 
-    public function addRestro()
+    public function create()
     {
         return view('backend.add_restro');
     }
@@ -148,7 +148,7 @@ class RestaurantController extends Controller
         return view('backend.dashboard', compact('restroDetail'));
     }
 
-    public function deleteRestro($restro_id)
+    public function destroy($restro_id)
     {
         Restaurant::where('id', $restro_id)->delete();
         $restroDetail = Restaurant::select('id', 'restro_name', 'address',

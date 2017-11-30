@@ -3,20 +3,27 @@
 /**
  * All route names are prefixed with 'admin.'.
  */
+
 Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+//Route::resource('dashboards', 'DashboardController');
 
-Route::get('restaurant', 'RestaurantController@addRestro')->name('addRestro');
 
-Route::post('storerestro', 'RestaurantController@storeRestro')->name('storeRestro');
+Route::resource('restaurants', 'RestaurantController');
 
-Route::get('edit/{restro_id}', 'RestaurantController@editRestro')->name('editRestro');
+//Route::get('restaurant', 'RestaurantController@addRestro')->name('addRestro');
 
-Route::post('updaterestro/{restro_id}', 'RestaurantController@updateRestro')->name('updateRestro');
+//Route::post('storerestro', 'RestaurantController@storeRestro')->name('storeRestro');
 
-Route::get('delete/{restro_id}', 'RestaurantController@deleteRestro')->name('deleteRestro');
+//Route::get('edit/{restro_id}', 'RestaurantController@editRestro')->name('editRestro');
 
-Route::get('foodcategory', 'FoodCategoryController@addFoodCategory')->name('addFoodCategory');
+//Route::post('updaterestro/{restro_id}', 'RestaurantController@updateRestro')->name('updateRestro');
 
-Route::post('storefood', 'FoodCategoryController@storeFoodTypes')->name('storeFoodTypes');
+//Route::get('delete/{restro_id}', 'RestaurantController@deleteRestro')->name('deleteRestro');
+
+Route::resource('foodcategorys', 'FoodCategoryController');
+
+//Route::get('foodcategory', 'FoodCategoryController@addFoodCategory')->name('addFoodCategory');
+
+//Route::post('storefood', 'FoodCategoryController@storeFoodTypes')->name('storeFoodTypes');
 
 Route::get('additems', 'FoodCategoryController@addFoodItems')->name('addFoodItems');

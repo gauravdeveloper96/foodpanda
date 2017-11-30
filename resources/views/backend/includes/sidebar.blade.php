@@ -37,13 +37,13 @@
                 </a>
             </li>
             <li class="{{ active_class(Active::checkUriPattern('admin/restaurant')) }}">
-                <a href="{{ route('admin.addRestro') }}">
+                <a href="{{ route('admin.restaurants.create') }}">
                     <i class="fa fa-dashboard"></i>
                     <span>Add Restaurant</span>
                 </a>
             </li>
             <li class="{{ active_class(Active::checkUriPattern('admin/foodcategory')) }}">
-                <a href="{{ route('admin.addFoodCategory') }}">
+                <a href="{{ route('admin.foodcategorys.create') }}">
                     <i class="fa fa-dashboard"></i>
                     <span>Add Food Category</span>
                 </a>
