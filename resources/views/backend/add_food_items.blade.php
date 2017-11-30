@@ -19,7 +19,7 @@
 
     </div>
     <div class="text-fields col-sm-10">
-         {{Form::select('food-category', ['L' => 'Large', 'S' => 'Small'], null,['class' => 'enter-text'])}}<br>
+         {{Form::select('food-category',$category, null,['class' => 'enter-text'])}}<br>
         {{Form::text('item-name','',['class' => 'enter-text'])}}<br>
        
         {{Form::number('price','',['class' => 'enter-text'])}}
