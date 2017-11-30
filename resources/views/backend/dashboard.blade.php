@@ -38,7 +38,7 @@
             {{ Form::open(['route' => ['admin.restaurants.destroy', $restro->id], 'method' => 'delete'
  ]) }}
             {{ csrf_field() }}
-            {{ Form::submit('Delete Restaurant',['class' => 'btn btn-danger'])}}
+            {{ Form::submit('Delete Restaurant',['class' => 'btn btn-primary'])}}
             {{ Form::close() }}<br>
 
         </div>
