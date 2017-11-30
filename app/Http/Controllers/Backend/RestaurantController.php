@@ -12,8 +12,8 @@ class RestaurantController extends Controller
 
     public function index()
     {
-       $restro = Restaurant::where('')
-        return view('backend.view_food_items',);
+       //$restro = Restaurant::where('')
+        return view('backend.view_food_items');
     }
 
     public function create()
