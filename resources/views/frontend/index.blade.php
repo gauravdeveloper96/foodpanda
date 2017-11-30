@@ -6,13 +6,7 @@
         <p class="text">Order delicious food online!</p>
         <p class="para-text">Order food online from the best restaurants near you</p>
     </div>
-    <div class="location col-sm-12">
-        {{ Form::open(['route' => 'admin.storeFoodTypes']) }}
-        {{Form::select('select-city', ['L' => 'Large', 'S' => 'Small'], null,['class' => 'enter-text'])}}
-        {{Form::text('item-name','',['class' => 'enter-text'])}}
-         <a href="#">{{Form::submit('Show Restaurants',['class'=>'show-restaurant'])}}
-        {{ Form::close() }}
-    </div>
+
 </div>
 <div class="popular-restro">
     <div class="popular-head">

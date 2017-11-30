@@ -100,8 +100,34 @@
     height: 116px;
     margin-right: 13px;
 }
-.conatiner .user_login{
+.container .panel-default{
     margin: auto;
-    width: 19%;
+    width: 100%;
     padding-top: 122px;
+    background:url(../img/frontend/homepage-splash.jpg) no-repeat;
+     background-size: cover;
+     height:479px;
+     position:relative;
+   
+}
+
+.container .panel-default .panel-heading{
+    padding-left: 550px;
+    font-size: 41px;
+    color: red;
+}
+.container .panel-default .panel-body{
+    padding-left: 550px;
+    padding-top: 25px;
+}
+.container .panel-default .panel-body form label{
+    font-size: 18px;
+}
+.container .panel-default .panel-body form .btn{
+      margin-right: 15px;
+    background: blue;
+    border: 2px solid blue;
+    margin-top:10px;
+    height: 30px;
+    font-size: 20px;
 }
