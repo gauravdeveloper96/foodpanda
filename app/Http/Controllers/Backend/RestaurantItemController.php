@@ -19,6 +19,8 @@ class RestaurantItemController extends Controller
         $category = FoodCategory::pluck('item_types','id');
         return view('backend.add_food_items', compact('category','restro_id'));
     }
+
+    
     public function store(Request $request){
         //dd($request->toArray());
         $this->validate(request(),

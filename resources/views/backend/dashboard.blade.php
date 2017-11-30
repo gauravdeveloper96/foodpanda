@@ -33,7 +33,7 @@
             <br>
             <a class="btn btn-primary" href="{{ route ('admin.restaurants.edit',['restro_id'=>$restro->id]) }}">Edit Restaurant</a><br>
             <br>
-            <a class="btn btn-primary" href="{{ route ('admin.restaurants.edit',['restro_id'=>$restro->id]) }}">Restaurant Menu</a><br>
+            <a class="btn btn-primary" href="{{ route ('admin.restaurants.show',['restro_id'=>$restro->id]) }}">Restaurant Menu</a><br>
             <br>
 
            

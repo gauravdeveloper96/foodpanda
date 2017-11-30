@@ -5,15 +5,22 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use App\Models\Restaurant;
+use App\Models\RestaurantItem;
 use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
 {
+    public function index(){
 
-    public function index()
+        return ;
+    }
+
+    public function show($restro_id)
     {
-       //$restro = Restaurant::where('')
-        return view('backend.view_food_items');
+        
+       $restro_items = RestaurantItem::where('id',$restro_id)->select('item_name', 'price')->get();
+       
+        return view('backend.view_food_items', compact('restro_items'));
     }
 
     public function create()
