@@ -1,7 +1,7 @@
 @extends('frontend.layouts.app')
 
 @section('content')
-    <div class="row">
+    <div class="row user_login">
 
         <div class="col-xs-12">
 
