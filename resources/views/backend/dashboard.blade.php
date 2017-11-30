@@ -33,6 +33,8 @@
             <br>
             <a class="btn btn-primary" href="{{ route ('admin.restaurants.edit',['restro_id'=>$restro->id]) }}">Edit Restaurant</a><br>
             <br>
+            <a class="btn btn-primary" href="{{ route ('admin.restaurants.edit',['restro_id'=>$restro->id]) }}">Restaurant Menu</a><br>
+            <br>
 
            
             {{ Form::open(['route' => ['admin.restaurants.destroy', $restro->id], 'method' => 'delete'
