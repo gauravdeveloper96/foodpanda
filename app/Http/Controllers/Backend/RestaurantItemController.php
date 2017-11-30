@@ -14,10 +14,9 @@ class RestaurantItemController extends Controller
 //
 //        return view('backend.add_food_items');
 //    }
-    public function addFoodItems(){
+    public function addFoodItems($restro_id){
 
-        $category = FoodCategory::all('item_types');
-        //dd($category->toArray());
+        $category = FoodCategory::pluck('item_types','id');
         return view('backend.add_food_items', compact('category'));
     }
     public function store($restro_id){
