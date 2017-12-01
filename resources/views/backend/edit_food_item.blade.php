@@ -8,8 +8,8 @@
 @endsection
 @section('content')
 <div class="form-add-category">
-    @foreach($restroItemsDetail as $restroItems)
-    {{Form::model($restroItems, ['route' => ['admin.restaurantitems.update', $restroItems->id]])}}
+    
+    {{Form::model($restroItemsDetail, ['route' => ['admin.restaurantitems.update', $restroItemsDetail->id]])}}
     {{csrf_field()}}
     {{ method_field('PUT') }}
 
@@ -22,16 +22,15 @@
 
     </div>
     <div class="text-fields col-sm-10">      
-        {{Form::text('item-name',ucwords($restroItems->item_name), array('class' => 'enter-text'))}}<br>
+        {{Form::text('item-name',ucwords($restroItemsDetail->item_name), array('class' => 'enter-text'))}}<br>
 
-        {{Form::number('price',$restroItems->price, array('class' => 'enter-text'))}}
+        {{Form::number('price',$restroItemsDetail->price, array('class' => 'enter-text'))}}
 
 
     </div>
     {{Form::submit('Update Food Item',['class'=>'add-category'])}}
 
     {{ Form::close() }}
-    @endforeach
 </div>
 @endsection
 
