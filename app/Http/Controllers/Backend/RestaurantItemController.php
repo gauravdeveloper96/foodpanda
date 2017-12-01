@@ -35,8 +35,8 @@ class RestaurantItemController extends Controller
 
         $restro_items->item_name= ucwords(request('item-name'));
         $restro_items->price= request('price');
-        $restro_items->restaurant_id= request('restro-id');
-        $restro_items->category_id=  request('food-category');
+        ///$restro_items->restaurant_id= request('restro-id');
+        //$restro_items->category_id=  request('food-category');
 
 //        dd($restro_items);
         $restro_items->save();
@@ -46,7 +46,10 @@ class RestaurantItemController extends Controller
 
      public function edit($restro_item_id)
     {
-        $restroItemsDetail = RestaurantItem::get($restro_item_id);
+//         dd($restro_item_id->toArray());
+        $restroItemsDetail = RestaurantItem::where('id',$restro_item_id )->get();
+
+//        dd($restroItemsDetail->toArray());
 
         if(isset($restroItemsDetail)){
 
@@ -56,6 +59,8 @@ class RestaurantItemController extends Controller
             return back();
         //dd($restroDetail);
     }
+
+
 
     public function destroy($restro_item_id)
     {
