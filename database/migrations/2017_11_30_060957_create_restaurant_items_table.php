@@ -17,6 +17,7 @@ class CreateRestaurantItemsTable extends Migration
             $table->float('price');
             $table->integer('category_id');
             $table->integer('restaurant_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
