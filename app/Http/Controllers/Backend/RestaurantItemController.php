@@ -43,4 +43,28 @@ class RestaurantItemController extends Controller
 
         return back();
     }
+
+     public function edit($restro_item_id)
+    {
+        $restroItemsDetail = RestaurantItem::get($restro_item_id);
+
+        if(isset($restroItemsDetail)){
+
+        return view('backend.edit_food_item',  compact('restroItemsDetail'));
+        }
+        else
+            return back();
+        //dd($restroDetail);
+    }
+
+    public function destroy($restro_item_id)
+    {
+
+        RestaurantItem::where('id', $restro_item_id)->delete();
+        $restro_items=Restaurant::find($restro_id);
+
+        Session::flash('message', 'Item delete successful!');
+        return view('backend.view_food_items', compact('restro_items'));
+
+    }
 }

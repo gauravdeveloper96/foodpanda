@@ -7,7 +7,7 @@
     <div class="col-xs-4"></div>
     <div class="col-xs-4">
         <div align="center">
-            <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+            <p class="alert {{ Session::get('alert-class', 'alert-success') }}">{{ Session::get('message') }}</p>
         </div>
     </div>
 </div>

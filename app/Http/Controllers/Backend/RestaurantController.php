@@ -18,20 +18,13 @@ class RestaurantController extends Controller
        
     }
 
-    public function show($restro_id)
-    {
-            $restro_items=Restaurant::find($restro_id);
-//          $restro_items = RestaurantItem::where('id',$restro_id)->select('item_name', 'price')->get();
-//            dd($restro_items->toArray());
-
-        return view('backend.view_food_items', compact('restro_items'));
-    }
 
     public function create()
     {
         return view('backend.add_restro');
     }
 
+    
     public function store(Request $request)
     {
         $this->validate(request(),
@@ -82,6 +75,16 @@ class RestaurantController extends Controller
        // session()->flash('message', 'Restaurant added successfully!');
         return back();
     }
+
+      public function show($restro_id)
+    {
+            $restro_items=Restaurant::find($restro_id);
+//          $restro_items = RestaurantItem::where('id',$restro_id)->select('item_name', 'price')->get();
+//            dd($restro_items->toArray());
+
+        return view('backend.view_food_items', compact('restro_items'));
+    }
+
 
     public function edit($restro_id)
     {
