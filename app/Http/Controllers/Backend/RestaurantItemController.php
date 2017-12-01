@@ -59,20 +59,20 @@ class RestaurantItemController extends Controller
         //dd($restroDetail);
     }
 
-    public function update($request, $restro_items_id)
+    public function update(Request $request, $restro_items_id)
     {
         $restroItemsDetail = RestaurantItem::find($restro_items_id);
         $this->validate(request(),
             [
 
-            'item-name' => 'required|min:3',
+            'item_name' => 'required|min:3',
             'price' => 'required|min:1',
         ]);
         //dd($request->toArray());
 
         if (isset($restroItemsDetail)) {
 
-            $restroItemsDetail->item_name = ucwords($request->item-name);
+            $restroItemsDetail->item_name = ucwords($request->item_name);
             $restroItemsDetail->price     = $request->price;
             //dd($restroItemsDetail);
 
@@ -105,9 +105,11 @@ class RestaurantItemController extends Controller
 
     public function destroy($restro_item_id)
     {
-//        $restro_id = RestaurantItem::
+        $restro_id = RestaurantItem::find($restro_item_id);
+
         RestaurantItem::where('id', $restro_item_id)->delete();
-        $restro_items = Restaurant::find($restro_id);
+        
+        $restro_items = Restaurant::find($restro_id->restaurant_id);
 
         Session::flash('message', 'Item delete successful!');
         return view('backend.view_food_items', compact('restro_items'));
