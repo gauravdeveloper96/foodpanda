@@ -81,7 +81,7 @@ class RestaurantItemController extends Controller
             $item = $restroItemsDetail->item_name;
 
             Session::flash('message',
-                ucwords($item).' restaurant updated successfully!');
+                ucwords($item).' updated successfully!');
 
             Session::flash('alert-class', 'success');
         }
