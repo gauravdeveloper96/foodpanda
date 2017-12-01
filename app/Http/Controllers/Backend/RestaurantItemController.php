@@ -35,8 +35,8 @@ class RestaurantItemController extends Controller
 
         $restro_items->item_name= ucwords(request('item-name'));
         $restro_items->price= request('price');
-        $restro_items->restaurant_id= request('restro-id');
-        $restro_items->category_id=  request('food-category');
+        ///$restro_items->restaurant_id= request('restro-id');
+        //$restro_items->category_id=  request('food-category');
 
 //        dd($restro_items);
         $restro_items->save();
