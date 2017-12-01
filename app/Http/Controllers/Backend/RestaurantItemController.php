@@ -92,7 +92,8 @@ class RestaurantItemController extends Controller
             Session::flash('alert-class', 'danger');
         }
 
-        $restro_items = Restaurant::find($restroItemsDetail->id);
+        
+        $restro_items = Restaurant::find($restroItemsDetail->restaurant_id);
         
 //          $restro_items = RestaurantItem::where('id',$restro_id)->select('item_name', 'price')->get();
 //            dd($restro_items->toArray());
