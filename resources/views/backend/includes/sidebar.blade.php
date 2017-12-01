@@ -42,7 +42,7 @@
              <li class="{{ active_class(Active::checkUriPattern('admin/restaurants*')) }} treeview">
                 <a href="#">
                     <i class="fa fa-users"></i>
-                    <span>Restaurant Menu</span>
+                    <span>Restaurant</span>
 
                     @if ($pending_approval > 0)
                         <span class="label label-danger pull-right">{{ $pending_approval }}</span>
@@ -55,14 +55,14 @@
                     <li class="{{ active_class(Active::checkUriPattern('admin/restaurants*')) }}">
                         <a href="{{route('admin.restaurants.index')}}">
                             <i class="fa fa-circle-o"></i>
-                            <span>Show Restaurant</span>
+                            <span class="show-restaurant">Show Restaurant</span>
                         </a>
                     </li>
 
                     <li class="{{ active_class(Active::checkUriPattern('admin/restaurants/create')) }}">
                         <a href="{{ route('admin.restaurants.create') }}">
                             <i class="fa fa-circle-o"></i>
-                            <span>Add Restaurant </span>
+                            <span class="add">Add Restaurant </span>
 
                             @if ($pending_approval > 0)
                                 <span class="label label-danger pull-right">{{ $pending_approval }}</span>

@@ -70,3 +70,9 @@ add-food{
 .content .items-table .item-data .del-btn{
    margin-top: 22px; 
 }
+.skin-blue .sidebar-menu>li>.treeview-menu .show-restaurant:hover{
+    color:white;
+}
+.skin-blue .sidebar-menu>li>.treeview-menu .add:hover{
+    color:white;
+}
