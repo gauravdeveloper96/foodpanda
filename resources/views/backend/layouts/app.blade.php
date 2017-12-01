@@ -25,6 +25,7 @@
         {{ Html::style('css/buttons.css') }}
         {{ Html::style('css/add_restro.css') }}
         {{ Html::style('css/add_category.css') }}
+         {{ Html::style('plugins/font-awesome/css/font-awesome.min.css') }}
 
         @endif
 

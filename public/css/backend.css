@@ -42,4 +42,31 @@ add-food{
 .main-header .logo-lg .thumb{
     width:94%;
 }
-
+.content .items-table{
+    width:70%;
+    margin:auto;
+}
+.content .items-table .item-head{
+    font-size:20px;
+    text-align: center;
+    padding-right: 200px;
+    color:#00acd6;
+     padding-bottom: 20px;
+}
+.content .items-table .item-data{
+    font-size:17px;
+    padding-bottom: 20px;
+}
+.content .items-table .item-data .edit-del-btn{
+    width: 74%;
+    height: 37px;
+    margin-right: 6px !important;
+   
+}
+.content .items-table .item-data .edit-del-btn .edit-del{
+    left: -4px;
+    top: -2px;
+}
+.content .items-table .item-data .edit-del-btn .edit-del .del-btn{
+   margin-top: 23px; 
+}
