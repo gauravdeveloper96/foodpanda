@@ -55,7 +55,7 @@ add-food{
 }
 .content .items-table .item-data{
     font-size:17px;
-    padding-bottom: 20px;
+    
 }
 .content .items-table .item-data .edit-del-btn{
     width: 74%;
@@ -67,6 +67,6 @@ add-food{
     left: -4px;
     top: -2px;
 }
-.content .items-table .item-data .edit-del-btn .edit-del .del-btn{
-   margin-top: 23px; 
+.content .items-table .item-data .del-btn{
+   margin-top: 22px; 
 }
