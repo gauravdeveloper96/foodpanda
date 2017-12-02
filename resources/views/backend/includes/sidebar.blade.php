@@ -1,3 +1,4 @@
+
 <!-- Left side column. contains the logo and sidebar -->
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
@@ -75,8 +76,8 @@
              @endauth
 
 
-            <li class="{{ active_class(Active::checkUriPattern('admin/foodcategorys/create')) }}">
-                <a href="{{ route('admin.foodcategorys.create') }}">
+            <li class="{{ active_class(Active::checkUriPattern('admin/categories/create')) }}">
+                <a href="{{ route('admin.categories.create') }}">
                     <i class="fa fa-dashboard"></i>
                     <span>Add Food Category</span>
                 </a>

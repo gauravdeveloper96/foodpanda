@@ -20,16 +20,16 @@ Route::resource('restaurants', 'RestaurantController');
 
 //Route::get('delete/{restro_id}', 'RestaurantController@deleteRestro')->name('deleteRestro');
 
-Route::resource('foodcategorys', 'FoodCategoryController');
+Route::resource('categories', 'CategoryController');
 
 
 Route::resource('restaurantitems', 'RestaurantItemController');
 
-//Route::get('foodcategory', 'FoodCategoryController@addFoodCategory')->name('addFoodCategory');
+//Route::get('categories', 'CategoryController@addCategory')->name('addCategory');
 
-//Route::post('storefood', 'FoodCategoryController@storeFoodTypes')->name('storeFoodTypes');
+//Route::post('storefood', 'CategoryController@storeFoodTypes')->name('storeFoodTypes');
 
-//Route::get('additems', 'FoodCategoryController@addFoodItems')->name('addFoodItems');
+//Route::get('additems', 'CategoryController@addFoodItems')->name('addFoodItems');
 
 
 Route::get('additems/{restro_id}', 'RestaurantItemController@addFoodItems')->name('addFoodItems');

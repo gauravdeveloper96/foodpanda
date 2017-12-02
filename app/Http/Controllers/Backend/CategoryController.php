@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\FoodCategory;
+use App\Models\Category;
 
-class FoodCategoryController extends Controller
+class CategoryController extends Controller
 {
     public function create()
     {
@@ -22,7 +22,7 @@ class FoodCategoryController extends Controller
 
             'food-category' => 'required|min:3',
         ]);
-       $food = new FoodCategory;
+       $food = new Category;
        $food->food_category= ucwords(request('food-category'));
        
        $food->save();

@@ -5,26 +5,27 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use App\Models\Restaurant;
+use App\Models\Category;
 use App\Models\RestaurantItem;
 use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
 {
-    public function index(){
-        
-        $restroDetail = Restaurant::select('id','restro_name', 'address','restro_img')->get();
+
+    public function index()
+    {
+
+        $restroDetail = Restaurant::select('id', 'restro_name', 'address',
+                'restro_img')->get();
 //        dd($restro->toArray());
         return view('backend.restaurant', compact('restroDetail'));
-       
     }
-
 
     public function create()
     {
         return view('backend.add_restro');
     }
 
-    
     public function store(Request $request)
     {
         $this->validate(request(),
@@ -72,19 +73,29 @@ class RestaurantController extends Controller
 
 
         $restro->save();
-       // session()->flash('message', 'Restaurant added successfully!');
+        // session()->flash('message', 'Restaurant added successfully!');
         return back();
     }
 
-      public function show($restro_id)
+    public function show($restro_id)
     {
-            $restro_items=Restaurant::find($restro_id);
+
+
+        $category = Category::whereHas('restaurantItem', function($restro_items) use($restro_id) {
+                $restro_items->where('restaurant_id', $restro_id);
+            })->with(['restaurantItem' => function($query) use($restro_id){
+                $query->where('restaurant_id', $restro_id);
+            }])->get();
+
+//        dd($category->toArray());
+
+
+        //$restro_items = Restaurant::find($restro_id);
 //          $restro_items = RestaurantItem::where('id',$restro_id)->select('item_name', 'price')->get();
 //            dd($restro_items->toArray());
 
-        return view('backend.view_food_items', compact('restro_items'));
+        return view('backend.view_food_items', compact('category'));
     }
-
 
     public function edit($restro_id)
     {
@@ -146,21 +157,20 @@ class RestaurantController extends Controller
 
             $restro = $restroDetail->restro_name;
 
-            Session::flash('message', ucwords($restro).' restaurant updated successfully!');
+            Session::flash('message',
+                ucwords($restro).' restaurant updated successfully!');
             // Session::flash('restro', $restro);
             Session::flash('alert-class', 'alert-danger');
-        }
-
-        else{
-             Session::flash('message','Whoops!'. ucwords($restro).' restaurant update unsuccessful!');
+        } else {
+            Session::flash('message',
+                'Whoops!'.ucwords($restro).' restaurant update unsuccessful!');
             // Session::flash('restro', $restro);
             Session::flash('alert-class', 'success');
         }
         $restroDetail = Restaurant::all();
-        
+
         return view('backend.restaurant', compact('restroDetail'));
     }
-    
 
     public function destroy($restro_id)
     {
@@ -169,7 +179,7 @@ class RestaurantController extends Controller
         $restroDetail = Restaurant::select('id', 'restro_name', 'address',
                 'restro_img')->get();
 
-        
+
         return view('backend.restaurant', compact('restroDetail'));
     }
 }

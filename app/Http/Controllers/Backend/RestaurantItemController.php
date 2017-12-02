@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Session;
 use App\Models\RestaurantItem;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
-use App\Models\FoodCategory;
+use App\Models\Category;
 
 class RestaurantItemController extends Controller
 {
@@ -19,7 +19,7 @@ class RestaurantItemController extends Controller
     public function addFoodItems($restro_id)
     {
 
-        $category = FoodCategory::pluck('food_category', 'id');
+        $category = Category::pluck('food_category', 'id');
         return view('backend.add_food_items', compact('category', 'restro_id'));
     }
 
@@ -43,12 +43,19 @@ class RestaurantItemController extends Controller
 //        dd($restro_items);
         $restro_items->save();
 
+        $restro_id=$restro_items->restaurant_id;
+        $restro_name = Restaurant::select('restro_name')->first($restro_items->restaurant_id);
+        
+        $item=$restro_items->item_name;
+        
+        Session::flash('message', ucwords($item).' item successfully added to'. ucwords($restro_name->restro_name.'.' ));
+
         return back();
     }
 
     public function edit($restro_item_id)
     {
-        
+
         $restroItemsDetail = RestaurantItem::where('id', $restro_item_id)->first();
 //         dd($restroItemsDetail->toArray());
 
@@ -80,39 +87,48 @@ class RestaurantItemController extends Controller
 
             $item = $restroItemsDetail->item_name;
 
-            Session::flash('message',
-                ucwords($item).' updated successfully!');
+            Session::flash('message', ucwords($item).' updated successfully!');
 
             Session::flash('alert-class', 'success');
-        }
-
-        else {
+        } else {
             Session::flash('message',
                 'Whoops!'.ucwords($item).' restaurant update unsuccessful!');
             Session::flash('alert-class', 'danger');
         }
 
-        
+
         $restro_items = Restaurant::find($restroItemsDetail->restaurant_id);
-        
+
 //          $restro_items = RestaurantItem::where('id',$restro_id)->select('item_name', 'price')->get();
 //            dd($restro_items->toArray());
         // $restroDetail = Restaurant::all();
 
         return view('backend.view_food_items', compact('restro_items'));
-
-        //return view('backend.restaurant', compact('restroDetail'));
     }
 
     public function destroy($restro_item_id)
     {
         $restro_id = RestaurantItem::find($restro_item_id);
 
-        RestaurantItem::where('id', $restro_item_id)->delete();
-        
-        $restro_items = Restaurant::find($restro_id->restaurant_id);
+        $category= Category::find($restro_id->category_id);
+//        dd($category);
 
-        Session::flash('message', 'Item delete successful!');
-        return view('backend.view_food_items', compact('restro_items'));
+        $name=$category->food_category;
+        $item=$restro_id->item_name;
+
+        RestaurantItem::where('id', $restro_item_id)->delete();
+
+        $restro_id=$restro_id->restaurant_id;
+
+
+      
+
+//        $restro_items = Restaurant::find($restro_id->restaurant_id);
+
+        Session::flash('message', 'From '.strtolower($name).' '.strtolower($item). ' item successfully deleted.');
+
+//        return view('backend.view_food_items', compact('restro_items'));
+
+        return redirect()->route('admin.restaurants.show', [$restro_id]);
     }
 }
