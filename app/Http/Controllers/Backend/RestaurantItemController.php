@@ -125,7 +125,7 @@ class RestaurantItemController extends Controller
 
 //        $restro_items = Restaurant::find($restro_id->restaurant_id);
 
-        Session::flash('message', 'From '.strtolower($name).' '.strtolower($item). ' item successfully deleted.');
+        Session::flash('message',ucfirst(strtolower($item)). ' item successfully deleted from '.strtolower($name).' category.');
 
 //        return view('backend.view_food_items', compact('restro_items'));
 
