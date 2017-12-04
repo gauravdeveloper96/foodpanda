@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddDeletedAtToRestaurantItems extends Migration
+class AddDeletedAtToItems extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AddDeletedAtToRestaurantItems extends Migration
      */
     public function up()
     {
-        Schema::table('restaurant_items', function (Blueprint $table) {
+        Schema::table('items', function (Blueprint $table) {
             $table->softDeletes();
         });
     }
@@ -25,7 +25,7 @@ class AddDeletedAtToRestaurantItems extends Migration
      */
     public function down()
     {
-        Schema::table('restaurant_items', function (Blueprint $table) {
+        Schema::table('items', function (Blueprint $table) {
             //
         });
     }

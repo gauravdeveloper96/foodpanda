@@ -23,7 +23,7 @@ Route::resource('restaurants', 'RestaurantController');
 Route::resource('categories', 'CategoryController');
 
 
-Route::resource('restaurantitems', 'RestaurantItemController');
+Route::resource('items', 'ItemController');
 
 //Route::get('categories', 'CategoryController@addCategory')->name('addCategory');
 
@@ -32,5 +32,5 @@ Route::resource('restaurantitems', 'RestaurantItemController');
 //Route::get('additems', 'CategoryController@addFoodItems')->name('addFoodItems');
 
 
-Route::get('additems/{restro_id}', 'RestaurantItemController@addFoodItems')->name('addFoodItems');
+Route::get('additems/{restro_id}', 'ItemController@addFoodItems')->name('addFoodItems');
 

@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use App\Models\RestaurantItem;
+use App\Models\Item;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use App\Models\Category;
 
-class RestaurantItemController extends Controller
+class ItemController extends Controller
 {
 
 //    public function index(){
@@ -19,7 +19,7 @@ class RestaurantItemController extends Controller
     public function addFoodItems($restro_id)
     {
 
-        $category = Category::pluck('food_category', 'id');
+        $category = Category::pluck('category', 'id');
         return view('backend.add_food_items', compact('category', 'restro_id'));
     }
 
@@ -33,9 +33,9 @@ class RestaurantItemController extends Controller
             'price' => 'required|min:1',
         ]);
 
-        $restro_items = new RestaurantItem;
+        $restro_items = new Item;
 
-        $restro_items->item_name     = ucwords(request('item-name'));
+        $restro_items->name     = ucwords(request('item-name'));
         $restro_items->price         = request('price');
         $restro_items->restaurant_id = request('restro-id');
         $restro_items->category_id   = request('food-category');
@@ -44,11 +44,11 @@ class RestaurantItemController extends Controller
         $restro_items->save();
 
         $restro_id=$restro_items->restaurant_id;
-        $restro_name = Restaurant::select('restro_name')->first($restro_items->restaurant_id);
+        $restro_name = Restaurant::select('name')->first($restro_items->restaurant_id);
         
-        $item=$restro_items->item_name;
+        $item=$restro_items->name;
         
-        Session::flash('message', ucwords($item).' item successfully added to'. ucwords($restro_name->restro_name.'.' ));
+        Session::flash('message', ucwords($item).' item successfully added to '. ucwords($restro_name->name.'.' ));
 
         return back();
     }
@@ -56,7 +56,7 @@ class RestaurantItemController extends Controller
     public function edit($restro_item_id)
     {
 
-        $restroItemsDetail = RestaurantItem::where('id', $restro_item_id)->first();
+        $restroItemsDetail = Item::where('id', $restro_item_id)->first();
 //         dd($restroItemsDetail->toArray());
 
         if (isset($restroItemsDetail)) {
@@ -68,7 +68,7 @@ class RestaurantItemController extends Controller
 
     public function update(Request $request, $restro_items_id)
     {
-        $restroItemsDetail = RestaurantItem::find($restro_items_id);
+        $restroItemsDetail = Item::find($restro_items_id);
         $this->validate(request(),
             [
 
@@ -79,17 +79,17 @@ class RestaurantItemController extends Controller
 
         if (isset($restroItemsDetail)) {
 
-            $restroItemsDetail->item_name = ucwords($request->item_name);
+            $restroItemsDetail->name = ucwords($request->item_name);
             $restroItemsDetail->price     = $request->price;
             //dd($restroItemsDetail);
 
             $restroItemsDetail->save();
 
-            $item = $restroItemsDetail->item_name;
+            $item = $restroItemsDetail->name;
 
             Session::flash('message', ucwords($item).' updated successfully!');
 
-            Session::flash('alert-class', 'success');
+            Session::flash('alert-class', 'alert-success');
         } else {
             Session::flash('message',
                 'Whoops!'.ucwords($item).' restaurant update unsuccessful!');
@@ -99,24 +99,25 @@ class RestaurantItemController extends Controller
 
         $restro_items = Restaurant::find($restroItemsDetail->restaurant_id);
 
-//          $restro_items = RestaurantItem::where('id',$restro_id)->select('item_name', 'price')->get();
+//          $restro_items = Item::where('id',$restro_id)->select('name', 'price')->get();
 //            dd($restro_items->toArray());
         // $restroDetail = Restaurant::all();
 
-        return view('backend.view_food_items', compact('restro_items'));
+       // return view('backend.view_food_items', compact('restro_items'));
+        return redirect()->route('admin.restaurants.show', [$restroItemsDetail->restaurant_id]);
     }
 
     public function destroy($restro_item_id)
     {
-        $restro_id = RestaurantItem::find($restro_item_id);
+        $restro_id = Item::find($restro_item_id);
 
         $category= Category::find($restro_id->category_id);
 //        dd($category);
 
-        $name=$category->food_category;
-        $item=$restro_id->item_name;
+        $name=$category->category;
+        $item=$restro_id->name;
 
-        RestaurantItem::where('id', $restro_item_id)->delete();
+        Item::where('id', $restro_item_id)->delete();
 
         $restro_id=$restro_id->restaurant_id;
 

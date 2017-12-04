@@ -17,15 +17,15 @@ class CreateRestaurantsTable extends Migration
         Schema::create('restaurants',
             function (Blueprint $table) {
             $table->increments('id');
-            $table->string('restro_name');
+            $table->string('name');
             $table->string('address');
-            $table->string('restro_img');
-            $table->integer('restro_contact');
+            $table->string('img');
+            $table->integer('contact');
             $table->integer('delivery_radius');
             $table->integer('feature_restro');
-            $table->string('restro_owner');
-            $table->string('restroLat');
-            $table->string('restroLong');
+            $table->string('owner');
+            $table->string('Lat');
+            $table->string('Long');
             $table->softDeletes();
 
             $table->timestamps();

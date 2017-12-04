@@ -20,7 +20,7 @@
 @endif
 
 <div class="form-add-category">
-    {{ Form::open(['route' => 'admin.restaurantitems.store']) }}
+    {{ Form::open(['route' => 'admin.items.store']) }}
   
     <div class="labels col-sm-2">
          {{Form::label('restro-id', 'Restaurant Id', ['class' => 'display-text restro-id'])}}<br>
