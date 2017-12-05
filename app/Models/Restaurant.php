@@ -10,13 +10,19 @@ class Restaurant extends Model
     use SoftDeletes;
     protected $dates = ['deleted_at'];
 
-     public function Item()
+     public function Items()
     {
         return $this->hasMany(Item::class);
     }
 
-    public function categories()
+    public function category()
     {
         return $this->hasMany(Category::class);
     }
+
+     public function orders(){
+
+        return $this->hasMany(Order::class);
+    }
+
 }

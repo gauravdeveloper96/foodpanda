@@ -28,7 +28,7 @@
 
             @foreach($category as $catego)
             
-                @foreach($catego->Item as $items)
+                @foreach($catego->Items as $items)
             <tr>
                 <td class="item-data">{{$catego->category}}</td>
                 <td class="item-data">{{$items->name}}</td>

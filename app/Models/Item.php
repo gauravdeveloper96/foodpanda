@@ -14,11 +14,20 @@ class Item extends Model
 
     public function restaurants()
     {
-        return $this->belongsTo(Restaurant::class);
+        return $this->belongsTo(Restaurant::class,'restaurant_id');
     }
 
-    public function categories()
+    public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+//    public function orders(){
+//
+//        return $this->belongsTo(Order::class);
+//    }
+    public function orderItems(){
+
+        return $this->hasMany(OrderItem::class);
     }
 }

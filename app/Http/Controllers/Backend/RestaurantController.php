@@ -79,15 +79,18 @@ class RestaurantController extends Controller
 
     public function show($restro_id)
     {
+        //$restro_id=1;
 
-
-        $category = Category::whereHas('Item', function($restro_items) use($restro_id) {
+        $category = Category::whereHas('Items', function($restro_items) use($restro_id) {
                 $restro_items->where('restaurant_id', $restro_id);
-            })->with(['Item' => function($query) use($restro_id){
+            })->with(['Items' => function($query) use($restro_id){
                 $query->where('restaurant_id', $restro_id);
             }])->get();
 
-//        dd($category->toArray());
+
+       
+
+        //dd($category->toArray());
 
 
         //$restro_items = Restaurant::find($restro_id);

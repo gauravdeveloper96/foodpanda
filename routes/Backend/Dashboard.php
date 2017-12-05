@@ -30,7 +30,7 @@ Route::resource('items', 'ItemController');
 //Route::post('storefood', 'CategoryController@storeFoodTypes')->name('storeFoodTypes');
 
 //Route::get('additems', 'CategoryController@addFoodItems')->name('addFoodItems');
-
+Route::get('index', 'OrdersController@index')->name('index');
 
 Route::get('additems/{restro_id}', 'ItemController@addFoodItems')->name('addFoodItems');
 
