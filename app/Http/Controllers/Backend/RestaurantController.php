@@ -24,7 +24,7 @@ class RestaurantController extends Controller
         $restroDetail = Restaurant::has('fileentries')->with(['fileentries' => function($q) {
                         $q->select('id', 'filename', 'mime', 'original_filename');
                     }])
-                    ->select('id', 'name', 'address', 'fileentry_id','img')->get();
+                    ->select('id', 'name', 'address', 'fileentry_id')->get();
         
 //        dd($restroDetail->toArray());
 

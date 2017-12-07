@@ -10,6 +10,10 @@ class Restaurant extends Model
     use SoftDeletes;
     protected $dates = ['deleted_at'];
 
+    protected $cast =[
+        'feature_restro'=>'boolean',
+    ];
+
      public function Items()
     {
         return $this->hasMany(Item::class);
