@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
-use App\Models\Category;
+use App\Models\FoodCategory;
 
-class CategoryController extends Controller
+class FoodCategoryController extends Controller
 {
     public function create()
     {
@@ -23,13 +22,11 @@ class CategoryController extends Controller
 
             'food-category' => 'required|min:3',
         ]);
-       $food = new Category;
-       $food->category= ucwords(request('food-category'));
-
-       $food->save();
+       $food = new FoodCategory;
+       $food->food_category= ucwords(request('food-category'));
        
-       Session::flash('message', ucwords($food->category).' successfully added into food category.');
-       return redirect()->route('admin.categories.create');
+       $food->save();
+       return back();
     }
     
     public function addFoodItems(){

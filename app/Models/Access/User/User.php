@@ -2,7 +2,6 @@
 
 namespace App\Models\Access\User;
 
-use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Access\User\Traits\UserAccess;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -55,7 +54,7 @@ class User extends Authenticatable
      * The dynamic attributes from mutators that should be returned with the user object.
      * @var array
      */
-    protected $appends = ['full_name', 'name','age'];
+    protected $appends = ['full_name', 'name'];
 
     /**
      * @param array $attributes
@@ -64,14 +63,5 @@ class User extends Authenticatable
     {
         parent::__construct($attributes);
         $this->table = config('access.users_table');
-    }
-
-    public function getAgeAttribute() {
-//     $now = Carbon::now()->toDateString();
-//    return $this->dob->strToTime()->diffInYears($now);
-
-    return Carbon::parse($this->dob)
-        ->diff(Carbon::now())
-        ->format('%y');
     }
 }

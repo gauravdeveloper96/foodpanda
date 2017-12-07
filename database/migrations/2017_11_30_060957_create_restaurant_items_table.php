@@ -1,10 +1,8 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
-class CreateOrdersTable extends Migration
+class CreateRestaurantItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +11,15 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('restaurant_items', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->string('item_name');
+            $table->float('price');
+            $table->integer('category_id');
             $table->integer('restaurant_id');
-            $table->integer('total_amount');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -29,6 +27,6 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('restaurant_items');
     }
 }

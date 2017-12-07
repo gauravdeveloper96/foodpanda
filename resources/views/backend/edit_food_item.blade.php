@@ -9,7 +9,7 @@
 @section('content')
 <div class="form-add-category">
     
-    {{Form::model($restroItemsDetail, ['route' => ['admin.items.update', $restroItemsDetail->id]])}}
+    {{Form::model($restroItemsDetail, ['route' => ['admin.restaurantitems.update', $restroItemsDetail->id]])}}
     {{csrf_field()}}
     {{ method_field('PUT') }}
 
@@ -25,7 +25,7 @@
     <div class="text-fields col-sm-10"> 
          {{Form::number('category_id',$restroItemsDetail->category_id, array('class' => 'enter-text disable'))}}<br>
         {{Form::number('restro_id',$restroItemsDetail->restaurant_id, array('class' => 'enter-text disable'))}}<br>
-        {{Form::text('item_name',ucwords($restroItemsDetail->name), array('class' => 'enter-text'))}}<br>
+        {{Form::text('item_name',ucwords($restroItemsDetail->item_name), array('class' => 'enter-text'))}}<br>
 
         {{Form::number('price',$restroItemsDetail->price, array('class' => 'enter-text'))}}
 

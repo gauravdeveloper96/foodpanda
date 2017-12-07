@@ -13,7 +13,7 @@
     <a href="{{route ('admin.restaurants.create')}}">
         {{Form::submit('ADD RESTURANTS',['class'=>'add-restro'])}}
     </a>
-    <a href="{{route ('admin.categories.create')}}">
+    <a href="{{route ('admin.foodcategorys.create')}}">
         {{Form::submit('ADD FOOD CATEGORIES',['class'=>'add-food'])}}
     </a>
     {!! Form::close() !!}

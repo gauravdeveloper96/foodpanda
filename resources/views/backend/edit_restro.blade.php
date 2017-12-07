@@ -26,21 +26,21 @@
     </div>
     <div class="text-fields col-sm-9">
 
-        {{Form::text('restro_name',ucwords($restroDetail->name), array('class' => 'enter-text'))}}<br>
+        {{Form::text('restro_name',ucwords($restroDetail->restro_name), array('class' => 'enter-text'))}}<br>
 
         {{Form::text('address', $restroDetail->address, array('class' => 'enter-text'))}}<br>
 
         {{Form::number('radius',$restroDetail->delivery_radius, array('class' => 'enter-text'))}}<br>
 
-        {{Form::text('restro_owner', ucfirst($restroDetail->owner), array('class' => 'enter-text'))}}<br>
+        {{Form::text('restro_owner', ucfirst($restroDetail->restro_owner), array('class' => 'enter-text'))}}<br>
 
-        {{Form::text('restro_contact',$restroDetail->contact, array('class' => 'enter-text'))}}<br>
+        {{Form::text('restro_contact',$restroDetail->restro_contact, array('class' => 'enter-text'))}}<br>
 
         {{Form::file('restro_img', ['class' => 'enter-text'])}}<br>
 
-        {{Form::text('restroLat',$restroDetail->Lat, array('class' => 'enter-text'))}}<br>
+        {{Form::text('restroLat',$restroDetail->restroLat, array('class' => 'enter-text'))}}<br>
 
-        {{Form::text('restroLong',$restroDetail->Long, array('class' => 'enter-text'))}}<br>
+        {{Form::text('restroLong',$restroDetail->restroLong, array('class' => 'enter-text'))}}<br>
 
         {{Form::label('true', 'True', ['class' => 'feature'])}}
 
