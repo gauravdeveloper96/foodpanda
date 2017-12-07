@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+use App\Models\Fileentry;
 use App\Models\Restaurant;
 use App\Models\Category;
 use App\Models\Item;
@@ -15,9 +18,16 @@ class RestaurantController extends Controller
     public function index()
     {
 
-        $restroDetail = Restaurant::select('id', 'name', 'address',
-                'img')->get();
-//        dd($restro->toArray());
+//        $restroDetail = Restaurant::select('id', 'name', 'address', 'img')->get();
+       
+
+        $restroDetail = Restaurant::has('fileentries')->with(['fileentries' => function($q) {
+                        $q->select('id', 'filename', 'mime', 'original_filename');
+                    }])
+                    ->select('id', 'name', 'address', 'fileentry_id','img')->get();
+        
+//        dd($restroDetail->toArray());
+
         return view('backend.restaurant', compact('restroDetail'));
     }
 
@@ -43,32 +53,45 @@ class RestaurantController extends Controller
         //dd($request->toArray());
 
         $restro                  = new Restaurant;
-        $restro->name     = ucwords(request('restro-name'));
+        $restro->name            = ucwords(request('restro-name'));
         $restro->address         = request('address');
         $restro->delivery_radius = request('radius');
-        $restro->owner    = ucwords(request('owner'));
-        $restro->Lat       = request('latitude');
-        $restro->Long      = request('longitude');
+        $restro->owner           = ucwords(request('owner'));
+        $restro->Lat             = request('latitude');
+        $restro->Long            = request('longitude');
         $restro->feature_restro  = request('feature');
-        $restro->contact  = request('phone');
+        $restro->contact         = request('phone');
 
         //dd($restro);
-
+//        if ($request->hasFile('image')) {
+//
+//
+//            $image = $request->file('image');
+//
+//
+//            $name = date('d-m-y-h-i-s-').preg_replace('/\s+/', '-',
+//                    trim($image->getClientOriginalName()));
+//
+//            $destinationPath = public_path('/images');
+//            $image->move($destinationPath, $name);
+//            //$this->save();
+//
+//            $restro->img = $name;
+//        }
 
         if ($request->hasFile('image')) {
+            $file                     = $request->file('image');
+            $extension                = $file->getClientOriginalExtension();
+            Storage::disk('local')->put($file->getFilename().'.'.$extension,
+                File::get($file));
+            $entry                    = new Fileentry();
+            $entry->mime              = $file->getClientMimeType();
+            $entry->original_filename = $file->getClientOriginalName();
+            $entry->filename          = $file->getFilename().'.'.$extension;
 
+            $entry->save();
 
-            $image = $request->file('image');
-
-
-            $name = date('d-m-y-h-i-s-').preg_replace('/\s+/', '-',
-                    trim($image->getClientOriginalName()));
-
-            $destinationPath = public_path('/images');
-            $image->move($destinationPath, $name);
-            //$this->save();
-
-            $restro->img = $name;
+            $restro->fileentry_id = $entry->id;
         }
 
 
@@ -81,18 +104,17 @@ class RestaurantController extends Controller
     {
         //$restro_id=1;
 
-        $category = Category::whereHas('Items', function($restro_items) use($restro_id) {
+        $category = Category::whereHas('Items',
+                function($restro_items) use($restro_id) {
                 $restro_items->where('restaurant_id', $restro_id);
-            })->with(['Items' => function($query) use($restro_id){
-                $query->where('restaurant_id', $restro_id);
-            }])->get();
+            })->with(['Items' => function($query) use($restro_id) {
+                    $query->where('restaurant_id', $restro_id);
+                }])->get();
 
 
-       
+
 
         //dd($category->toArray());
-
-
         //$restro_items = Restaurant::find($restro_id);
 //          $restro_items = Item::where('id',$restro_id)->select('item_name', 'price')->get();
 //            dd($restro_items->toArray());
@@ -123,36 +145,53 @@ class RestaurantController extends Controller
             'restroLong' => 'required',
             'feature_restro' => 'required',
         ]);
+
         //dd($request->toArray());
 
         if (isset($restroDetail)) {
 
-            $restroDetail->name     = ucwords(request('restro_name'));
+            $restroDetail->name            = ucwords(request('restro_name'));
             $restroDetail->address         = request('address');
             $restroDetail->delivery_radius = request('radius');
-            $restroDetail->owner    = request('restro_owner');
-            $restroDetail->Lat       = request('restroLat');
-            $restroDetail->Long      = request('restroLong');
+            $restroDetail->owner           = request('restro_owner');
+            $restroDetail->Lat             = request('restroLat');
+            $restroDetail->Long            = request('restroLong');
             $restroDetail->feature_restro  = request('feature_restro');
-            $restroDetail->contact  = request('restro_contact');
+            $restroDetail->contact         = request('restro_contact');
 
             //dd($restro);
+//            if ($request->hasFile('restro_img')) {
+//
+//
+//                $image = $request->file('restro_img');
+//
+//
+//                $name = date('d-m-y-h-i-s-').preg_replace('/\s+/', '-',
+//                        trim($image->getClientOriginalName()));
+//
+//                $destinationPath = public_path('/images');
+//                $image->move($destinationPath, $name);
+//                //$this->save();
+//
+//                $restroDetail->img = $name;
+//            }
 
 
-            if ($request->hasFile('image')) {
 
+            if ($request->hasFile('restro_img')) {
+                $entry = Fileentry::find($restroDetail->fileentry_id);
 
-                $image = $request->file('image');
+                if (isset($entry)) {
+                    $file                     = $request->file('restro_img');
+                    $extension                = $file->getClientOriginalExtension();
+                    Storage::disk('local')->put($file->getFilename().'.'.$extension,
+                        File::get($file));
+                    $entry->mime              = $file->getClientMimeType();
+                    $entry->original_filename = $file->getClientOriginalName();
+                    $entry->filename          = $file->getFilename().'.'.$extension;
 
-
-                $name = date('d-m-y-h-i-s-').preg_replace('/\s+/', '-',
-                        trim($image->getClientOriginalName()));
-
-                $destinationPath = public_path('/images');
-                $image->move($destinationPath, $name);
-                //$this->save();
-
-                $restroDetail->img = $name;
+                    $entry->save();
+                }
             }
 
 
@@ -177,10 +216,10 @@ class RestaurantController extends Controller
 
     public function destroy($restro_id)
     {
-
+        $restroDetail = Restaurant::find($restro_id);
+        Fileentry::where('id', $restroDetail->fileentry_id)->delete();
         Restaurant::where('id', $restro_id)->delete();
-        $restroDetail = Restaurant::select('id', 'name', 'address',
-                'img')->get();
+        $restroDetail = Restaurant::select('id', 'name', 'address', 'img')->get();
 
 
         return view('backend.restaurant', compact('restroDetail'));

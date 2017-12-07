@@ -16,10 +16,14 @@
 <div class="row" ><br>
     <div class="col-xs-12">
 
-        @foreach($restroDetail as $restro)
+        @foreach($restroDetail as $key=>$restro)
+        
 
         <div class="col-sm-4" >
-            <img width=300 height=300 src="{{ asset("images/$restro->img")}}" > <br><br>
+
+            <!--<img width=300 height=300 src="{{ asset("images/$restro->img")}}" > <br><br>-->
+            <img src="{{route('admin.getentry', $restro->fileentries['filename'])}}" alt="ALT NAME" class="img-responsive" />
+            
 
             <font size="3" color="blue"> <strong >Restaurant: </strong></font><b><i>{{$restro->name}}</i></b><br>
 
@@ -38,6 +42,7 @@
             {{ Form::close() }}<br>
 
         </div>
+
         @endforeach
     </div>
 </div>

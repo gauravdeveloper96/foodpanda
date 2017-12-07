@@ -67,8 +67,6 @@ class User extends Authenticatable
     }
 
     public function getAgeAttribute() {
-//     $now = Carbon::now()->toDateString();
-//    return $this->dob->strToTime()->diffInYears($now);
 
     return Carbon::parse($this->dob)
         ->diff(Carbon::now())

@@ -34,3 +34,6 @@ Route::get('index', 'OrdersController@index')->name('index');
 
 Route::get('additems/{restro_id}', 'ItemController@addFoodItems')->name('addFoodItems');
 
+Route::get('fileentry', 'FileEntryController@index')->name('index');
+
+Route::get('fileentry/get/{filename}', ['as' => 'getentry', 'uses' => 'FileentryController@get']);

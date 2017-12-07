@@ -24,5 +24,9 @@ class Restaurant extends Model
 
         return $this->hasMany(Order::class);
     }
+     public function fileentries(){
+
+        return $this->belongsTo(Fileentry::class,'fileentry_id');
+    }
 
 }
