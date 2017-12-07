@@ -1,139 +1,62 @@
 @extends('frontend.layouts.app')
 
 @section('content')
-    <div class="row">
+    <div class="container-fluid">
+    <div class="col-sm-12">
+        <p class="text">Order delicious food online!</p>
+        <p class="para-text">Order food online from the best restaurants near you</p>
+    </div>
+    <div class="js-location-search location-search location-search-main-page  location_city_area  location">
+        <div class="location-search-inner search">
+            <form name="" method="get" action="/location-suggestions" role="form" class="form-vertical" novalidate="novalidate" autocomplete="off">
+               
 
-        <div class="col-xs-12">
+                <div class="area">
+                    <label for="area" class="required">Enter your area</label>
+                    <input  type="text" class="enter-area" class="enter" value="Enter your area"/>
+                </div>
+                <div class="find-food">
+                    <button type="submit" id="button" name="button" class="btn btn-primary btn-block show-restro">Show restaurants</button>
 
-            <div class="panel panel-default">
-                <div class="panel-heading">{{ trans('navs.frontend.dashboard') }}</div>
+                   
+                </div>
+               
+            </form>
+        </div>
+    </div>
+    <div class="container-overlay"></div>
+</div>
 
-                <div class="panel-body">
+<div class="popular-restro">
+    <div class="popular-head">
+        <h2>Popular This Month In India</h2>
 
-                    <div class="row">
+    </div>
+    <div class="popular-images">
+        {{ Html::image('img/frontend/biryani.jpeg','',array('class' => 'thumb')) }}
+        {{ Html::image('img/frontend/yochina.jpeg','', array('class' => 'thumb')) }}
+        {{ Html::image('img/frontend/papjohns.png','', array('class' => 'thumb')) }}
+        {{ Html::image('img/frontend/pizzahut.jpeg','', array('class' => 'thumb')) }}
+        {{ Html::image('img/frontend/rollmall.png','', array('class' => 'thumb')) }}
+        {{ Html::image('img/frontend/br.png','', array('class' => 'thumb')) }}
+        {{ Html::image('img/frontend/box8.png','', array('class' => 'thumb')) }}
+        {{ Html::image('img/frontend/subway.jpeg','', array('class' => 'thumb')) }}
+    </div>
+</div>
+<div class="popular-restro">
+    <div class="popular-head">
+        <h2>India's Most Trusted Restaurants</h2>
 
-                        <div class="col-md-4 col-md-push-8">
-
-                            <ul class="media-list">
-                                <li class="media">
-                                    <div class="media-left">
-                                        <img class="media-object profile-picture" src="{{ $logged_in_user->picture }}" alt="Profile picture">
-                                    </div><!--media-left-->
-
-                                    <div class="media-body">
-                                        <h4 class="media-heading">
-                                            {{ $logged_in_user->name }}<br/>
-                                            <small>
-                                                {{ $logged_in_user->email }}<br/>
-                                                {{ trans('strings.frontend.general.joined') }} {{ $logged_in_user->created_at->format('F jS, Y') }}
-                                            </small>
-                                        </h4>
-
-                                        {{ link_to_route('frontend.user.account', trans('navs.frontend.user.account'), [], ['class' => 'btn btn-info btn-xs']) }}
-
-                                        @permission('view-backend')
-                                            {{ link_to_route('admin.dashboard', trans('navs.frontend.user.administration'), [], ['class' => 'btn btn-danger btn-xs']) }}
-                                        @endauth
-                                    </div><!--media-body-->
-                                </li><!--media-->
-                            </ul><!--media-list-->
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4>Sidebar Item</h4>
-                                </div><!--panel-heading-->
-
-                                <div class="panel-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.
-                                </div><!--panel-body-->
-                            </div><!--panel-->
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4>Sidebar Item</h4>
-                                </div><!--panel-heading-->
-
-                                <div class="panel-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.
-                                </div><!--panel-body-->
-                            </div><!--panel-->
-                        </div><!--col-md-4-->
-
-                        <div class="col-md-8 col-md-pull-4">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4>Item</h4>
-                                        </div><!--panel-heading-->
-
-                                        <div class="panel-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.</p>
-                                        </div><!--panel-body-->
-                                    </div><!--panel-->
-                                </div><!--col-xs-12-->
-                            </div><!--row-->
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4>Item</h4>
-                                        </div><!--panel-heading-->
-
-                                        <div class="panel-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.</p>
-                                        </div><!--panel-body-->
-                                    </div><!--panel-->
-                                </div><!--col-md-6-->
-
-                                <div class="col-md-6">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4>Item</h4>
-                                        </div><!--panel-heading-->
-
-                                        <div class="panel-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.</p>
-                                        </div><!--panel-body-->
-                                    </div><!--panel-->
-                                </div><!--col-md-6-->
-
-                                <div class="col-md-6">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4>Item</h4>
-                                        </div><!--panel-heading-->
-
-                                        <div class="panel-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.</p>
-                                        </div><!--panel-body-->
-                                    </div><!--panel-->
-                                </div><!--col-md-6-->
-
-                                <div class="col-md-6">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4>Item</h4>
-                                        </div><!--panel-heading-->
-
-                                        <div class="panel-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.</p>
-                                        </div><!--panel-body-->
-                                    </div><!--panel-->
-                                </div><!--col-md-6-->
-
-                            </div><!--row-->
-
-                        </div><!--col-md-8-->
-
-                    </div><!--row-->
-
-                </div><!--panel body-->
-
-            </div><!-- panel -->
-
-        </div><!-- col-md-10 -->
-
-    </div><!-- row -->
+    </div>
+    <div class="trusted-images">
+        {{ Html::image('img/frontend/pic1.jpg','',array('class' => 'thumb')) }}
+        {{ Html::image('img/frontend/pic2.jpg','', array('class' => 'thumb')) }}
+        {{ Html::image('img/frontend/pic3.jpg','', array('class' => 'thumb')) }}
+        {{ Html::image('img/frontend/pic4.jpg','', array('class' => 'thumb')) }}
+        {{ Html::image('img/frontend/pic5.jpg','', array('class' => 'thumb')) }}
+        {{ Html::image('img/frontend/pic6.jpg','', array('class' => 'thumb')) }}
+        {{ Html::image('img/frontend/pic7.jpg','', array('class' => 'thumb')) }}
+        {{ Html::image('img/frontend/pic8.jpg','', array('class' => 'thumb')) }}
+    </div>
+</div>
 @endsection

@@ -18,23 +18,20 @@
     <table>
         <thead>
             <tr>
-                <th>
-                    <a class="btn btn-primary" href="{{ route ('admin.addFoodItems',['restro_id'=>$restro->id]) }}">Add Items</a><br>
+               
 
-                </th>
-
-                <th class="item-head">ITEM NAME</th>
-                <th class="item-head">PRICE (<i class="fa fa-inr" aria-hidden="true">)</i></th>
+                <th class="item-head">Restaurant Menu</th>
+                
 
             </tr>
         </thead>
         <tbody>
 
             @foreach($category as $catego)
-            
+            <td class="item-data">{{$catego->category}}</td>
                 @foreach($catego->Items as $items)
             <tr>
-                <td class="item-data">{{$catego->category}}</td>
+                
                 <td class="item-data">{{$items->name}}</td>
                 <td class="item-data"><i class="fa fa-inr" aria-hidden="true"></i> {{$items->price}}</td>
                 <td class="item-data"> <a href="{{ route ('admin.items.edit', ['restro_item_id'=>$items->id]) }}" class="btn btn-info btn-lg edit-del-btn">

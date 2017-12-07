@@ -4,14 +4,18 @@
 .navbar-default{
     background: #f7423f;
     padding-top: 1px;
-    padding-bottom: 29px;
+    padding-bottom: 44px;
 }
-.navbar-default .navbar-header{
-    float:left;
-}
+
 .navbar-default .navbar-header img{
-    padding-right: 764px;
-    padding-left: 95px;
+    padding-right: 732px;
+    float: left;
+    padding-left: 101px;
+    padding-top: 8px;
+    width: 19%;
+    height: 44px;
+
+
 }
 .navbar-default .navbar-right{
     list-style: none;
@@ -20,95 +24,228 @@
 }
 .navbar-default .navbar-right li{
     float:left;
-    padding-top: 14px;
+    padding-top: 24px;
     float: left;
     padding-right: 10px;
+    overflow:hidden;
+}
+ .navbar-default .navbar-right .dropdown .dropbtn {
+    font-size: 16px;    
+    border: none;
+    outline: none;
+    color: white;
+    padding: 0px 16px;
+    background-color: inherit;
+}
+.navbar-default .navbar-right .dropdown  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 8;
+}
+.navbar-default .navbar-right .dropdown .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.navbar-default .navbar-right .dropdown:hover .dropdown-content {
+    display: block;
 }
 .navbar-default .navbar-right li a{
     text-decoration: none;
     color: white;
+    font-size: 17px;
 }
-
-.container .page-back{
+.container{
+    position:relative;
+}
+.container .container-fluid{
     background: url(../img/frontend/homepage-splash.jpg) no-repeat;
     color: white;
-    text-align: center;
-    height: 491px;
+    /*    text-align: center;*/
+    height: 641px;
     background-size: cover;
     width: 100%;
     background-position: center;
     box-shadow: inset 0 6px 8px -6px rgba(0,0,0,.1);
     position:relative;
+     z-index: 2;
 
 
 }
-.container .page-back:before{
 
-    content: '';
+.container-fluid .container-overlay{
     position: absolute;
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
-    background-image: linear-gradient(to bottom right,#fff,#ffff);
-    opacity: .6; 
-
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg,#fff 0,#fff 10%,rgba(255,255,255,.75) 40%,rgba(255,255,255,.4) 100%);
 }
 
-.container .page-back .text{
-    padding-top: 121px;
+
+.container  .container-fluid .text{
+    padding-top: 203px;
     margin: 0;
     color: #f54942;
-    font-size: 51px;
+    font-size: 52px;
     font-weight: 100;
-    padding-left: 146px;
+    padding-left: 345px;
 }
-.container .page-back .para-text{
-    font-size: 30px;
+.container .container-fluid .para-text{
+    font-size: 29px;
     margin-top: 0;
-    color: black;
+    color: #000000ad;
     font-weight: 100;
-    padding-left: 166px;
-    padding-top: 15px;
+    padding-left: 338px;
+    padding-top: 7px;
 }
-.container .location .enter-text{
-    border: 1px solid #5de24a;
-    width: 25%;
-    height: 38px;
+.container-fluid .location-search {
+    border: 0;
+    background: rgba(255,255,255,.5);
+    padding: 23px 40px 23px 40px;
+    margin: 20px auto;
+    border-radius: 4px;
+    color: #444;
+   width: 76%;
+}
+.container-fluid .location-search .location-search-inner {
+    margin-left: 83px;
+    margin-right: -112px;
+}
+.container-fluid .location-search .location-search-inner form{
+    margin: 0px;
+    padding: 0px;
+    outline: none;
+}
+.container-fluid .location-search .location-search-inner form .city{
+    float: left;
+    width: 26.33333333%;
+    position: relative;
+    min-height: 1px;
+}
+.container-fluid .location-search .location-search-inner form .area{
+    float: left;
+    width: 26.33333333%;
+    position: relative;
+    min-height: 1px;
+}
+.container-fluid .location-search .location-search-inner:before{
+    content: " ";
+    display: table;
+}
+
+.container-fluid .location-search .location-search-inner form .city label{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+.container-fluid .location-search .location-search-inner form .city :before{
+    content: " ";
+    display: table;
+}
+.container-fluid .location-search .location-search-inner form .city .dropdown-typeahead-wrapper {
+    position: relative;
+}
+.location-search select {
+    height: 46px;
+    /*    padding: 10px 16px;*/
+    line-height: 1.3333333;
+    border-radius: 2px;
+    font-size: 18px;
+    font-weight: 300;
+    border: solid 1px #5ee244;
+    border-radius: 0;
     background: white;
-    color:#5de24a;
-    font-size:20px;
+    color: #5ee244;
+    width:100%;
 }
-.container .location .show-restaurant{
-    border: 1px solid #5de24a;
-    width: 25%;
-    height: 38px;
-    background: #5de24a;
-    color:white;
-    font-size:20px;
+.location-search input {
+
+    padding: 10px 16px;
+    line-height: 1.3333333;
+    border-radius: 2px;
+    font-size: 18px;
+    font-weight: 300;
+    border: solid 1px #5ee244;
+    border-radius: 0;
+    background: white;
+    color: #5ee244;
+
 }
+
+
+.container-fluid .location-search .location-search-inner form .area label{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+.location-search .find-food .btn {
+    line-height: 26px;
+    font-size: 16px;
+    font-weight: 300;
+    text-transform: uppercase;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;   
+    letter-spacing: 2px;
+    background: #5ee244;
+    color: white;
+    border: 1px solid #5ee244;
+    
+    width:27%;
+    height:46px;
+}
+
+
+
 
 .container .popular-restro .popular-head h2{
     text-align: center;
-    padding-top: 65px;
+    padding-top: 42px;
 }
 .container .popular-restro .popular-images{
     text-align: center;
+}
+.container .popular-restro .trusted-images{
+    text-align: center;
+    padding-bottom: 45px;
 }
 .container .popular-restro .popular-images .thumb{
     width: 9%;
     height: 116px;
     margin-right: 13px;
 }
+.container .popular-restro .trusted-images .thumb{
+    width: 9%;
+    height: 116px;
+    margin-right: 13px;
+}
+
 .container .panel-default{
     margin: auto;
     width: 100%;
     padding-top: 122px;
     background:url(../img/frontend/homepage-splash.jpg) no-repeat;
-     background-size: cover;
-     height:479px;
-     position:relative;
-   
+    background-size: cover;
+    height:479px;
+    position:relative;
+
 }
 
 .container .panel-default .panel-heading{
@@ -124,10 +261,63 @@
     font-size: 18px;
 }
 .container .panel-default .panel-body form .btn{
-      margin-right: 15px;
+    margin-right: 15px;
     background: blue;
     border: 2px solid blue;
     margin-top:10px;
     height: 30px;
     font-size: 20px;
 }
+.container-fluid .location-search .search{
+    margin-left: 25px;
+    margin-right: -112px;
+}
+.container-fluid .location-search .search form .area .enter-area{
+   line-height: 1.3333333;
+    border-radius: 2px;
+    font-size: 18px;
+    font-weight: 300;
+    border: solid 1px #5ee244;
+    border-radius: 0;
+    background: white;
+    color: #5ee244;
+    width: 209% ;
+    height: 25px ;
+}
+.container-fluid .find-food .show-restro{
+  line-height: 26px;
+    font-size: 16px;
+    font-weight: 300;
+    text-transform: uppercase;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    letter-spacing: 2px;
+    background: #5ee244;
+    color: white;
+    border: 1px solid #5ee244;
+    width: 35%;
+    /* height: 46px; */
+    /* padding-right: 188px; */
+    padding-left: 35px;
+    /* float: left; */
+    margin-left: 281px;
+}
+.container-fluid .location{
+    border: 0;
+    background: rgba(255,255,255,.5);
+    padding: 22px 40px 23px 0px;
+    margin: 0px auto;
+    border-radius: 4px;
+    color: #444;
+    width: 69%;
+}
+
+
+
+
+
+
+
+
+
+
