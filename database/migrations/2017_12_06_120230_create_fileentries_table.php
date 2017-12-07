@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRestaurantsTable extends Migration
+class CreateFileentriesTable extends Migration
 {
 
     /**
@@ -14,20 +14,13 @@ class CreateRestaurantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('restaurants',
+        Schema::create('fileentries',
             function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('address');
-            $table->string('img');
-            $table->integer('contact');
-            $table->integer('delivery_radius');
-            $table->integer('feature_restro');
-            $table->string('owner');
-            $table->string('Lat');
-            $table->string('Long');
+            $table->string('filename');
+            $table->string('mime');
+            $table->string('original_filename');
             $table->softDeletes();
-
             $table->timestamps();
         });
     }
@@ -39,8 +32,6 @@ class CreateRestaurantsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('restaurants');
+        Schema::dropIfExists('fileentries');
     }
-
-  
 }

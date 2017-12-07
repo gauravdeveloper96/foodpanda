@@ -7,8 +7,20 @@
 </h1>
 @endsection
 @section('content')
+
+@if(Session::has('message'))
+<div class="row">
+    <div class="col-xs-4"></div>
+    <div class="col-xs-4">
+        <div align="center">
+            <p class="alert {{ Session::get('alert-class', 'alert-success') }}">{{ Session::get('message') }}</p>
+        </div>
+    </div>
+</div>
+@endif
+
 <div class="form-add-category">
-    {{ Form::open(['route' => 'admin.restaurantitems.store']) }}
+    {{ Form::open(['route' => 'admin.items.store']) }}
   
     <div class="labels col-sm-2">
          {{Form::label('restro-id', 'Restaurant Id', ['class' => 'display-text restro-id'])}}<br>
