@@ -59,16 +59,7 @@
                         </a>
                     </li>
 
-                    <li class="{{ active_class(Active::checkUriPattern('admin/restaurants/create')) }}">
-                        <a href="{{ route('admin.restaurants.create') }}">
-                            <i class="fa fa-circle-o"></i>
-                            <span class="add">Add Restaurant </span>
-
-                            @if ($pending_approval > 0)
-                                <span class="label label-danger pull-right">{{ $pending_approval }}</span>
-                            @endif
-                        </a>
-                    </li>
+                   
 
                 </ul>
             </li>

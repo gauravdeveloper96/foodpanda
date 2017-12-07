@@ -48,4 +48,10 @@ h1 small{
 .restro-id{
     display:none;
 }
+.add-new-restaurant{
+    float:right;
+    width:20%;
+    height:50px;
+    font-size:25px;
+}
 

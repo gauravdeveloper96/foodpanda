@@ -16,6 +16,11 @@
     <table>
         <thead>
             <tr>
+                <th>
+                    <a class="btn btn-primary" href="{{ route ('admin.addFoodItems',['restro_id'=>$restro->id]) }}">Add Items</a><br>
+
+                </th>
+
                 <th class="item-head">ITEM NAME</th>
                 <th class="item-head">PRICE (<i class="fa fa-inr" aria-hidden="true">)</i></th>
 
@@ -32,10 +37,10 @@
                 <td class="item-data"> 
                     {{ Form::open(['route' => ['admin.restaurantitems.destroy', $items->id], 'method' => 'delete']) }}
                     {{ csrf_field() }}
-                   
+
                     {{Form::button('<span class="glyphicon glyphicon-trash edit-del"></span>', array('type' => 'submit', 'class' => 'btn btn-info btn-lg edit-del-btn del-btn'))}}
                     {{ Form::close() }}<br>
-                   </td>
+                </td>
             </tr>
             @endforeach 
         </tbody>
