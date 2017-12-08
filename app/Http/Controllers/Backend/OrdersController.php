@@ -94,7 +94,7 @@ class OrdersController extends Controller
 
 
         $users = User::where('id', 3)->select('id', 'first_name', 'dob')->first();
-//          dd($user->toArray());
+          dd($users->toArray());
 
         $user = User::all()->keyBy('age');
 
