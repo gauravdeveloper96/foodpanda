@@ -8,6 +8,7 @@ Route::get('/', 'FrontendController@index')->name('index');
 Route::get('macros', 'FrontendController@macros')->name('macros');
 Route::get('contact', 'ContactController@index')->name('contact');
 Route::post('contact/send', 'ContactController@send')->name('contact.send');
+Route::get('search','RestaurantController@search')->name('search');
 
 /*
  * These frontend controllers require the user to be logged in
@@ -31,6 +32,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::patch('profile/update', 'ProfileController@update')->name('profile.update');
 
         //restaurantSearch
-        Route::get('search','RestaurantController@search')->name('search');
+        
     });
+    
 });

@@ -8,7 +8,7 @@
     </div>
     <div class="js-location-search location-search location-search-main-page  location_city_area  location">
         <div class="location-search-inner search">
-             <form action="{{route('frontend.user.search')}}" method="POST">
+             <form action="{{route('frontend.search')}}" method="POST">
                 {{ csrf_field() }}
                 <div class="city">
                     <label for="cityId" class="required">Enter your city</label>
@@ -23,8 +23,8 @@
 
                 <div class="area">
                     <label for="area" class="required">Enter your area</label>
-                    <input type="text" data-url="{{route('frontend.user.search')}}" id="areaSearch" name="restaurantName" required="required" data-prefill="location.areaName" class="form-control tt-input enter-area" placeholder="Enter an area" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-                    <ul id="searchResults" data-url="{{route('frontend.user.search')}}">
+                    <input type="text" data-url="{{route('frontend.search')}}" id="areaSearch" name="restaurantName" required="required" data-prefill="location.areaName" class="form-control tt-input enter-area" placeholder="Enter an area" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
+                    <ul id="searchResults" data-url="{{route('frontend.search')}}">
                     </ul>
                 </div>
                 <div class="find-food">
