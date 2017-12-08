@@ -24,6 +24,7 @@
         {{ Html::style('css/frontend.css') }}
         {{ Html::style('plugins/font-awesome/css/font-awesome.min.css') }}
         {{ Html::style('css/home.css') }}
+        {{ Html::style('css/index.css') }}
         @endif
 
         @yield('after-styles')

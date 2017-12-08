@@ -14,6 +14,8 @@
 @endif
 
 <div class="row" ><br>
+    <div class="col-sm-12"> <a class="btn btn-primary add-new-restaurant" href="{{ route('admin.restaurants.create') }}">Add Restaurant</a><br>
+            <br></div>
     <div class="col-xs-12">
 
         @foreach($restroDetail as $key=>$restro)
