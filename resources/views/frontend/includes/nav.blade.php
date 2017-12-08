@@ -15,7 +15,7 @@
                 @if ($logged_in_user)
               
                 <li class="dropdown">
-                    <button class="dropbtn"> <i class="fa fa-user" aria-hidden="true"></i>My Account 
+                    <button class="dropbtn"> <i class="fa fa-user" aria-hidden="true"></i>  My Account 
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-content">

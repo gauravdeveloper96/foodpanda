@@ -4,33 +4,39 @@
 .navbar-default{
     background: #f7423f;
     margin-bottom: 0;
+    padding-bottom: 4px;
+   
 
 }
 
 .navbar-default .navbar-header img{
-    
-    padding-left: 101px; 
-    height: 44px;
-    margin-top: 13px;
+
+   padding-left: 85px;
+    height: 43px;
+    margin-top: 10px;
 
 
 }
 .navbar-default .navbar-right{
-   float: right!important;
+    float: right!important;
+    padding-right: 24px;
 }
 .navbar-default .navbar-right li{
-   padding-top: 15px;
+    padding-top: 8px;
     float: left;
-    padding-right: 10px;
-    
+    padding-right: 0px;
+
 }
 .navbar-default .navbar-right .dropdown .dropbtn {
     font-size: 16px;    
     border: none;
     outline: none;
     color: white;
-    padding: 0px 16px;
+   
     background-color: inherit;
+   padding-top: 12px;
+    padding-right: 56px;
+    padding-bottom: 13px;
 }
 .navbar-default .navbar-right .dropdown  .dropdown-content {
     display: none;
@@ -57,7 +63,7 @@
     font-size: 17px;
 }
 .navbar-default .navbar-right li a:hover{
-     background: none;
+    background: none;
     color: white;
 }
 .navbar-default .navbar-nav>li>a.active{
@@ -65,7 +71,7 @@
     color: white;
 }
 
- 
+
 .container{
     width:100%;
     padding: 0;
@@ -73,7 +79,7 @@
 .container .container-fluid{
     background: url(../img/frontend/homepage-splash.jpg) no-repeat;
     color: white;
-      
+
     height: 641px;
     background-size: cover;
     width: 100%;
@@ -122,8 +128,8 @@
     width: 76%;
 }
 .container-fluid .location-search .location-search-inner {
-    margin-left: 59px;
-    margin-right: -112px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 .container-fluid .location-search .location-search-inner form{
     margin: 0px;
@@ -132,13 +138,13 @@
 }
 .container-fluid .location-search .location-search-inner form .city{
     float: left;
-    width: 26.33333333%;
+    width: 33.33333333%;
     position: relative;
     min-height: 1px;
 }
 .container-fluid .location-search .location-search-inner form .area{
     float: left;
-    width: 22.33333333%;
+    width: 33.33333333%;
     position: relative;
     min-height: 1px;
 }
@@ -166,7 +172,7 @@
 }
 .location-search select {
     height: 46px;
-        padding: 10px 16px;
+    padding: 10px 16px;
     line-height: 1.3333333;
     border-radius: 2px;
     font-size: 18px;
@@ -179,7 +185,7 @@
 }
 .location-search input {
 
-    padding: 10px 16px;
+
     line-height: 1.3333333;
     border-radius: 2px;
     font-size: 18px;
@@ -188,7 +194,8 @@
     border-radius: 0;
     background: white;
     color: #5ee244;
-
+    height: 46px;
+    width: 100%;
 }
 
 
@@ -202,20 +209,30 @@
     clip: rect(0,0,0,0);
     border: 0;
 }
+.container-fluid .location-search .location-search-inner form .area #searchResults{
+    background: white;
+    list-style: none;
+    padding-left: 13px;
+}
+.container-fluid .location-search .location-search-inner form .area #searchResults li a{
+    color: #5ee244;
+    text-decoration: none;
+    font-size: 20px;
+}
 .location-search .find-food .btn {
     line-height: 26px;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 300;
     text-transform: uppercase;
     border-top-left-radius: 0;
-    border-bottom-left-radius: 0;   
+    border-bottom-left-radius: 0;
     letter-spacing: 2px;
     background: #5ee244;
     color: white;
     border: 1px solid #5ee244;
-padding-left: 20px;
-    width:33%;
-    height:46px;
+    padding-left: 20px;
+    width: 33.33333333%;
+    height: 46px;
 }
 
 
@@ -224,6 +241,7 @@ padding-left: 20px;
 .container .popular-restro .popular-head h2{
     text-align: center;
     padding-top: 42px;
+    color: black;
 }
 .container .popular-restro .popular-images{
     text-align: center;
@@ -246,7 +264,7 @@ padding-left: 20px;
 .container .register-login-head{
     background: url(../img/frontend/homepage-splash.jpg) no-repeat;
     color: white;
-      
+
     height: 641px;
     background-size: cover;
     width: 100%;
@@ -267,7 +285,7 @@ padding-left: 20px;
     background: linear-gradient(180deg,#fff 0,#fff 10%,rgba(255,255,255,.75) 40%,rgba(255,255,255,.4) 100%);
 }
 .container .register-login-head .register-login-heading{
-  color: #333;
+    color: #333;
     font-size: 26px;
     text-align: center;
     padding-top: 150px;
@@ -275,95 +293,14 @@ padding-left: 20px;
     background: transparent;
     border: none;
 }
-/*
-.container .account-head{
-    padding-top: 17px;
-}
 
-*/
 .container .register-login-head .register-login-body{
     color:black;
-    
-}
-/*
-.container .panel-default .panel-body form label{
-    font-size: 18px;
-}
-.container .panel-default .panel-body form .btn{
-    margin-right: 15px;
-    background: blue;
-    border: 2px solid blue;
-    margin-top:10px;
-    height: 30px;
-    font-size: 20px;
-}*/
-.container-fluid .location-search .search{
-    margin-left: 42px;
-    margin-right: -112px;
-}
-.container-fluid .location-search .search form .area .enter-area{
-    line-height: 1.3333333;
-    border-radius: 2px;
-    font-size: 18px;
-    font-weight: 300;
-    border: solid 1px #5ee244;
-    border-radius: 0;
-    background: white;
-    color: #5ee244;
-    width: 245%;
-    height: 46px;
-}
-.container-fluid .find-food .show-restro{
-    line-height: 26px;
-    font-size: 16px;
-    font-weight: 300;
-    text-transform: uppercase;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    letter-spacing: 2px;
-    background: #5ee244;
-    color: white;
-    border: 1px solid #5ee244;
-    width: 32%;
-    height: 46px;
-    padding-right: 188px;
-    padding-left: 48px;
-    float: left;
-    margin-left: 281px;
-}
-.container-fluid .location{
-    border: 0;
-    background: rgba(255,255,255,.5);
-    padding: 22px 40px 23px 0px;
-    margin: 0px auto;
-    border-radius: 4px;
-    color: #444;
-    width: 69%;
-    height:96px;
-}
-/*.container .panel-default .user-heading{
-    float:left;
-    padding-left: 98px;
-}
-.panel-default .panel-body .tabs{
-    list-style: none;
-    display: inline;
-    padding-right: 10px;
-    margin-top: 0;
+
 }
 
-.panel-default .panel-body .tabs li{
-    float:left;
-    padding-right: 10px;  
-}
-.panel-default .panel-body{
-    padding-left: 96px;
-    padding-top: 25px;
-}
-.panel-default .panel-body  .tab-content{
-    padding-top: 70px;
-    text-align: left;
-}*/
+
+
 
 
 

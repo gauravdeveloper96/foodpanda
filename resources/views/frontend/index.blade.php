@@ -39,6 +39,7 @@
         </div>
         <div class="container-overlay"></div>
     </div>
+</div>
 
     <div class="popular-restro">
         <div class="popular-head">
