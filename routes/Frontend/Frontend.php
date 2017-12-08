@@ -29,5 +29,8 @@ Route::group(['middleware' => 'auth'], function () {
          * User Profile Specific
          */
         Route::patch('profile/update', 'ProfileController@update')->name('profile.update');
+
+        //restaurantSearch
+        Route::get('search','RestaurantController@search')->name('search');
     });
 });

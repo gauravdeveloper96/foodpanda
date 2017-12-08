@@ -19,13 +19,13 @@ class RestaurantController extends Controller
     {
 
 //        $restroDetail = Restaurant::select('id', 'name', 'address', 'img')->get();
-       
+
 
         $restroDetail = Restaurant::has('fileentries')->with(['fileentries' => function($q) {
                         $q->select('id', 'filename', 'mime', 'original_filename');
                     }])
-                    ->select('id', 'name', 'address', 'fileentry_id')->get();
-        
+                ->select('id', 'name', 'address', 'fileentry_id')->get();
+
 //        dd($restroDetail->toArray());
 
         return view('backend.restaurant', compact('restroDetail'));
@@ -218,10 +218,12 @@ class RestaurantController extends Controller
     {
         $restroDetail = Restaurant::find($restro_id);
         Fileentry::where('id', $restroDetail->fileentry_id)->delete();
-        Restaurant::where('id', $restro_id)->delete();
-        $restroDetail = Restaurant::select('id', 'name', 'address', 'img')->get();
 
+        Session::flash('message',
+            ucwords($restroDetail->name).' restaurant deleted successfully!');
+        
+        Session::flash('alert-class', 'alert-success');
 
-        return view('backend.restaurant', compact('restroDetail'));
+        return redirect()->route('admin.restaurants.index');
     }
 }
