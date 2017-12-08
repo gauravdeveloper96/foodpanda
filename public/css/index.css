@@ -1,0 +1,376 @@
+#app-layout{
+    margin:0;
+}
+.navbar-default{
+    background: #f7423f;
+    margin-bottom: 0;
+
+}
+
+.navbar-default .navbar-header img{
+    
+    padding-left: 101px; 
+    height: 44px;
+    margin-top: 13px;
+
+
+}
+.navbar-default .navbar-right{
+   float: right!important;
+}
+.navbar-default .navbar-right li{
+   padding-top: 15px;
+    float: left;
+    padding-right: 10px;
+    
+}
+.navbar-default .navbar-right .dropdown .dropbtn {
+    font-size: 16px;    
+    border: none;
+    outline: none;
+    color: white;
+    padding: 0px 16px;
+    background-color: inherit;
+}
+.navbar-default .navbar-right .dropdown  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 8;
+}
+.navbar-default .navbar-right .dropdown .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.navbar-default .navbar-right .dropdown:hover .dropdown-content {
+    display: block;
+}
+.navbar-default .navbar-right li a{
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+}
+.navbar-default .navbar-right li a:hover{
+     background: none;
+    color: white;
+}
+.navbar-default .navbar-nav>li>a.active{
+    background: none;
+    color: white;
+}
+
+ 
+.container{
+    width:100%;
+    padding: 0;
+}
+.container .container-fluid{
+    background: url(../img/frontend/homepage-splash.jpg) no-repeat;
+    color: white;
+      
+    height: 641px;
+    background-size: cover;
+    width: 100%;
+    background-position: center;
+    box-shadow: inset 0 6px 8px -6px rgba(0,0,0,.1);
+    position:relative;
+    z-index: 2;
+
+
+}
+
+.container-fluid .container-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg,#fff 0,#fff 10%,rgba(255,255,255,.75) 40%,rgba(255,255,255,.4) 100%);
+}
+
+
+.container  .container-fluid .text{
+    padding-top: 203px;
+    margin: 0;
+    color: #f54942;
+    font-size: 52px;
+    font-weight: 100;
+    padding-left: 312px;
+}
+.container .container-fluid .para-text{
+    font-size: 29px;
+    margin-top: 0;
+    color: #000000ad;
+    font-weight: 100;
+    padding-left: 294px;
+    padding-top: 7px;
+}
+.container-fluid .location-search {
+    border: 0;
+    background: rgba(255,255,255,.5);
+    padding: 23px 40px 23px 40px;
+    margin: 20px auto;
+    border-radius: 4px;
+    color: #444;
+    width: 76%;
+}
+.container-fluid .location-search .location-search-inner {
+    margin-left: 59px;
+    margin-right: -112px;
+}
+.container-fluid .location-search .location-search-inner form{
+    margin: 0px;
+    padding: 0px;
+    outline: none;
+}
+.container-fluid .location-search .location-search-inner form .city{
+    float: left;
+    width: 26.33333333%;
+    position: relative;
+    min-height: 1px;
+}
+.container-fluid .location-search .location-search-inner form .area{
+    float: left;
+    width: 22.33333333%;
+    position: relative;
+    min-height: 1px;
+}
+.container-fluid .location-search .location-search-inner:before{
+    content: " ";
+    display: table;
+}
+
+.container-fluid .location-search .location-search-inner form .city label{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+.container-fluid .location-search .location-search-inner form .city :before{
+    content: " ";
+    display: table;
+}
+.container-fluid .location-search .location-search-inner form .city .dropdown-typeahead-wrapper {
+    position: relative;
+}
+.location-search select {
+    height: 46px;
+        padding: 10px 16px;
+    line-height: 1.3333333;
+    border-radius: 2px;
+    font-size: 18px;
+    font-weight: 300;
+    border: solid 1px #5ee244;
+    border-radius: 0;
+    background: white;
+    color: #5ee244;
+    width:100%;
+}
+.location-search input {
+
+    padding: 10px 16px;
+    line-height: 1.3333333;
+    border-radius: 2px;
+    font-size: 18px;
+    font-weight: 300;
+    border: solid 1px #5ee244;
+    border-radius: 0;
+    background: white;
+    color: #5ee244;
+
+}
+
+
+.container-fluid .location-search .location-search-inner form .area label{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+.location-search .find-food .btn {
+    line-height: 26px;
+    font-size: 16px;
+    font-weight: 300;
+    text-transform: uppercase;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;   
+    letter-spacing: 2px;
+    background: #5ee244;
+    color: white;
+    border: 1px solid #5ee244;
+padding-left: 20px;
+    width:33%;
+    height:46px;
+}
+
+
+
+
+.container .popular-restro .popular-head h2{
+    text-align: center;
+    padding-top: 42px;
+}
+.container .popular-restro .popular-images{
+    text-align: center;
+}
+.container .popular-restro .trusted-images{
+    text-align: center;
+    padding-bottom: 45px;
+}
+.container .popular-restro .popular-images .thumb{
+    width: 9%;
+    height: 116px;
+    margin-right: 13px;
+}
+.container .popular-restro .trusted-images .thumb{
+    width: 9%;
+    height: 116px;
+    margin-right: 13px;
+}
+
+.container .register-login-head{
+    background: url(../img/frontend/homepage-splash.jpg) no-repeat;
+    color: white;
+      
+    height: 641px;
+    background-size: cover;
+    width: 100%;
+    background-position: center;
+    box-shadow: inset 0 6px 8px -6px rgba(0,0,0,.1);
+    position:relative;
+    z-index: 2;
+
+
+}
+.conatiner .register-login-head .container-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg,#fff 0,#fff 10%,rgba(255,255,255,.75) 40%,rgba(255,255,255,.4) 100%);
+}
+.container .register-login-head .register-login-heading{
+  color: #333;
+    font-size: 26px;
+    text-align: center;
+    padding-top: 150px;
+    font-weight: 800;
+    background: transparent;
+    border: none;
+}
+/*
+.container .account-head{
+    padding-top: 17px;
+}
+
+*/
+.container .register-login-head .register-login-body{
+    color:black;
+    
+}
+/*
+.container .panel-default .panel-body form label{
+    font-size: 18px;
+}
+.container .panel-default .panel-body form .btn{
+    margin-right: 15px;
+    background: blue;
+    border: 2px solid blue;
+    margin-top:10px;
+    height: 30px;
+    font-size: 20px;
+}*/
+.container-fluid .location-search .search{
+    margin-left: 42px;
+    margin-right: -112px;
+}
+.container-fluid .location-search .search form .area .enter-area{
+    line-height: 1.3333333;
+    border-radius: 2px;
+    font-size: 18px;
+    font-weight: 300;
+    border: solid 1px #5ee244;
+    border-radius: 0;
+    background: white;
+    color: #5ee244;
+    width: 245%;
+    height: 46px;
+}
+.container-fluid .find-food .show-restro{
+    line-height: 26px;
+    font-size: 16px;
+    font-weight: 300;
+    text-transform: uppercase;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    letter-spacing: 2px;
+    background: #5ee244;
+    color: white;
+    border: 1px solid #5ee244;
+    width: 32%;
+    height: 46px;
+    padding-right: 188px;
+    padding-left: 48px;
+    float: left;
+    margin-left: 281px;
+}
+.container-fluid .location{
+    border: 0;
+    background: rgba(255,255,255,.5);
+    padding: 22px 40px 23px 0px;
+    margin: 0px auto;
+    border-radius: 4px;
+    color: #444;
+    width: 69%;
+    height:96px;
+}
+/*.container .panel-default .user-heading{
+    float:left;
+    padding-left: 98px;
+}
+.panel-default .panel-body .tabs{
+    list-style: none;
+    display: inline;
+    padding-right: 10px;
+    margin-top: 0;
+}
+
+.panel-default .panel-body .tabs li{
+    float:left;
+    padding-right: 10px;  
+}
+.panel-default .panel-body{
+    padding-left: 96px;
+    padding-top: 25px;
+}
+.panel-default .panel-body  .tab-content{
+    padding-top: 70px;
+    text-align: left;
+}*/
+
+
+
+
+
+
+
+
+
+

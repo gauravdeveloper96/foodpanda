@@ -1,7 +1,7 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            {{ HTML::image('img/frontend/foodpanda_logo.png') }}
+<nav class="navbar navbar-default upper-head">
+    <div class="container-fluid ">
+        <div class="navbar-header upper-heading">
+            <a href="{{ route('frontend.index') }}">  {{ HTML::image('img/frontend/foodpanda_logo.png') }}</a>
 
 
         </div>
@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="frontend-navbar-collapse">
 
 
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right right-head">
 
 
                 @if ($logged_in_user)
@@ -19,8 +19,8 @@
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-content">
-                         <a href="{{ route('frontend.user.dashboard') }}" class="{{ active_class(Active::checkRoute('frontend.user.dashboard')) }}"> My Account</a>                      
-                         <a href="#"> Logout </a>
+                         <a href="{{ route('frontend.user.account') }}" class="{{ active_class(Active::checkRoute('frontend.user.dashboard')) }}"> My Account</a>                      
+                         <a href="{{ route('frontend.auth.logout') }}" class="{{ active_class(Active::checkRoute('frontend.user.dashboard')) }}"> Logout</a>                      
                        
                     </div>
                 </li> 
