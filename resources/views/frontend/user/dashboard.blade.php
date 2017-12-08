@@ -2,26 +2,44 @@
 
 @section('content')
     <div class="container-fluid">
-    <div class="col-sm-12">
+    <div class="col-sm-12" style="float:none;">
         <p class="text">Order delicious food online!</p>
         <p class="para-text">Order food online from the best restaurants near you</p>
     </div>
     <div class="js-location-search location-search location-search-main-page  location_city_area  location">
         <div class="location-search-inner search">
-            <form name="" method="get" action="/location-suggestions" role="form" class="form-vertical" novalidate="novalidate" autocomplete="off">
-               
+             <form action="{{route('frontend.user.search')}}" method="POST">
+                {{ csrf_field() }}
+                <div class="city">
+                    <label for="cityId" class="required">Enter your city</label>
+                    <div class="dropdown-typeahead-wrapper" id="wrapper-element-1">                   
+                        {{Form::select('size', ['restaurant' => 'Restaurant', 'city' => 'City'], null, ['placeholder' => 'Search By....'])}}
+                        <span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
+                        </span></span>
+                        <i class="icon-caret icon-down-arrow"></i>
+                    </div>
+
+                </div>
 
                 <div class="area">
                     <label for="area" class="required">Enter your area</label>
-                    <input  type="text" class="enter-area" class="enter" value="Enter your area"/>
+                    <input type="text" data-url="{{route('frontend.user.search')}}" id="areaSearch" name="restaurantName" required="required" data-prefill="location.areaName" class="form-control tt-input enter-area" placeholder="Enter an area" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
+                    <ul id="searchResults" data-url="{{route('frontend.user.search')}}">
+                    </ul>
                 </div>
                 <div class="find-food">
-                    <button type="submit" id="button" name="button" class="btn btn-primary btn-block show-restro">Show restaurants</button>
+                    {{ Form::submit('Show restaurants',['class' => 'btn btn-primary btn-block'])}}
+                    {{ Form::close() }}
 
-                   
+
                 </div>
-               
+
             </form>
+               
+
+              
+               
+            
         </div>
     </div>
     <div class="container-overlay"></div>

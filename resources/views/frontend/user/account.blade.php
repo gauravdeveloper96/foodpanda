@@ -5,15 +5,15 @@
 
         <div class="col-xs-12">
 
-            <div class="panel panel-default">
-                <div class="panel-heading">{{ trans('navs.frontend.user.account') }}</div>
+            <div class="panel panel-default account-head">
+                <div class="panel-heading user-heading">My Account</div>
 
                 <div class="panel-body">
 
                     <div role="tabpanel">
 
                         <!-- Nav tabs -->
-                        <ul class="nav nav-tabs" role="tablist">
+                        <ul class="nav nav-tabs tabs" role="tablist">
                             <li role="presentation" class="active">
                                 <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">{{ trans('navs.frontend.user.profile') }}</a>
                             </li>

@@ -3,14 +3,12 @@
 @section('title', app_name() . ' | Register')
 
 @section('content')
-    <div class="row">
-
-        <div class="col-md-8 col-md-offset-2">
+    
 
             <div class="panel panel-default">
-                <div class="panel-heading">{{ trans('labels.frontend.auth.register_box_title') }}</div>
+                <div class="panel-heading register-login-heading">{{ trans('labels.frontend.auth.register_box_title') }}</div>
 
-                <div class="panel-body">
+                <div class="panel-body register-login-body">
 
                     {{ Form::open(['route' => 'frontend.auth.register.post', 'class' => 'form-horizontal']) }}
 
@@ -71,12 +69,11 @@
                     {{ Form::close() }}
 
                 </div><!-- panel body -->
-
+<div class="container-overlay"></div>
+</div>
             </div><!-- panel -->
 
-        </div><!-- col-md-8 -->
-
-    </div><!-- row -->
+       
 @endsection
 
 @section('after-scripts')
