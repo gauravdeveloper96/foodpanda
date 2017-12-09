@@ -11,7 +11,7 @@ Route::post('contact/send', 'ContactController@send')->name('contact.send');
 Route::get('search','RestaurantController@search')->name('search');
 Route::post('searchbylocation','RestaurantController@searchByLocation')->name('searchByLocation');
 
-Route::get('restaurantmenu','RestaurantController@ViewMenu')->name('ViewMenu');
+Route::get('restaurantmenu/{restro_id}','RestaurantController@ViewMenu')->name('ViewMenu');
 
 
 /*
