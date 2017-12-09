@@ -9,11 +9,12 @@ Route::get('macros', 'FrontendController@macros')->name('macros');
 Route::get('contact', 'ContactController@index')->name('contact');
 Route::post('contact/send', 'ContactController@send')->name('contact.send');
 Route::get('search','RestaurantController@search')->name('search');
-Route::post('searchbylocation','RestaurantController@searchByLocation')->name('searchByLocation');
+Route::get('search/{restro_id}','RestaurantController@ViewMenu');
+Route::post('restaurants','RestaurantController@searchByLocation')->name('searchByLocation');
 
 Route::get('restaurantmenu/{restro_id}','RestaurantController@ViewMenu')->name('ViewMenu');
 
-Route::get('fileentry', 'FileEntryController@index')->name('index');
+Route::get('fileentry', 'FileEntryController@index')->name('fileentry');
 
 Route::get('fileentry/get/{filename}', ['as' => 'getentry', 'uses' => 'FileentryController@get']);
 

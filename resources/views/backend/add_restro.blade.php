@@ -31,8 +31,8 @@
         {{Form::text('owner', '',['class' => 'enter-text'])}}<br>
         {{Form::number('phone','', ['class' => 'enter-text'])}}<br>
         {{Form::file('image', ['class' => 'enter-text'])}}<br>
-        {{Form::text('latitude','30.7515° N', ['class' => 'enter-text'])}}<br>
-        {{Form::text('longitude','76.7726° E', ['class' => 'enter-text'])}}<br>
+        {{Form::text('latitude','30.7515', ['class' => 'enter-text'])}}<br>
+        {{Form::text('longitude','76.7726', ['class' => 'enter-text'])}}<br>
         {{Form::label('true', 'True', ['class' => 'feature'])}}
         {{Form::radio('feature','1')}}
         {{Form::label('false', 'False', ['class' => 'feature'])}}

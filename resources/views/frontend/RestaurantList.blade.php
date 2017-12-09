@@ -43,7 +43,7 @@
             @break;
             
             @endforeach
-            @endforeach
+            @endforeach<br>
             @endforeach
 
         </div>

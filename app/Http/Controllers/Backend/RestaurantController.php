@@ -57,8 +57,8 @@ class RestaurantController extends Controller
         $restro->address         = request('address');
         $restro->delivery_radius = request('radius');
         $restro->owner           = ucwords(request('owner'));
-        $restro->Lat             = request('latitude');
-        $restro->Long            = request('longitude');
+        $restro->lat             = request('latitude');
+        $restro->lng            = request('longitude');
         $restro->feature_restro  = request('feature');
         $restro->contact         = request('phone');
 
@@ -154,8 +154,8 @@ class RestaurantController extends Controller
             $restroDetail->address         = request('address');
             $restroDetail->delivery_radius = request('radius');
             $restroDetail->owner           = request('restro_owner');
-            $restroDetail->Lat             = request('restroLat');
-            $restroDetail->Long            = request('restroLong');
+            $restroDetail->lat             = request('restroLat');
+            $restroDetail->lng            = request('restroLong');
             $restroDetail->feature_restro  = request('feature_restro');
             $restroDetail->contact         = request('restro_contact');
 

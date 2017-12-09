@@ -38,9 +38,9 @@
 
         {{Form::file('restro_img', ['class' => 'enter-text'])}}<br>
 
-        {{Form::text('restroLat',$restroDetail->Lat, array('class' => 'enter-text'))}}<br>
+        {{Form::text('restroLat',$restroDetail->lat, array('class' => 'enter-text'))}}<br>
 
-        {{Form::text('restroLong',$restroDetail->Long, array('class' => 'enter-text'))}}<br>
+        {{Form::text('restroLong',$restroDetail->lng, array('class' => 'enter-text'))}}<br>
 
         {{Form::label('true', 'True', ['class' => 'feature'])}}
 
