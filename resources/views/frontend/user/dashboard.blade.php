@@ -8,7 +8,7 @@
     </div>
     <div class="js-location-search location-search location-search-main-page  location_city_area  location">
         <div class="location-search-inner search">
-            <form action="{{route('frontend.user.search')}}" method="POST">
+            <form action="{{route('frontend.search')}}" method="POST">
                 {{ csrf_field() }}
                 <div class="city">
                     <label for="cityId" class="required">Enter your city</label>
@@ -23,20 +23,20 @@
 
                 <div class="srch-restro">
 
-                    <input type="text"  data-url="{{route('frontend.user.search')}}" placeholder="Enter an restaurant" id="areaSearch" name="restaurantName" required="required" data-prefill="location.areaName" class="form-control tt-input rest"  autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;" disabled>
-                    <ul id="searchResults" data-url="{{route('frontend.user.search')}}">
+                    <input type="text"  data-url="{{route('frontend.search')}}" placeholder="Enter an restaurant" id="areaSearch" name="restaurantName" required="required" data-prefill="location.areaName" class="form-control tt-input rest"  autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;" disabled>
+                    <ul id="searchResults" data-url="{{route('frontend.search')}}">
                     </ul>
                 </div>
                 <div class="srch-area">
-                    <input type="text"  data-url="{{route('frontend.user.search')}}" placeholder="Enter latitude" id="latSearch" name="lat" required="required" data-prefill="location.areaName" class="form-control tt-input lat"  autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;" disabled>
-                    <input type="text"  data-url="{{route('frontend.user.search')}}" placeholder="Enter longitude" id="longSearch" name="lng" required="required" data-prefill="location.areaName" class="form-control tt-input lng"  autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;" disabled>
+                    <input type="hidden"  data-url="{{route('frontend.search')}}" placeholder="Enter latitude" id="latSearch" name="lat" required="required" data-prefill="location.areaName" class="form-control tt-input lat"  autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;" disabled>
+                    <input type="hidden"  data-url="{{route('frontend.search')}}" placeholder="Enter longitude" id="longSearch" name="lng" required="required" data-prefill="location.areaName" class="form-control tt-input lng"  autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;" disabled>
 
-                    <input type="text"  data-url="{{route('frontend.user.search')}}" placeholder="Enter an area" id="areaSearch" name="restaurantName" required="required" data-prefill="location.areaName" class="form-control tt-input ar"  autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;" disabled>
+                    <input type="text"  data-url="{{route('frontend.search')}}" placeholder="Enter an area" id="areaSearch" name="restaurantName" required="required" data-prefill="location.areaName" class="form-control tt-input ar"  autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;" disabled>
                     <div id="google-map">
                         
                     </div>
 
-                    <ul id="searchResults" data-url="{{route('frontend.user.search')}}">
+                    <ul id="searchResults" data-url="{{route('frontend.search')}}">
                     </ul>
                 </div>
 
