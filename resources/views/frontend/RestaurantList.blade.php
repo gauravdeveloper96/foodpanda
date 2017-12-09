@@ -29,8 +29,10 @@
         </div>
         <div class="col-sm-10">
             @foreach($restro as $restaurant)
+             {{$restaurant->img}}
             <a href="#"> {{$restaurant->name}}</a><br>
-
+                
+              
             @endforeach
 
         </div>
