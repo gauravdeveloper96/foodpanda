@@ -36,15 +36,19 @@
             <a href="{{route('frontend.ViewMenu',['restro_id'=>$restaurant->id])}}"> {{$restaurant->name}}</a><br>
 
             @foreach($restaurant->groupedItems as $cate)
+            @foreach($cate as $catgo)
+            
+            {{$catgo['category']['category']}}
 
-
-
+            @break;
+            
+            @endforeach
             @endforeach
             @endforeach
 
         </div>
         <div class="col-sm-4">
-            
+
         </div>
     </div>
 </div>

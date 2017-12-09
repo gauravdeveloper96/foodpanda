@@ -36,7 +36,7 @@
 .container .restroList-page .restroList .detailsList{
       background:white;
        padding-top: 10px;
-    padding-bottom:28px;
+    padding-bottom:16px;
    
 }
 .container .restroList-page .restroList .detailsList a{
@@ -51,6 +51,6 @@
     padding-bottom: 10px;
 }
 .container .restroList-page .restroList .imagesList img{
-    height:50px;
-    width:100%;
+    height:60px;
+    width:105%;
 }
