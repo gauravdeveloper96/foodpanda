@@ -103,7 +103,7 @@
 
 
 .container  .container-fluid .text{
-    padding-top: 203px;
+    padding-top: 196px;
     margin: 0;
     color: #f54942;
     font-size: 52px;
@@ -116,7 +116,7 @@
     color: #000000ad;
     font-weight: 100;
     padding-left: 294px;
-    padding-top: 7px;
+    padding-top: 0px;
 }
 .container-fluid .location-search {
     border: 0;
@@ -142,7 +142,14 @@
     position: relative;
     min-height: 1px;
 }
-.container-fluid .location-search .location-search-inner form .area{
+.container-fluid .location-search .location-search-inner form .srch-restro{
+    display:none;
+    float: left;
+    width: 33.33333333%;
+    position: relative;
+    min-height: 1px;
+}
+.container-fluid .location-search .location-search-inner form .srch-area{
     float: left;
     width: 33.33333333%;
     position: relative;
@@ -209,19 +216,27 @@
     clip: rect(0,0,0,0);
     border: 0;
 }
-.container-fluid .location-search .location-search-inner form .area #searchResults{
+.container-fluid .location-search .location-search-inner form .srch-restro #searchResults{
     background: white;
     list-style: none;
     padding-left: 13px;
 }
-.container-fluid .location-search .location-search-inner form .area #searchResults li a{
+.container-fluid .location-search .location-search-inner form .srch-restro #searchResults li:hover{
+    background:wheat;
+    color:white;
+}
+
+.container-fluid .location-search .location-search-inner form .srch-restro #searchResults li a:hover{
+    color:white;
+}
+.container-fluid .location-search .location-search-inner form .srch-restro #searchResults li a{
     color: #5ee244;
     text-decoration: none;
     font-size: 20px;
 }
 .location-search .find-food .btn {
     line-height: 26px;
-    font-size: 13px;
+    font-size: 17px;
     font-weight: 300;
     text-transform: uppercase;
     border-top-left-radius: 0;
@@ -233,6 +248,7 @@
     padding-left: 20px;
     width: 33.33333333%;
     height: 46px;
+    font-weight:400;
 }
 
 
