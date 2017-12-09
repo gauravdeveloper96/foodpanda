@@ -1,6 +1,3 @@
-
-
-
 $(document).ready(function () {
     $('#areaSearch').on('keyup', function () {
         var keyword = $(this).val();

@@ -8,7 +8,7 @@
     </div>
     <div class="js-location-search location-search location-search-main-page  location_city_area  location">
         <div class="location-search-inner search">
-            <form action="{{route('frontend.search')}}" method="POST">
+            <form action="{{route('frontend.searchByLocation')}}" method="POST">
                 {{ csrf_field() }}
                 <div class="city">
                     <label for="cityId" class="required">Enter your city</label>
@@ -41,8 +41,8 @@
                 </div>
 
                 <div class="find-food">
-                    {{ Form::submit('Show restaurants',['class' => 'btn btn-primary btn-block'])}}
-                    {{ Form::close() }}
+                    <a href="{{route('frontend.searchByLocation')}}" style="text-decoration: none;">    {{ Form::submit('Show restaurants',['class' => 'btn btn-primary btn-block'])}}
+                        {{ Form::close() }}</a>
 
 
                 </div>
