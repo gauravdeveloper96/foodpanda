@@ -31,17 +31,19 @@ class RestaurantController extends Controller
         return $resto_name->toJson();
     }
 
-    public function searchByLoaction(Request $request)
+    public function searchByLocation(Request $request)
     {
         $radius = 10;
         
 
         $haversine = "( 6371 * acos( cos( radians(".$request->lat.") ) * cos( radians( lat ) ) * cos( radians( lng ) - radians(".$request->lng.") ) + sin( radians(".$request->lat.") ) * sin( radians( lat ) ) ) )";
-        $query  = Restaurant::select('id', 'name', 'lat', 'lng')
+        $restro  = Restaurant::select('id', 'name', 'lat', 'lng')
             ->selectRaw("{$haversine} AS distance")
             ->whereRaw("{$haversine} < ?", [$radius])
             ->get();
-            dd($query->toArray());
+//            dd($restro->toArray());
+
+        return view('frontend.RestaurantList', compact('restro'));
         
     }
 }

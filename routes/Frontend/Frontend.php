@@ -9,7 +9,7 @@ Route::get('macros', 'FrontendController@macros')->name('macros');
 Route::get('contact', 'ContactController@index')->name('contact');
 Route::post('contact/send', 'ContactController@send')->name('contact.send');
 Route::get('search','RestaurantController@search')->name('search');
-Route::post('searchbylocation','RestaurantController@searchByLoaction')->name('searchByLocation');
+Route::post('searchbylocation','RestaurantController@searchByLocation')->name('searchByLocation');
 
 /*
  * These frontend controllers require the user to be logged in
