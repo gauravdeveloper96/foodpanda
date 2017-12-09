@@ -40,6 +40,6 @@ class RestaurantController extends Controller
             ->selectRaw("{$haversine} AS distance")
             ->whereRaw("{$haversine} < ?", [$radius])
             ->get();
-        dd($query);
+        return 
     }
 }
