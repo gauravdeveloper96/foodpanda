@@ -25,19 +25,26 @@
     </div>
     <div class=" restroList col-sm-8">
 
-        <div class="col-sm-2">
+        <div class=" imagesList col-sm-1">
+            @foreach($restro as $restaurant)
+            <img  src="{{route('frontend.getentry', $restaurant->fileentries['filename'])}}" alt="ALT NAME" class="img-responsive" />
+            @endforeach
         </div>
-        <div class="col-sm-10">
+        <div class="detailsList col-sm-7">
             @foreach($restro as $restaurant)
 
-            <a href="#"> {{$restaurant->name}}</a><br>
-           
-            
+            <a href="{{route('frontend.ViewMenu',['restro_id'=>$restaurant->id])}}"> {{$restaurant->name}}</a><br>
+
+            @foreach($restaurant->groupedItems as $cate)
+
 
 
             @endforeach
-        
+            @endforeach
 
+        </div>
+        <div class="col-sm-4">
+            
         </div>
     </div>
 </div>
