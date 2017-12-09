@@ -7,7 +7,7 @@
 .container .sector a{
     color: #b5deb0;
     border: 1px solid #b5deb0;
-
+    text-decoration: none;
     padding: 5px;
 }
 .container .restroList-page .links{

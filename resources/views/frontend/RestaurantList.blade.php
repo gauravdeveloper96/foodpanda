@@ -8,7 +8,7 @@
 
 </div>
 <div class="sector">
-    <p>Sector 15 A  <a href="#">CHANGE LOCATION</a></p>
+    <p>Sector 15 A  <a href="{{ route('frontend.index') }}  ">CHANGE LOCATION</a></p>
 </div>
 <div class="restroList-page col-sm-12">
     <div class=" links col-sm-12">
@@ -29,11 +29,14 @@
         </div>
         <div class="col-sm-10">
             @foreach($restro as $restaurant)
-             {{$restaurant->img}}
+
             <a href="#"> {{$restaurant->name}}</a><br>
-                
-              
+           
+            
+
+
             @endforeach
+        
 
         </div>
     </div>
