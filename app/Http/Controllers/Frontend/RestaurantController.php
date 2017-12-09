@@ -26,10 +26,10 @@ class RestaurantController extends Controller
             'restaurantName' => 'required | min:1'
         ]);
 
-        $resto_name = Restaurant::where('name', 'like',
-                '%'.$request->restaurantName.'%')->select('id', 'name')->get();
+        $resto_name = Restaurant::where('feature_restro', 1)->where('name',
+                'like', '%'.$request->restaurantName.'%')->has('Items')->select('id', 'name')->get();
 
-        //dd( $resto_name->toJson());
+
 
         return $resto_name->toJson();
     }
@@ -38,23 +38,24 @@ class RestaurantController extends Controller
     {
         $radius = 10;
 
+         $this->validate(request(),
+            [
+            'lat' => 'required | min:1',
+            'lng' => 'required | min:1'
+        ]);
+
         //All category//
 
         $category = Category::select('id', 'category')->groupBy('category')->get();
 //        dd($category->toArray());
 
         $haversine = "( 6371 * acos( cos( radians(".$request->lat.") ) * cos( radians( lat ) ) * cos( radians( lng ) - radians(".$request->lng.") ) + sin( radians(".$request->lat.") ) * sin( radians( lat ) ) ) )";
-//        $restro  = Restaurant::select('id', 'name', 'lat', 'lng')
-//            ->selectRaw("{$haversine} AS distance")
-//            ->whereRaw("{$haversine} < ?", [$radius])
-//            ->get();
 
-        $restro = Restaurant::has('fileentries')
+        $restro = Restaurant::where('feature_restro', 1)->has('fileentries')
             ->with(['fileentries' => function($q) {
                     $q->select('id', 'filename', 'mime', 'original_filename');
                 }])
             ->has('Items')
-//            ->with('Items')
             ->with(['Items' => function($items) {
                     $items->select('id', 'restaurant_id', 'category_id')
                     ->with(['category' => function($cat) {
@@ -71,14 +72,33 @@ class RestaurantController extends Controller
                 return $restroSingle;
             });
 
-            
-//            dd($restro->toArray());
-
             return view('frontend.RestaurantList', compact('restro', 'category'));
         }
 
         public function ViewMenu($restro_id)
         {
-            return ;
+            $RestroMenu = Restaurant::where('id', $restro_id)->where('feature_restro',
+                        1)->has('fileentries')
+                    ->with(['fileentries' => function($q) {
+                            $q->select('id', 'filename', 'mime',
+                                'original_filename');
+                        }])
+                    ->has('Items')
+                    ->with(['Items' => function($items) {
+                            $items->select('id', 'name','price', 'restaurant_id')->orderBy('name')->groupBy('name');
+                        }])
+                    ->select('id', 'name', 'fileentry_id')->get();
+
+            if (isset($RestroMenu)) {
+
+                $RestroCat = Category::whereHas('Items',
+                        function($query) use($restro_id) {
+                        $query->where('restaurant_id', $restro_id);
+                    })->select('category')->orderBy('category')->groupBy('category')->get();
+            }
+
+//            dd($RestroMenu->toArray());
+
+            return view('frontend.RestaurantMenu', compact('RestroMenu','RestroCat'));
         }
     }
