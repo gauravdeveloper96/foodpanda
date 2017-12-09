@@ -34,12 +34,14 @@ class RestaurantController extends Controller
     public function searchByLoaction(Request $request)
     {
         $radius = 10;
+        
 
         $haversine = "( 6371 * acos( cos( radians(".$request->lat.") ) * cos( radians( lat ) ) * cos( radians( lng ) - radians(".$request->lng.") ) + sin( radians(".$request->lat.") ) * sin( radians( lat ) ) ) )";
         $query  = Restaurant::select('id', 'name', 'lat', 'lng')
             ->selectRaw("{$haversine} AS distance")
             ->whereRaw("{$haversine} < ?", [$radius])
             ->get();
-      
+            dd($query->toArray());
+        
     }
 }

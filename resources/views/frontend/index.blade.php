@@ -8,28 +8,41 @@
     </div>
     <div class="js-location-search location-search location-search-main-page  location_city_area  ">
         <div class="location-search-inner">
-            <form action="{{route('frontend.search')}}" method="POST">
+            <form action="{{route('frontend.searchByLocation')}}" method="POST">
                 {{ csrf_field() }}
                 <div class="city">
                     <label for="cityId" class="required">Enter your city</label>
                     <div class="dropdown-typeahead-wrapper" id="wrapper-element-1">                   
                         {{Form::select('size', ['restaurant' => 'Restaurant', 'city' => 'City'], null, ['placeholder' => 'Search By....'])}}
                         <span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
-                        </span></span>
+                        </span>
                         <i class="icon-caret icon-down-arrow"></i>
                     </div>
 
                 </div>
 
-                <div class="area">
-                    <label for="area" class="required">Enter your area</label>
-                    <input type="text" data-url="{{route('frontend.search')}}" id="areaSearch" name="restaurantName" required="required" data-prefill="location.areaName" class="form-control tt-input enter-area" placeholder="Enter an area" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
+                <div class="srch-restro">
+
+                    <input type="text"  data-url="{{route('frontend.search')}}" placeholder="Enter an restaurant" id="areaSearch" name="restaurantName" required="required" data-prefill="location.areaName" class="form-control tt-input rest"  autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;" disabled>
                     <ul id="searchResults" data-url="{{route('frontend.search')}}">
                     </ul>
                 </div>
+                <div class="srch-area">
+                    <input type="hidden"  data-url="{{route('frontend.search')}}" placeholder="Enter latitude" id="latSearch" name="lat" required="required" data-prefill="location.areaName" class="form-control tt-input lat"  autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;" disabled>
+                    <input type="hidden"  data-url="{{route('frontend.search')}}" placeholder="Enter longitude" id="longSearch" name="lng" required="required" data-prefill="location.areaName" class="form-control tt-input lng"  autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;" disabled>
+
+                    <input type="text"  data-url="{{route('frontend.search')}}" placeholder="Enter an area" id="areaSearch" name="restaurantName" required="required" data-prefill="location.areaName" class="form-control tt-input ar"  autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;" disabled>
+                    <div id="google-map">
+                        
+                    </div>
+
+                    <ul id="searchResults" data-url="{{route('frontend.search')}}">
+                    </ul>
+                </div>
+
                 <div class="find-food">
-                    {{ Form::submit('Show restaurants',['class' => 'btn btn-primary btn-block'])}}
-                    {{ Form::close() }}
+                    <a href="{{route('frontend.searchByLocation')}}" style="text-decoration: none;">    {{ Form::submit('Show restaurants',['class' => 'btn btn-primary btn-block'])}}
+                        {{ Form::close() }}</a>
 
 
                 </div>
