@@ -29,10 +29,15 @@
         </div>
         <div class="col-sm-10">
             @foreach($restro as $restaurant)
-             {{$restaurant->img}}
-            <a href="#"> {{$restaurant->name}}</a><br>
+           <img width=300 height=300 src="{{route('frontend.getentry', $restaurant->fileentries['filename'])}}" alt="ALT NAME" class="img-responsive" /><br><br>
+
+               <a href="{{route('frontend.')}}"> {{$restaurant->name}}</a><br>
+
+            @foreach($restaurant->groupedItems as $cate)
+            
                 
               
+            @endforeach
             @endforeach
 
         </div>

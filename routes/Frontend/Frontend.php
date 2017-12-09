@@ -13,6 +13,10 @@ Route::post('searchbylocation','RestaurantController@searchByLocation')->name('s
 
 Route::get('restaurantmenu/{restro_id}','RestaurantController@ViewMenu')->name('ViewMenu');
 
+Route::get('fileentry', 'FileEntryController@index')->name('index');
+
+Route::get('fileentry/get/{filename}', ['as' => 'getentry', 'uses' => 'FileentryController@get']);
+
 
 /*
  * These frontend controllers require the user to be logged in
