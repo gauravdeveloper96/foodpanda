@@ -28,8 +28,8 @@
                     </ul>
                 </div>
                 <div class="srch-area">
-                    <input type="hidden"  data-url="{{route('frontend.user.search')}}" placeholder="Enter latitude" id="latSearch" name="lat" required="required" data-prefill="location.areaName" class="form-control tt-input lat"  autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;" disabled>
-                    <input type="hidden"  data-url="{{route('frontend.user.search')}}" placeholder="Enter longitude" id="longSearch" name="lng" required="required" data-prefill="location.areaName" class="form-control tt-input lng"  autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;" disabled>
+                    <input type="text"  data-url="{{route('frontend.user.search')}}" placeholder="Enter latitude" id="latSearch" name="lat" required="required" data-prefill="location.areaName" class="form-control tt-input lat"  autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;" disabled>
+                    <input type="text"  data-url="{{route('frontend.user.search')}}" placeholder="Enter longitude" id="longSearch" name="lng" required="required" data-prefill="location.areaName" class="form-control tt-input lng"  autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;" disabled>
 
                     <input type="text"  data-url="{{route('frontend.user.search')}}" placeholder="Enter an area" id="areaSearch" name="restaurantName" required="required" data-prefill="location.areaName" class="form-control tt-input ar"  autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;" disabled>
                     <div id="google-map">
