@@ -25,6 +25,7 @@
         {{ Html::style('plugins/font-awesome/css/font-awesome.min.css') }}
         {{ Html::style('css/home.css') }}
         {{ Html::style('css/index.css') }}
+        {{ Html::style('css/RestaurantList.css') }}
 
         {!! Html::script('http://maps.googleapis.com/maps/api/js?v=3&sensor=false&amp;libraries=places&key=AIzaSyADZWdKQx3dXmvQZ04M6pZhZaBtSdaoOxw') !!}
 
