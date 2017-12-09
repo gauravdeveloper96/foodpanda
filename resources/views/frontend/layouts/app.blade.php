@@ -25,36 +25,44 @@
         {{ Html::style('plugins/font-awesome/css/font-awesome.min.css') }}
         {{ Html::style('css/home.css') }}
         {{ Html::style('css/index.css') }}
-        @endif
 
-        @yield('after-styles')
+        {!! Html::script('http://maps.googleapis.com/maps/api/js?v=3&sensor=false&amp;libraries=places&key=AIzaSyADZWdKQx3dXmvQZ04M6pZhZaBtSdaoOxw') !!}
 
-        <!-- Scripts -->
-        <script>
-            window.Laravel = <?php
+    @endif
+
+    @yield('after-styles')
+
+
+
+
+    <script>
+        window.Laravel = <?php
 echo json_encode([
     'csrfToken' => csrf_token(),
 ]);
 ?>
-        </script>
-    </head>
-    <body id="app-layout">
-        <div id="app">
-            @include('includes.partials.logged-in-as')
-            @include('frontend.includes.nav')
+    </script>
+</head>
+<body id="app-layout" >
+    <div id="app">
+        @include('includes.partials.logged-in-as')
+        @include('frontend.includes.nav')
 
-            <div class="container">
-                @include('includes.partials.messages')
-                @yield('content')
-            </div><!-- container -->
-        </div><!--#app-->
+        <div class="container">
+            @include('includes.partials.messages')
+            @yield('content')
+        </div><!-- container -->
+    </div><!--#app-->
 
-        <!-- Scripts -->
-        @yield('before-scripts')
-        {!! Html::script(('js/frontend.js')) !!}
-        {!! Html::script(('js/frontendCustom.js')) !!}
-        @yield('after-scripts')
+    <!-- Scripts -->
+    @yield('before-scripts')
+    {!! Html::script(('js/frontend.js')) !!}
+    {!! Html::script(('js/frontendCustom.js')) !!}
 
-        @include('includes.partials.ga')
-    </body>
+    {!! Html::script(('js/jquery.placepicker.js')) !!}
+     {!! Html::script(('js/jquery.geocomplete.js')) !!}
+    @yield('after-scripts')
+
+    @include('includes.partials.ga')
+</body>
 </html>
