@@ -12,7 +12,7 @@ Route::get('search','RestaurantController@search')->name('search');
 Route::get('search/{restro_id}','RestaurantController@ViewMenu');
 Route::post('restaurants','RestaurantController@searchByLocation')->name('searchByLocation');
 
-Route::get('restaurantmenu/{restro_id}','RestaurantController@ViewMenu')->name('ViewMenu');
+Route::get('restaurantmenu/{restro_id}','RestaurantController@ViewMenu')->name('viewMenu');
 
 Route::get('fileentry', 'FileEntryController@index')->name('fileentry');
 

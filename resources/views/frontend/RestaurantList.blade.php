@@ -33,7 +33,7 @@
         <div class="detailsList col-sm-7">
             @foreach($restro as $restaurant)
 
-            <a href="{{route('frontend.ViewMenu',['restro_id'=>$restaurant->id])}}"> {{$restaurant->name}}</a><br>
+            <a href="{{route('frontend.viewMenu',['restro_id'=>$restaurant->id])}}"> {{$restaurant->name}}</a><br>
 
             @foreach($restaurant->groupedItems as $cate)
             @foreach($cate as $catgo)

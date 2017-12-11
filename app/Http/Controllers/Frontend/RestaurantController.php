@@ -18,6 +18,7 @@ class RestaurantController extends Controller
         return;
     }
 
+
     public function search(Request $request)
     {
 
@@ -27,18 +28,21 @@ class RestaurantController extends Controller
         ]);
 
         $resto_name = Restaurant::where('feature_restro', 1)->where('name',
-                'like', '%'.$request->restaurantName.'%')->has('Items')->select('id', 'name')->get();
+                'like', '%'.$request->restaurantName.'%')->has('Items')->select('id',
+                'name')->get();
 
 
 
         return $resto_name->toJson();
     }
 
+    
+
     public function searchByLocation(Request $request)
     {
         $radius = 10;
 
-         $this->validate(request(),
+        $this->validate(request(),
             [
             'lat' => 'required | min:1',
             'lng' => 'required | min:1'
@@ -75,30 +79,39 @@ class RestaurantController extends Controller
             return view('frontend.RestaurantList', compact('restro', 'category'));
         }
 
-        public function ViewMenu($restro_id)
+
+
+        public function viewMenu($restro_id)
         {
-            $RestroMenu = Restaurant::where('id', $restro_id)->where('feature_restro',
-                        1)->has('fileentries')
-                    ->with(['fileentries' => function($q) {
-                            $q->select('id', 'filename', 'mime',
-                                'original_filename');
-                        }])
-                    ->has('Items')
-                    ->with(['Items' => function($items) {
-                            $items->select('id', 'name','price', 'restaurant_id')->orderBy('name')->groupBy('name');
-                        }])
-                    ->select('id', 'name', 'fileentry_id')->get();
+            $items = Item::where('restaurant_id', $restro_id)->select('id',
+                    'name')->first();
+            if (isset($items)) {
+                $RestroMenu = Restaurant::where('id', $restro_id)->where('feature_restro',
+                            1)->has('fileentries')
+                        ->with(['fileentries' => function($q) {
+                                $q->select('id', 'filename', 'mime',
+                                    'original_filename');
+                            }])
+                        ->has('Items')
+                        ->with(['Items' => function($items) {
+                                $items->select('id', 'name', 'price',
+                                    'restaurant_id')->orderBy('name')->groupBy('name');
+                            }])
+                        ->select('id', 'name', 'fileentry_id')->get();
 
-            if (isset($RestroMenu)) {
-
-                $RestroCat = Category::whereHas('Items',
-                        function($query) use($restro_id) {
-                        $query->where('restaurant_id', $restro_id);
-                    })->select('category')->orderBy('category')->groupBy('category')->get();
+                if (isset($RestroMenu)) {
+//                 dd('777');
+                    $RestroCat = Category::whereHas('Items',
+                            function($query) use($restro_id) {
+                            $query->where('restaurant_id', $restro_id);
+                        })->select('category')
+                        ->orderBy('category')
+                        ->groupBy('category')
+                        ->get();
+                }
+                return view('frontend.RestaurantMenu', compact('RestroMenu', 'RestroCat'));
             }
+            else return back();
 
-//            dd($RestroMenu->toArray());
-
-            return view('frontend.RestaurantMenu', compact('RestroMenu','RestroCat'));
         }
     }
