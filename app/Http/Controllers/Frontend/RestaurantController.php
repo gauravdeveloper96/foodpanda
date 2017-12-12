@@ -85,39 +85,63 @@ class RestaurantController extends Controller
                 ->select('id', 'name')
                 ->first();
             if (isset($items)) {
-                $RestroMenu = Restaurant::where('id', $restro_id)
-                    ->where('feature_restro', 1)
-                    ->has('fileentries')
+                $RestroMenu = Restaurant::where('feature_restro', 1)->where('id',$restro_id)->has('fileentries')
                     ->with(['fileentries' => function($q) {
                             $q->select('id', 'filename', 'mime',
                                 'original_filename');
                         }])
                     ->has('Items')
                     ->with(['Items' => function($items) {
-                            $items->select('id', 'name', 'price',
-                                'restaurant_id')
-                            ->groupBy('name');
+                            $items->select('id','name' ,'restaurant_id', 'category_id')
+                            ->with(['category' => function($cat) {
+                                    $cat->select('id', 'category');
+                                }]);
                         }])
-                    ->select('id', 'name', 'fileentry_id')
-                    ->get();
-
-                if (isset($RestroMenu)) {
-//                 dd('777');
-                    $RestroCat = Category::whereHas('Items',
-                            function($query) use($restro_id) {
-                            $query->where('restaurant_id', $restro_id);
-                        })
-                        ->with(['Items' => function($q) {
-                                $q->select('id', 'name')
-                                ->groupBy('name');
-                            }])
-                        ->select('id', 'category')
-                        ->groupBy('category')
+                        ->select('id', 'name', 'fileentry_id')
                         ->get();
-                    dd($RestroCat->toArray());
-                }
-                return view('frontend.RestaurantMenu',
-                    compact('RestroMenu', 'RestroCat'));
-            } else return back();
+
+                    $RestroMenu->transform(function ($restroSingle, $key) {
+                        $restroSingle->groupedItems = $restroSingle->Items
+                            ->groupBy('category_id')
+                            ->toArray();
+                        return $restroSingle;
+                    });
+                    dd($RestroMenu->toArray());
+//                $RestroMenu = Restaurant::where('id', $restro_id)
+//                    ->where('feature_restro', 1)
+//                    ->has('fileentries')
+//                    ->with(['fileentries' => function($q) {
+//                            $q->select('id', 'filename', 'mime',
+//                                'original_filename');
+//                        }])
+//                    ->has('Items')
+//                    ->with(['Items' => function($items) {
+//                            $items->select('id', 'name', 'price',
+//                                'restaurant_id')
+//                            ->groupBy('name');
+//                        }])
+//                    ->select('id', 'name', 'fileentry_id')
+//                    ->get();
+
+                    if (isset($RestroMenu)) {
+//                 dd('777');
+                        $RestroCat = Category::whereHas('Items',
+                                function($query) use($restro_id) {
+                                $query->where('restaurant_id', $restro_id);
+                            })
+                            ->with(['Items' => function($q) {
+                                    $q->select('id', 'name', 'category_id')
+                                    ->groupBy('name');
+                                }])
+                            ->select('id', 'category')
+                            ->groupBy('category')
+                            ->get();
+//                    dd($RestroCat->toArray());
+                    }
+
+
+
+                    return view('frontend.RestaurantMenu',compact('RestroMenu', 'RestroCat'));
+                } else return back();
+            }
         }
-    }
