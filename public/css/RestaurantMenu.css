@@ -1,12 +1,6 @@
 .container .container-fluid .restro-head{
     text-align: center;
-<<<<<<< HEAD
-.container .container-fluid .restro-head{
-    text-align: center;
 
-   
-    
-}
 .container .container-fluid .restro-head .restro-title{
  background: transparent;
     width: 17%;
@@ -65,7 +59,7 @@
 .container .restro-menu .restroList .item-detail .item-price{
     float:right;
 }
-=======
+
 
 
 }
@@ -134,7 +128,7 @@
     
 }
 .container .restro-menu .restroList .item-detail {
-    border-bottom: 2px solid #f5f8fa;
+  
     padding-left: 0;
      padding-right: 0;
 }
@@ -185,7 +179,7 @@
 }
 
 
-}
+
 .container .container-fluid .restro-head .restro-title{
    
     width: 17%;
@@ -305,122 +299,7 @@
     padding-left: 10px;
     padding-right: 10px;
 }
-=======
 
 
-}
-.container .container-fluid .restro-head .restro-title{
-   
-    width: 17%;
-    margin-left: 522px;
-    border: 0;
-    background: rgba(255,255,255,0.5);
-    /* padding: 23px 40px 23px 40px; */
-    /* margin: 20px auto; */
-    border-radius: 4px;
-    color: #444;
-    /* width: 76%; */
-}
-.container .container-fluid .restro-head img{
-    width: 6%;
-    height: 70px;
-    margin-left: 587px;
-    margin-top: 51px;
-    border: 2px solid;
-    border-radius: 7px;
-}
-.container .container-fluid .restro-head h1{
-    color:red;
-    margin-top:0;
-}
-.container .container-fluid .restro-head li{
-    float:left;
-    list-style: none;
-    display:inline;
-}
-.container .restroList-page .menu-links{
-    padding-left: 119px;
-    font-size: 14px;
-    padding-top: 18px;
-    padding-bottom: 17px;
-}
-.container .restroList-page .menu-links a{
-    color: #c7d1d1;
-    padding-bottom: 10px;
 
-    text-decoration: none;
-}
-.restro-menu{
-    background: white;
-    border-right: 15px solid #f5f8fa;
-}
-.restroList-page .restro-menu-list .restro-menu .restro-menu-links{
-    padding-top: 10px;
 
-    border-bottom: 2px solid #f5f8fa;
-   padding-left: 0;
-    padding-bottom: 8px;
-}
-.restroList-page .restro-menu-list .restro-menu .restro-menu-links a{
-    color:#d8d7db;
-    text-decoration: none;
-}
-.container .restroList-page .menu-food-category-list{
-    padding-left: 0;
-    color: #c7d1d1;
-    font-size: 14px;
-    position: fixed;
-    overflow-x: hidden;
-    
-}
-.container .restro-menu .restroList .item-detail {
-/*    border-bottom: 2px solid #f5f8fa;*/
-    padding-left: 0;
-     padding-right: 0;
-}
-.container .restro-menu .restroList .item-detail .item-name{
-    float:left;
-}
-.container .restro-menu .restroList .item-detail .item-price{
-    float:right;
-}
-.container .restro-menu .restroList .item-detail .item-price i{
-    border: 2px solid #99ce9f;
-    border-radius: 86px;
-    padding: 4px;
-    color: #99ce9f;
-    margin-left: 10px;
-}
-.container .restro-menu .restroList .item-detail .item-price button{
-    background: none;
-    border-width: 0;
-}
-.container .restroList-page .restro-menu-list .my-order{
-    background:white;
-    position:fixed;
-   left:950px;
-}
-.container .restroList-page .restro-menu-list .my-order .order-title{
-    border-bottom: 2px solid #f5f8fa;      
-    }
-
-.container .restroList-page .restro-menu-list .my-order .order-title h2{
-    font-size: 22px;
-   margin-bottom: 7px;
-    margin-top: 10px;
-}
-.container .restroList-page .restro-menu-list .my-order .basket{
-    text-align:center;
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
-.container .restroList-page .restro-menu-list .my-order .basket button{
-    color: white;
-    background: #5ee247;
-    border-width: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
->>>>>>> origin/master
