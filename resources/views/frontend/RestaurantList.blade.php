@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fluid" style="height:251px; ">
     <div class="col-sm-12" style="float:none;">
-        <p class="text"  style="padding-left: 381px; padding-top: 60px; ">Order from restaurants</p>
+        <p class="text"  style="padding-left: 381px; padding-top: 60px; ">Order from {{$count}} restaurants</p>
         <p class="para-text" style="padding-left: 446px;">delivering to your door</p>
     </div>
 
@@ -34,7 +34,7 @@
 
 
             <a href="{{route('frontend.viewMenu',['restro_id'=>$restaurant->id])}}"> {{$restaurant->name}}</a>
-            <i class="fa fa-angle-right" style=""></i><br>
+            <a href="{{route('frontend.viewMenu',['restro_id'=>$restaurant->id])}}">  <i class="fa fa-angle-right" style=""></i></a><br>
 
             @foreach($restaurant->groupedItems as $cate)
             @foreach($cate as $catgo)
@@ -46,23 +46,8 @@
             @endforeach
             @endforeach<br>
             <i class="fa fa-inr"></i>
-            <ul class='stars'>
-                <li class='star' data-value='1'>
-                    <i class='fa fa-star '></i>
-                </li>
-                <li class='star' data-value='2'>
-                    <i class='fa fa-star '></i>
-                </li>
-                <li class='star'  data-value='3'>
-                    <i class='fa fa-star'></i>
-                </li>
-                <li class='star' data-value='4'>
-                    <i class='fa fa-star'></i>
-                </li>
-                <li class='star' data-value='5'>
-                    <i class='fa fa-star'></i>
-                </li>
-            </ul>
+            <div class="rateit">
+            </div>
 
 
         </div>

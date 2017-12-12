@@ -26,44 +26,46 @@
         {{ Html::style('css/home.css') }}
         {{ Html::style('css/index.css') }}
         {{ Html::style('css/RestaurantList.css') }}
+        {{ Html::style('css/rateit.css') }}
 
         {!! Html::script('http://maps.googleapis.com/maps/api/js?v=3&sensor=false&amp;libraries=places&key=AIzaSyADZWdKQx3dXmvQZ04M6pZhZaBtSdaoOxw') !!}
 
-    @endif
+        @endif
 
-    @yield('after-styles')
-
-
+        @yield('after-styles')
 
 
-    <script>
-        window.Laravel = <?php
+
+
+        <script>
+            window.Laravel = <?php
 echo json_encode([
     'csrfToken' => csrf_token(),
 ]);
 ?>
-    </script>
-</head>
-<body id="app-layout" >
-    <div id="app">
-        @include('includes.partials.logged-in-as')
-        @include('frontend.includes.nav')
+        </script>
+    </head>
+    <body id="app-layout" >
+        <div id="app">
+            @include('includes.partials.logged-in-as')
+            @include('frontend.includes.nav')
 
-        <div class="container">
-            @include('includes.partials.messages')
-            @yield('content')
-        </div><!-- container -->
-    </div><!--#app-->
+            <div class="container">
+                @include('includes.partials.messages')
+                @yield('content')
+            </div><!-- container -->
+        </div><!--#app-->
 
-    <!-- Scripts -->
-    @yield('before-scripts')
-    {!! Html::script(('js/frontend.js')) !!}
-    {!! Html::script(('js/frontendCustom.js')) !!}
+        <!-- Scripts -->
+        @yield('before-scripts')
+        {!! Html::script(('js/frontend.js')) !!}
+        {!! Html::script(('js/frontendCustom.js')) !!}
 
-    {!! Html::script(('js/jquery.placepicker.js')) !!}
-     {!! Html::script(('js/jquery.geocomplete.js')) !!}
-    @yield('after-scripts')
+        {!! Html::script(('js/jquery.placepicker.js')) !!}
+        {!! Html::script(('js/jquery.geocomplete.js')) !!}
+         {!! Html::script(('js/jquery.rateit.js')) !!}
+        @yield('after-scripts')
 
-    @include('includes.partials.ga')
-</body>
+        @include('includes.partials.ga')
+    </body>
 </html>
