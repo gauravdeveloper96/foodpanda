@@ -21,7 +21,7 @@
 
 </div>
 <div class="sector">
-    <p>Sector 15 A  <a href="{{ route('frontend.index') }}  ">CHANGE LOCATION</a></p>
+    <p>{{$rest['name']}} can deliver to you at sector 15 A  <a href="{{ route('frontend.index') }}  ">CHANGE LOCATION</a></p>
 </div>
 
 <div class="restroList-page col-sm-12">
@@ -54,7 +54,8 @@
                     @foreach($rest->items as $item)
                     <div class="item-detail col-sm-12">
                         <h5 class="item-name">   {{$item['name']}}</h5>
-                        <h5 class="item-price">Rs.{{$item['price']}}</h5><br>
+                        <h5 class="item-price">Rs.{{$item['price']}} 
+                            <button>  <i class="fa fa-plus" aria-hidden="true"></button></i></h5><br>
                     </div>
                     @endforeach
                     @endforeach
@@ -62,11 +63,23 @@
                 </div>
             </div>
         </div>
+        <div class="my-order col-sm-3">
+
+            <div class="order-title">
+                <h2> 
+                    Your Order
+                </h2>
+
+            </div>
+            <div class="basket">
+                <i class="fa fa-shopping-basket" aria-hidden="true"></i><br>
+                <p> Add items into basket</p>
+                <a href=""> <button>PROCEED TO CHECKOUT</button></a>
+            </div>
+        </div>
 
     </div>
-    <div class="my-order col-sm-3">
 
-    </div>
 
 
 
