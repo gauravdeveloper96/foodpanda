@@ -12,33 +12,39 @@
 }
 .container .restroList-page .links{
     padding-left: 80px;
-   font-size: 14px;
+    font-size: 14px;
     padding-top: 18px;
 }
 .container .restroList-page .links a{
     color: #c7d1d1;
     padding-bottom: 10px;
-   
+
     text-decoration: none;
 }
 .container .restroList-page .links .filter{
-     color: #c7d1d1;
+    color: #c7d1d1;
+    margin-bottom: 0;
 }
+.container .restroList-page .links .filter i{
+    padding-top: 27px;
+}
+
 .container .restroList-page .food-category-list{
     padding-left: 96px;
-     color: #c7d1d1;
-     font-size: 14px;
+    color: #c7d1d1;
+    font-size: 14px;
 }
 .container .restroList-page .restroList {
-  
- 
+
+
 }
 .container .restroList-page .restroList .detailsList{
-      background:white;
-       padding-top: 10px;
-    padding-bottom:16px;
-   
-   
+    background:white;
+    padding-top: 10px;
+    padding-bottom:10px;
+    border-bottom: 3px solid #f5f8fa;
+
+
 }
 .container .restroList-page .restroList .detailsList a{
     color:black;
@@ -46,12 +52,32 @@
     font-size:20px;
     font-weight:400;
 }
-.container .restroList-page .restroList .imagesList{
-      background:white;
-       padding-top: 10px;
-    padding-bottom: 10px;
+
+.container .restroList-page .restroList .detailsList img{
+    height: 81px;
+    width: 10%;
+    float:left;
+    margin-right: 10px;
 }
-.container .restroList-page .restroList .imagesList img{
-    height:60px;
-    width:105%;
+.container .restroList-page .restroList .detailsList .fa-angle-right{
+    padding-top: 27px;
+    float: right;
+    font-size: 34px;
+    color: #cadde7;
+}
+.container .restroList-page .restroList .detailsList .stars{
+    list-style: none;
+    display:inline;
+}
+.container .restroList-page .restroList .detailsList .star{
+    float:left;
+}
+.container .restroList-page .restroList .detailsList .star i{
+    color:#f5f8fa;
+}
+.container .restroList-page .restroList .detailsList .fa-inr{
+    float: left;
+    padding-top: 5px;
+    padding-right: 22px;
+   
 }
