@@ -74,6 +74,8 @@
 }
 .container .restroList-page .restroList .detailsList .star i{
     color:#f5f8fa;
+    font-size: 20px;
+    padding-top: 4px;
 }
 .container .restroList-page .restroList .detailsList .fa-inr{
     float: left;

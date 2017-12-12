@@ -34,7 +34,7 @@
 
 
             <a href="{{route('frontend.viewMenu',['restro_id'=>$restaurant->id])}}"> {{$restaurant->name}}</a>
-            <i class="fa fa-angle-right" style=""></i><br>
+            <a href="{{route('frontend.viewMenu',['restro_id'=>$restaurant->id])}}">  <i class="fa fa-angle-right" style=""></i></a><br>
 
             @foreach($restaurant->groupedItems as $cate)
             @foreach($cate as $catgo)
