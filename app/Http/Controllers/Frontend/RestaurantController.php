@@ -18,7 +18,6 @@ class RestaurantController extends Controller
         return;
     }
 
-
     public function search(Request $request)
     {
 
@@ -35,8 +34,6 @@ class RestaurantController extends Controller
 
         return $resto_name->toJson();
     }
-
-    
 
     public function searchByLocation(Request $request)
     {
@@ -71,15 +68,15 @@ class RestaurantController extends Controller
                 ->whereRaw("{$haversine} < ?", [$radius])
                 ->get();
 
+            $count = $restro->count();
+
             $restro->transform(function ($restroSingle, $key) {
                 $restroSingle->groupedItems = $restroSingle->Items->groupBy('category_id')->toArray();
                 return $restroSingle;
             });
 
-            return view('frontend.RestaurantList', compact('restro', 'category'));
+            return view('frontend.RestaurantList', compact('restro', 'category','count'));
         }
-
-
 
         public function viewMenu($restro_id)
         {
@@ -95,7 +92,7 @@ class RestaurantController extends Controller
                         ->has('Items')
                         ->with(['Items' => function($items) {
                                 $items->select('id', 'name', 'price',
-                                    'restaurant_id')->orderBy('name')->groupBy('name');
+                                    'restaurant_id')->groupBy('name');
                             }])
                         ->select('id', 'name', 'fileentry_id')->get();
 
@@ -109,9 +106,8 @@ class RestaurantController extends Controller
                         ->groupBy('category')
                         ->get();
                 }
-                return view('frontend.RestaurantMenu', compact('RestroMenu', 'RestroCat'));
-            }
-            else return back();
-
+                return view('frontend.RestaurantMenu',
+                    compact('RestroMenu', 'RestroCat'));
+            } else return back();
         }
     }
