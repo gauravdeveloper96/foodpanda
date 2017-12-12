@@ -48,7 +48,7 @@
                     @foreach($restaurant->groupedItems as $cate)
 
                     @foreach($cate as $catgo)
-                    <a href="#"> {{$catgo['category']['category']}}</a><br>
+                    <a href="#anchor" class="refer"> {{$catgo['category']['category']}}</a><br>
                     @break;
 
                     @endforeach
@@ -63,7 +63,7 @@
 
                     @foreach($restaurant->groupedItems as $cate)
                     @foreach($cate as $category )
-                    <h2>{{$category['category']['category']}}</h2>
+                    <h2 id="anchor">{{$category['category']['category']}}</h2>
                     @break;
                     @endforeach
                     @foreach($cate as $catgo)

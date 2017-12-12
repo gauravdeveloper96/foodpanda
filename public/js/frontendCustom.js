@@ -42,8 +42,11 @@ $(document).ready(function () {
     });
     $(".ar").geocomplete({ details: "form" });
 $('.rateit').rateit();
-    
-
+    $('.refer').on('click',function(){
+    $(document.body).animate({
+    'scrollTop':   $('#anchor').offset().top
+}, 2000);
+    });
 });
 
 
