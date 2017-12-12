@@ -41,24 +41,40 @@
             </div>
             <div class="col-sm-12">
                 <div class="menu-food-category-list col-sm-4">
-                    @foreach($RestroCat as $category)
-                    {{$category->category}}<br>
+                    @foreach($RestroMenu as $restaurant)
+                    
+                    @foreach($restaurant->groupedItems as $cate)
+                   
+                    @foreach($cate as $catgo)
+                    {{$catgo['category']['category']}}<br>
+                    @break;
+
+                    @endforeach
+                    @endforeach
                     @endforeach
                 </div>
                 <div class=" restroList col-sm-8">
 
 
 
-                    @foreach($RestroMenu as $rest)
-
-                    @foreach($rest->items as $item)
+                 @foreach($RestroMenu as $restaurant)
+                    
+                    @foreach($restaurant->groupedItems as $cate)
+                    @foreach($cate as $category )
+                    {{$category['category']['category']}}<br>
+                    @break;
+                    @endforeach
+                     @foreach($cate as $catgo)
                     <div class="item-detail col-sm-12">
-                        <h5 class="item-name">   {{$item['name']}}</h5>
-                        <h5 class="item-price">Rs.{{$item['price']}} 
-                            <button>  <i class="fa fa-plus" aria-hidden="true"></button></i></h5><br>
+                        <h5 class="item-name">   {{$catgo['name']}}</h5>
+                        <h5 class="item-price">Rs.{{$catgo['price']}} 
+                            <button>  <i class="fa fa-plus" aria-hidden="true"></button></i></h5>
                     </div>
+                      @endforeach
                     @endforeach
                     @endforeach
+
+
 
                 </div>
             </div>
