@@ -40,6 +40,9 @@ Route::group(['middleware' => 'auth'], function () {
          */
         Route::patch('profile/update', 'ProfileController@update')->name('profile.update');
 
+        Route::get('addtocart/{item_id}', 'CartController@addToCart')->name('addtocart');
+        
+
         //restaurantSearch
         
     });

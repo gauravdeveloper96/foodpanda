@@ -13,7 +13,7 @@ class CartController extends Controller
         return ;
     }
 
-    public function addToCart(Request $request){
+    public function addToCart(Request $request,$item_id){
 
         $isAdmin= User::where('id',auth()->user()->id)->select('id','email')->first();
 
@@ -23,7 +23,10 @@ class CartController extends Controller
 
             return back();
         }
+        if(Auth::check()){
+            return ;
+        }
         else
-            return;
+            return redirect()->route('login');
     }
 }
