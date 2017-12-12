@@ -15,7 +15,10 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        //
+
+        Cart::class => CartPolicy::class,
+
+
     ];
 
     /**
