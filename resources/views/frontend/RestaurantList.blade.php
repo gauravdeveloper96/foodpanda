@@ -18,36 +18,56 @@
 
     </div>
 
-    <div class="food-category-list col-sm-4">
+    <div class="food-category-list col-sm-3">
         @foreach($category as $cat) 
         {{$cat->category}}<br>
         @endforeach
     </div>
-    <div class=" restroList col-sm-8">
+    <div class=" restroList col-sm-9">
 
-        <div class=" imagesList col-sm-1">
-            @foreach($restro as $restaurant)
+
+
+        @foreach($restro as $restaurant)
+        <div class="detailsList col-sm-11">
             <img  src="{{route('frontend.getentry', $restaurant->fileentries['filename'])}}" alt="ALT NAME" class="img-responsive" />
-            @endforeach
-        </div>
-        <div class="detailsList col-sm-7">
-            @foreach($restro as $restaurant)
 
-            <a href="{{route('frontend.viewMenu',['restro_id'=>$restaurant->id])}}"> {{$restaurant->name}}</a><br>
+
+
+            <a href="{{route('frontend.viewMenu',['restro_id'=>$restaurant->id])}}"> {{$restaurant->name}}</a>
+            <i class="fa fa-angle-right" style=""></i><br>
 
             @foreach($restaurant->groupedItems as $cate)
             @foreach($cate as $catgo)
-            
+
             {{$catgo['category']['category']}}
 
             @break;
-            
+
             @endforeach
             @endforeach<br>
-            @endforeach
+            <i class="fa fa-inr"></i>
+            <ul class='stars'>
+                <li class='star' data-value='1'>
+                    <i class='fa fa-star '></i>
+                </li>
+                <li class='star' data-value='2'>
+                    <i class='fa fa-star '></i>
+                </li>
+                <li class='star'  data-value='3'>
+                    <i class='fa fa-star'></i>
+                </li>
+                <li class='star' data-value='4'>
+                    <i class='fa fa-star'></i>
+                </li>
+                <li class='star' data-value='5'>
+                    <i class='fa fa-star'></i>
+                </li>
+            </ul>
+
 
         </div>
-        <div class="col-sm-4">
+        @endforeach
+        <div class="col-sm-1">
 
         </div>
     </div>
