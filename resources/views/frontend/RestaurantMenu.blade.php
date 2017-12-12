@@ -27,8 +27,10 @@
 <div class="restroList-page col-sm-12">
     <div class=" menu-links col-sm-12">
         <a href="{{ route('frontend.index') }}">Home > </a>
-        <a href="#">Restaurant</a><br>
-
+        <a href="#">Restaurant > </a>
+        @foreach($RestroMenu as $restaurant)
+        <a href="{{route('frontend.viewMenu',['restro_id'=>$restaurant->id])}}">{{$rest['name']}}</a><br>
+        @endforeach
     </div>
     <div class=" restro-menu-list col-sm-12">
 
@@ -42,11 +44,11 @@
             <div class="col-sm-12">
                 <div class="menu-food-category-list col-sm-4">
                     @foreach($RestroMenu as $restaurant)
-                    
+
                     @foreach($restaurant->groupedItems as $cate)
-                   
+
                     @foreach($cate as $catgo)
-                    {{$catgo['category']['category']}}<br>
+                    <a href="#"> {{$catgo['category']['category']}}</a><br>
                     @break;
 
                     @endforeach
@@ -57,20 +59,20 @@
 
 
 
-                 @foreach($RestroMenu as $restaurant)
-                    
+                    @foreach($RestroMenu as $restaurant)
+
                     @foreach($restaurant->groupedItems as $cate)
                     @foreach($cate as $category )
-                    {{$category['category']['category']}}<br>
+                    <h2>{{$category['category']['category']}}</h2>
                     @break;
                     @endforeach
-                     @foreach($cate as $catgo)
+                    @foreach($cate as $catgo)
                     <div class="item-detail col-sm-12">
                         <h5 class="item-name">   {{$catgo['name']}}</h5>
                         <h5 class="item-price">Rs.{{$catgo['price']}} 
                             <button>  <i class="fa fa-plus" aria-hidden="true"></button></i></h5>
                     </div>
-                      @endforeach
+                    @endforeach
                     @endforeach
                     @endforeach
 

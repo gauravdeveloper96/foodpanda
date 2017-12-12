@@ -65,7 +65,12 @@
     font-size: 14px;
     position: fixed;
     overflow-x: hidden;
+    padding-top: 27px;
     
+}
+.container .restroList-page .menu-food-category-list a{
+    color:#d9d6da;
+    text-decoration:none;
 }
 .container .restro-menu .restroList .item-detail {
 /*    border-bottom: 2px solid #f5f8fa;*/
