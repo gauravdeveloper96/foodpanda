@@ -11,13 +11,13 @@
     padding: 5px;
 }
 .container .restroList-page{
-  
+
 }
 .container .restroList-page .links{
     padding-left: 80px;
     font-size: 14px;
     padding-top: 18px;
-  
+
 }
 .container .restroList-page .links a{
     color: #c7d1d1;
@@ -34,14 +34,19 @@
 }
 
 .container .restroList-page .food-category-list{
-    padding-left: 96px;
+  padding-left: 96px;
     color: #c7d1d1;
     font-size: 14px;
-  
+    position: fixed;
+    z-index: 1;
+    top: 265px;
+    left: 10px;
+    overflow-x: hidden;
+
 }
 .container .restroList-page .restroList {
 
-   
+
     float: right;
 }
 .container .restroList-page .restroList .detailsList{

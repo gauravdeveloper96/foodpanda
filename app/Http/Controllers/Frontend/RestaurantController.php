@@ -102,7 +102,7 @@ class RestaurantController extends Controller
                             function($query) use($restro_id) {
                             $query->where('restaurant_id', $restro_id);
                         })->select('category')
-                        ->orderBy('category')
+                        
                         ->groupBy('category')
                         ->get();
                 }

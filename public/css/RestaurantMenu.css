@@ -1,0 +1,63 @@
+.container .container-fluid .restro-head{
+    text-align: center;
+   
+    
+}
+.container .container-fluid .restro-head .restro-title{
+ background: transparent;
+    width: 17%;
+    margin-left: 522px;
+}
+.container .container-fluid .restro-head img{
+   width: 6%;
+    height: 70px;
+    margin-left: 587px;
+    margin-top: 51px;
+    border: 2px solid;
+    border-radius: 7px;
+}
+.container .container-fluid .restro-head h1{
+    color:red;
+    margin-top:0;
+}
+.container .container-fluid .restro-head li{
+    float:left;
+    list-style: none;
+    display:inline;
+}
+.container .restroList-page .menu-links{
+    padding-left: 119px;
+    font-size: 14px;
+    padding-top: 18px;
+    padding-bottom: 17px;
+}
+.container .restroList-page .menu-links a{
+    color: #c7d1d1;
+    padding-bottom: 10px;
+
+    text-decoration: none;
+}
+.restro-menu{
+    background: white;
+}
+.restroList-page .restro-menu-list .restro-menu .restro-menu-links{
+    padding-top: 10px;
+
+    border-bottom: 2px solid #f5f8fa;
+    padding-left: 10px;
+    padding-bottom: 8px;
+}
+.restroList-page .restro-menu-list .restro-menu .restro-menu-links a{
+    color:#d8d7db;
+}
+.container .restroList-page .menu-food-category-list{
+    padding-left: 0;
+     color: #c7d1d1;
+    font-size: 14px;
+}
+.container .restro-menu .restroList .item-detail .item-name{
+    float:left;
+}
+.container .restro-menu .restroList .item-detail .item-price{
+    float:right;
+}
