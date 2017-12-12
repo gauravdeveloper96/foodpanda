@@ -11,13 +11,13 @@
     padding: 5px;
 }
 .container .restroList-page{
-    position:relative;
+  
 }
 .container .restroList-page .links{
     padding-left: 80px;
     font-size: 14px;
     padding-top: 18px;
-    position: relative;
+  
 }
 .container .restroList-page .links a{
     color: #c7d1d1;
@@ -37,11 +37,11 @@
     padding-left: 96px;
     color: #c7d1d1;
     font-size: 14px;
-    position:fixed;
+  
 }
 .container .restroList-page .restroList {
 
-    position:relative;
+   
     float: right;
 }
 .container .restroList-page .restroList .detailsList{
