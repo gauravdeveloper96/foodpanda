@@ -21,7 +21,7 @@
 
 </div>
 <div class="sector">
-    <p>Sector 15 A  <a href="{{ route('frontend.index') }}  ">CHANGE LOCATION</a></p>
+    <p>{{$rest['name']}} can deliver to you at sector 15 A  <a href="{{ route('frontend.index') }}  ">CHANGE LOCATION</a></p>
 </div>
 
 <div class="restroList-page col-sm-12">
@@ -56,33 +56,46 @@
                 <div class=" restroList col-sm-8">
 
 
-                    @foreach($RestroMenu as $restaurant)
+
+                 @foreach($RestroMenu as $restaurant)
                     
                     @foreach($restaurant->groupedItems as $cate)
                     @foreach($cate as $category )
                     {{$category['category']['category']}}<br>
                     @break;
                     @endforeach
-                    
-                    @foreach($cate as $catgo)
-                   
+                     @foreach($cate as $catgo)
                     <div class="item-detail col-sm-12">
                         <h5 class="item-name">   {{$catgo['name']}}</h5>
-                        <h5 class="item-price">Rs.{{$catgo['price']}}</h5><br>
+                        <h5 class="item-price">Rs.{{$catgo['price']}} 
+                            <button>  <i class="fa fa-plus" aria-hidden="true"></button></i></h5>
                     </div>
-                    @endforeach
+                      @endforeach
                     @endforeach
                     @endforeach
 
-                  
+
+
                 </div>
+            </div>
+        </div>
+        <div class="my-order col-sm-3">
+
+            <div class="order-title">
+                <h2> 
+                    Your Order
+                </h2>
+
+            </div>
+            <div class="basket">
+                <i class="fa fa-shopping-basket" aria-hidden="true"></i><br>
+                <p> Add items into basket</p>
+                <a href=""> <button>PROCEED TO CHECKOUT</button></a>
             </div>
         </div>
 
     </div>
-    <div class="my-order col-sm-3">
 
-    </div>
 
 
 
