@@ -41,6 +41,7 @@ $(document).ready(function () {
 
     });
     $(".ar").geocomplete({ details: "form" });
+$('.rateit').rateit();
     
 
 });
