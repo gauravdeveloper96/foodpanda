@@ -75,36 +75,46 @@ class RestaurantController extends Controller
                 return $restroSingle;
             });
 
-            return view('frontend.RestaurantList', compact('restro', 'category','count'));
+            return view('frontend.RestaurantList',
+                compact('restro', 'category', 'count'));
         }
 
         public function viewMenu($restro_id)
         {
-            $items = Item::where('restaurant_id', $restro_id)->select('id',
-                    'name')->first();
+            $items = Item::where('restaurant_id', $restro_id)
+                ->select('id', 'name')
+                ->first();
             if (isset($items)) {
-                $RestroMenu = Restaurant::where('id', $restro_id)->where('feature_restro',
-                            1)->has('fileentries')
-                        ->with(['fileentries' => function($q) {
-                                $q->select('id', 'filename', 'mime',
-                                    'original_filename');
-                            }])
-                        ->has('Items')
-                        ->with(['Items' => function($items) {
-                                $items->select('id', 'name', 'price',
-                                    'restaurant_id')->groupBy('name');
-                            }])
-                        ->select('id', 'name', 'fileentry_id')->get();
+                $RestroMenu = Restaurant::where('id', $restro_id)
+                    ->where('feature_restro', 1)
+                    ->has('fileentries')
+                    ->with(['fileentries' => function($q) {
+                            $q->select('id', 'filename', 'mime',
+                                'original_filename');
+                        }])
+                    ->has('Items')
+                    ->with(['Items' => function($items) {
+                            $items->select('id', 'name', 'price',
+                                'restaurant_id')
+                            ->groupBy('name');
+                        }])
+                    ->select('id', 'name', 'fileentry_id')
+                    ->get();
 
                 if (isset($RestroMenu)) {
 //                 dd('777');
                     $RestroCat = Category::whereHas('Items',
                             function($query) use($restro_id) {
                             $query->where('restaurant_id', $restro_id);
-                        })->select('category')
-                        ->orderBy('category')
+                        })
+                        ->with(['Items' => function($q) {
+                                $q->select('id', 'name')
+                                ->groupBy('name');
+                            }])
+                        ->select('id', 'category')
                         ->groupBy('category')
                         ->get();
+                    dd($RestroCat->toArray());
                 }
                 return view('frontend.RestaurantMenu',
                     compact('RestroMenu', 'RestroCat'));
