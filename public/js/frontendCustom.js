@@ -54,13 +54,34 @@ $(document).ready(function () {
     $('.menu-food-category-list').floatit();
     $('.my-order').floatit();
     $('.food-category-list').floatit();
-    $('.items-add').on('click', function () {
+    $('.items-add').on('click', function (e) {
+        e.preventDefault();
+//        var itemName = $(this).siblings(':first').text();
+//        var itemPrice = $(this).prev().text();
+        var urlsrch = $(this).attr('href');
+
         $.ajax({
-           var keyword=$(this).parent().val() 
-            
-            
+            url: urlsrch,
+            dataType: 'json',
+            type: 'get',
+//            data: {
+//                name: itemName,
+//                price: itemPrice
+//            },
+            success: function (items) {
+                $(".basket p").html('');
+                $(".basket i").hide();
+                $.each(items, function (i,item) {
+                    $(".basket p").append(item.name + item.price);
+                });
+
+            }
+
+
         });
+
     });
+
 });
 
 

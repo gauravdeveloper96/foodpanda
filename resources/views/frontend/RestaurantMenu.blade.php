@@ -69,8 +69,8 @@
                     @foreach($cate as $catgo)
                     <div class="item-detail col-sm-12">
                         <h5 class="item-name">   {{$catgo['name']}}</h5>
-                        <h5 class="item-price">Rs.{{$catgo['price']}} 
-                            <a href="{{route('frontend.user.addtocart',$catgo['id'])}}"><button>  <i class="fa fa-plus" aria-hidden="true"></i></button></a> </h5>
+                        <h5 class="item-price">Rs.{{$catgo['price']}} </h5>
+                            <a href="{{route('frontend.user.addtocart',$catgo['id'])}}" class="items-add"><button>  <i class="fa fa-plus" aria-hidden="true"></i></button></a> 
                     </div>
                     @endforeach
                     @endforeach
