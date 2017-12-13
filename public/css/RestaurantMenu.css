@@ -53,16 +53,16 @@
     color:#d8d7db;
 }
 #app-layout .menu-food-category-list{
-    padding-top: 25px;
+    padding-top: 22px;
     width: 20.3333%;
 }
 
 #app-layout .floating a{
-  color: #d5d8dc;
+    color: #d5d8dc;
     text-decoration: none;
     font-size: 14px;
-    
-    
+
+
 }
 .container .restro-menu .restroList .item-detail .item-name{
     float:left;
@@ -76,15 +76,18 @@
 
 .container .container-fluid .restro-head .restro-title{
 
-    width: 17%;
+    width: 19%;
     margin-left: 522px;
     border: 0;
     background: rgba(255,255,255,0.5);
-    /* padding: 23px 40px 23px 40px; */
-    /* margin: 20px auto; */
+
     border-radius: 4px;
     color: #444;
-    /* width: 76%; */
+
+}
+.container .container-fluid .restro-head .restro-title li{
+    padding-left: 4px;
+
 }
 .container .container-fluid .restro-head img{
     width: 6%;
@@ -140,36 +143,37 @@
     float:left;
 }
 .container .restro-menu .restroList .item-detail .item-price{
-    float:right;
+    float:left;
 }
-.container .restro-menu .restroList .item-detail .item-price i{
+.container .restro-menu .restroList .item-detail button i{
     border: 2px solid #99ce9f;
     border-radius: 86px;
     padding: 4px;
     color: #99ce9f;
     margin-left: 10px;
 }
-.container .restro-menu .restroList .item-detail .item-price button{
+.container .restro-menu .restroList .item-detail button{
     background: none;
     border-width: 0;
+    float:right;
 }
 
-  
-    
+
+
 #app-layout .my-order {
     background-color: #fff;
-    
-     
+
+
 
 }    
-    
+
 #app-layout .floating .order-title{
     border-bottom: 2px solid #f5f8fa; 
-    }
+}
 
 #app-layout .floating .order-title h2{
     font-size: 22px;
-   margin-bottom: 7px;
+    margin-bottom: 7px;
     margin-top: 10px;
 }
 #app-layout .floating .basket{
