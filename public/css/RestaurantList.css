@@ -33,15 +33,11 @@
     padding-top: 27px;
 }
 
-.container .restroList-page .food-category-list{
+#app-layout .food-category-list{
   padding-left: 96px;
     color: #c7d1d1;
     font-size: 14px;
-    position: fixed;
-    z-index: 1;
-   top:450px;
-    left: 10px;
-    overflow-x: hidden;
+  
 
 }
 .container .restroList-page .restroList {
