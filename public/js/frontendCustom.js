@@ -51,6 +51,8 @@ $(document).ready(function () {
     });
     $('.menu-food-category-list').floatit();
      $('.my-order').floatit();
+      $('.food-category-list').floatit();
+     
 });
 
 
