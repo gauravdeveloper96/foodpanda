@@ -70,7 +70,7 @@
                     <div class="item-detail col-sm-12">
                         <h5 class="item-name">   {{$catgo['name']}}</h5>
                         <h5 class="item-price">Rs.{{$catgo['price']}} 
-                            <button>  <i class="fa fa-plus" aria-hidden="true"></button></i></h5>
+                            <a href="{{route('frontend.user.addtocart',$catgo['id'])}}"><button>  <i class="fa fa-plus" aria-hidden="true"></button></i></a> </h5>
                     </div>
                     @endforeach
                     @endforeach
