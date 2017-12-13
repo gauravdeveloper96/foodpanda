@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend\User;
 
+use App\Models\Item;
 use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -24,7 +25,22 @@ class CartController extends Controller
             return back();
         }
         if(Auth::check()){
-            return ;
+
+            $item =Item::where('id',$item_id)
+                ->select('id','name','restaurant_id','category_id','price')
+                ->first();
+            
+            $total_price=$item['price']*$request->quantity;
+
+            if(empty(session('addToCart'))){
+                session()->put('addToCart',[$item]);
+                return response()->json(session('addToCart'));
+            }
+            else {
+                session()->push(session('addToCart'),$item);
+                return response()->json(session('addToCart'));
+            }
+            
         }
         else
             return redirect()->route('login');
