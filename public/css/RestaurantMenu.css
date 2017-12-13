@@ -143,8 +143,9 @@
     float:left;
 }
 .container .restro-menu .restroList .item-detail .item-price{
-    float:left;
-  
+    /*    float:left;*/
+    margin-top: 0;
+
 }
 .container .restro-menu .restroList .item-detail button i{
     border: 2px solid #99ce9f;
@@ -156,7 +157,7 @@
 .container .restro-menu .restroList .item-detail button{
     background: none;
     border-width: 0;
-    float:right;
+    /*    float:right;*/
 }
 
 
@@ -190,4 +191,53 @@
     padding-bottom: 10px;
     padding-left: 10px;
     padding-right: 10px;
+}
+#app-layout .my-order .handle-counter {
+    overflow: hidden; 
+}
+#app-layout .my-order .handle-counter .counter-minus,  .handle-counter .counter-plus,  .handle-counter input {
+    float: left;
+    text-align: center;
+}
+#app-layout .my-order .handle-counter .counter-minus,  .handle-counter .counter-plus { 
+    text-align: center; 
+}
+
+
+
+#app-layout .my-order .handle-counter input {
+    width: 26px;
+    border-width: 1px;
+    border-left: none;
+    border-right: none;
+    margin-bottom: 13px;
+
+}
+
+
+
+#app-layout .my-order .handle-counter .btn {
+   padding: 1px 5px;
+    border: 1px solid transparent;
+    color: #fff;
+}
+
+
+
+#app-layout .my-order .handle-counter .btn:disabled, .btn:disabled:hover {
+    background-color: darkgrey;
+    cursor: not-allowed;
+
+}
+
+
+
+#app-layout .my-order .handle-counter .btn-primary { 
+    background-color: #009dda;
+}
+
+
+
+#app-layout .my-order .handle-counter .btn-primary:hover, .btn-primary:focus {
+    background-color: #0486b9;
 }

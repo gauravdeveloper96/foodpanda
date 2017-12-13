@@ -54,6 +54,8 @@ $(document).ready(function () {
     $('.menu-food-category-list').floatit();
     $('.my-order').floatit();
     $('.food-category-list').floatit();
+
+
     $('.items-add').on('click', function (e) {
         e.preventDefault();
 //        var itemName = $(this).siblings(':first').text();
@@ -71,15 +73,16 @@ $(document).ready(function () {
             success: function (items) {
                 $(".basket p").html('');
                 $(".basket i").hide();
-                $.each(items, function (i,item) {
-                    $(".basket p").append(item.name + item.price);
+                $.each(items, function (i, item) {
+                    $(".basket p").append('<div class="handle-counter" id="handleCounter">\n\
+<button class="counter-minus btn btn-primary">-</button> <input type="text" value="3"><button class="counter-plus btn btn-primary">+</button>' + item.name + item.price + '<br>');
                 });
-
             }
-
-
         });
-
+    });
+    $('#handleCounter').handleCounter({
+        minimum: 1,
+        maximize: null
     });
 
 });

@@ -67,6 +67,7 @@ echo json_encode([
          {!! Html::script(('js/jquery.rateit.js')) !!}
          {!! Html::script(('js/makefixed.js')) !!}
           {!! Html::script(('js/jquery.floatit.js')) !!}
+           {!! Html::script(('js/handleCounter.js')) !!}
         @yield('after-scripts')
 
         @include('includes.partials.ga')
