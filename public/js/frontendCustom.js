@@ -43,16 +43,26 @@ $(document).ready(function () {
     $(".ar").geocomplete({details: "form"});
     $('.rateit').rateit();
     $('.refer').on('click', function (e) {
+        var jump = $(this).attr('href');
+
+        var new_position = $(jump).offset();
+
+        $('html, body').stop().animate({scrollTop: new_position.top}, 1000);
         e.preventDefault();
-        var target = "#" + this.getAttribute('data-target');
-        $('html, body').animate({
-            scrollTop: $(target).offset().top
-        },1000);
+
     });
     $('.menu-food-category-list').floatit();
-     $('.my-order').floatit();
-      $('.food-category-list').floatit();
-     
+    $('.my-order').floatit();
+    $('.food-category-list').floatit();
+//    $('.items-add').on('click', function () {
+//        $.ajax({
+//           var keyword=$() 
+//            
+//            
+//        });
+//    });
 });
+
+
 
 

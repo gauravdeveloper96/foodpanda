@@ -48,7 +48,7 @@
                     @foreach($restaurant->groupedItems as $cate)
 
                     @foreach($cate as $catgo)
-                    <a href="#" data-target="anchor" class="refer"> {{$catgo['category']['category']}}</a><br>
+                    <a href="#anchor"  class="refer"> {{$catgo['category']['category']}} </a><br>
                     @break;
 
                     @endforeach
@@ -92,7 +92,7 @@
             <div class="basket">
                 <i class="fa fa-shopping-basket" aria-hidden="true"></i><br>
                 <p> Add items into basket</p>
-                <a href=""> <button>PROCEED TO CHECKOUT</button></a>
+                <a href="#"> <button>PROCEED TO CHECKOUT</button></a>
             </div>
         </div>
 
