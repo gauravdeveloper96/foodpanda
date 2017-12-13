@@ -48,7 +48,7 @@
                     @foreach($restaurant->groupedItems as $cate)
 
                     @foreach($cate as $catgo)
-                    <a href="#anchor" class="refer"> {{$catgo['category']['category']}}</a><br>
+                    <a href="#" data-target="anchor" class="refer"> {{$catgo['category']['category']}}</a><br>
                     @break;
 
                     @endforeach
