@@ -11,48 +11,50 @@ use App\Http\Controllers\Controller;
 
 class CartController extends Controller
 {
-    public function index(){
 
-        return ;
+    public function index()
+    {
+
+        return;
     }
 
-    public function addToCart($item_id){
+    public function addToCart($item_id)
+    {
 
-        $isAdmin= User::where('id',auth()->user()->id)->select('id','email')->first();
+        $isAdmin = User::where('id', auth()->user()->id)->select('id', 'email')->first();
 
-        if($isAdmin['email']=='executive@executive.com'){
+        if ($isAdmin['email'] == 'executive@executive.com') {
 
             $this->authorize('addToCart', Cart::class);
 
             return back();
         }
-        if(Auth::check()){
-            
-            $item =Item::where('id',$item_id)
-                ->select('id','name','restaurant_id','category_id','price')
+        if (Auth::check()) {
+
+            $item = Item::where('id', $item_id)
+                ->select('id', 'name', 'restaurant_id', 'category_id', 'price')
                 ->first();
-            
+
 //            $item['price']=$item['price']*4;
 
-            
-            if(empty(session('addToCart'))){
-                session()->put('addToCart',[$item]);
-                 $tprice= $item['price'];
-                 //dd('11');
-                return json_encode(session('addToCart'),$tprice);
-            }
-            else {
-                session()->push('addToCart',$item);
-               $tprice=0;
-                foreach (session('addToCart') as $total){
+
+            if (empty(session('addToCart'))) {
+                session()->put('addToCart', [$item]);
+                $tprice = $item['price'];
+                //dd('11');
+                $items  = session('addToCart');
+                return response()->json(['items' => $items, $tprice], 200);
+//                return json_encode(session('addToCart'),$tprice);
+            } else {
+                session()->push('addToCart', $item);
+                $tprice = 0;
+                foreach (session('addToCart') as $total) {
                     $tprice+=$total['price'];
                 }
-               
-                return json_encode(session('addToCart'),$tprice);
+
+                $items = session('addToCart');
+                return response()->json(['items' => $items, $tprice], 200);
             }
-            
-        }
-        else
-            return response()->json(['route' => route('login')],200);
+        } else return response()->json(['route' => route('login')], 200);
     }
 }
