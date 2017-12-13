@@ -70,7 +70,7 @@
                     <div class="item-detail col-sm-12">
                         <h5 class="item-name">   {{$catgo['name']}}</h5>
                         <h5 class="item-price">Rs.{{$catgo['price']}} </h5>
-                            <button class="items-add">  <i class="fa fa-plus" aria-hidden="true"></i></button>                    </div>
+                        <button class="items-add">  <i class="fa fa-plus" aria-hidden="true"></i></button>                    </div>
                     @endforeach
                     @endforeach
                     @endforeach
