@@ -16,7 +16,9 @@
 
             @endforeach
             @endforeach
+            <div class="user-ratings"></div>
         </div>
+
     </div>
 
 </div>
@@ -92,6 +94,14 @@
             <div class="basket">
                 <i class="fa fa-shopping-basket" aria-hidden="true"></i><br>
                 <p> Add items into basket</p>
+                <div class="cal-amt">
+                    <div class="total">
+                        <h5>Subtotal</h5>
+                          <h5>Delivery fee</h5>
+                          <h5>Total will be rounded off</h5>
+                          <h5>Total</h5>
+                    </div>
+                </div>
                 <a href="#"> <button>PROCEED TO CHECKOUT</button></a>
             </div>
         </div>

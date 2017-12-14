@@ -2,15 +2,11 @@
     text-align: center;
 }
 
-.container .container-fluid .restro-head .restro-title{
-    background: transparent;
-    width: 17%;
-    margin-left: 522px;
-}
+
 .container .container-fluid .restro-head img{
     width: 6%;
     height: 70px;
-    margin-left: 587px;
+    margin-left: 600px;
     margin-top: 51px;
     border: 2px solid;
     border-radius: 7px;
@@ -18,6 +14,7 @@
 .container .container-fluid .restro-head h1{
     color:red;
     margin-top:0;
+    margin-bottom:0;
 }
 .container .container-fluid .restro-head li{
     float:left;
@@ -79,33 +76,18 @@
     width: 19%;
     margin-left: 522px;
     border: 0;
-    background: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.7);
 
-    border-radius: 4px;
+    border-radius: 5px;
     color: #444;
 
 }
 .container .container-fluid .restro-head .restro-title li{
-    padding-left: 4px;
+    padding-left: 7px;
 
 }
-.container .container-fluid .restro-head img{
-    width: 6%;
-    height: 70px;
-    margin-left: 587px;
-    margin-top: 51px;
-    border: 2px solid;
-    border-radius: 7px;
-}
-.container .container-fluid .restro-head h1{
-    color:red;
-    margin-top:0;
-}
-.container .container-fluid .restro-head li{
-    float:left;
-    list-style: none;
-    display:inline;
-}
+
+
 .container .restroList-page .menu-links{
     padding-left: 119px;
     font-size: 14px;
@@ -180,7 +162,7 @@
 }
 #app-layout .floating .basket{
     text-align:center;
-    padding-top: 30px;
+    padding-top: 0px;
     padding-bottom: 30px;
 }
 #app-layout .basket button{
@@ -192,8 +174,14 @@
     padding-left: 10px;
     padding-right: 10px;
 }
+#app-layout .basket .total{
+    text-align: left;
+    display:none;
+}
 #app-layout .my-order .handle-counter {
     overflow: hidden; 
+    border-bottom: 1px solid #ededed;
+    margin-bottom: 10px;
 }
 #app-layout .my-order .handle-counter .counter-minus,  .handle-counter .counter-plus,  .handle-counter input {
     float: left;
@@ -217,7 +205,7 @@
 
 
 #app-layout .my-order .handle-counter .btn {
-   padding: 1px 5px;
+    padding: 1px 5px;
     border: 1px solid transparent;
     color: #fff;
 }
@@ -240,4 +228,15 @@
 
 #app-layout .my-order .handle-counter .btn-primary:hover, .btn-primary:focus {
     background-color: #0486b9;
+}
+#app-layout .my-order .basket .handle-counter .name-item{
+   
+    float: left;
+    padding-left: 30px;
+
+}
+#app-layout .my-order .basket .handle-counter .price-item{
+   
+    float: right;
+   
 }

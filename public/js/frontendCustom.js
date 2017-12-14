@@ -42,6 +42,7 @@ $(document).ready(function () {
     });
     $(".ar").geocomplete({details: "form"});
     $('.rateit').rateit();
+    $('.user-ratings').rateit();
     $('.refer').on('click', function (e) {
         var jump = $(this).attr('href');
 
@@ -57,6 +58,7 @@ $(document).ready(function () {
 
 
     $('.items-add').on('click', function (e) {
+        $('.total').show();
         e.preventDefault();
 //        var itemName = $(this).siblings(':first').text();
 //        var itemPrice = $(this).prev().text();
@@ -75,15 +77,28 @@ $(document).ready(function () {
                 $(".basket i").hide();
                 $.each(items, function (i, item) {
                     $(".basket p").append('<div class="handle-counter" id="handleCounter">\n\
-<button class="counter-minus btn btn-primary">-</button> <input type="text" value="3"><button class="counter-plus btn btn-primary">+</button>' + item.name + item.price + '<br>');
+<button class="counter-minus btn btn-primary">-</button> <input name="quantity" type="text" value="1"><button class="counter-plus btn btn-primary">+</button>' + '<div class="name-item">' + item.name + '</div>' + '<div class="price-item">' + item.price + '<div>' + '<br>');
                 });
+                var num = 1;
+
+                $(document).on('click', '.counter-plus', function () {
+
+                    $(this).prev().val(++num);
+
+                });
+                $(document).on('click', '.counter-minus', function (e) {
+                    if ($(this).next().val() == 1) {
+                        e.preventDefault();
+
+                    } else {
+                        $(this).next().val(--num);
+                    }
+                });
+
             }
         });
     });
-    $('#handleCounter').handleCounter({
-        minimum: 1,
-        maximize: null
-    });
+
 
 });
 
