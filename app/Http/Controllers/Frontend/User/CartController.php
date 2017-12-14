@@ -32,19 +32,20 @@ class CartController extends Controller
                 ->select('id','name','restaurant_id','category_id','price')
                 ->first();
             $quant=1;
-            $item=  array_push($item,$quant );
+//            $item=  array_push($item,$quant );
 //            $item['price']=$item['price']*4;
 
 
             if(empty(session('addToCart'))){
                 session()->put('addToCart',[$item]);
                  $tprice= $item['price'];
-                 //dd('11');
+                 dd('11');
                 return json_encode(session('addToCart'), $tprice);
             }
             else {
                 session()->push('addToCart',$item);
 //                dd(session('addToCart'));
+                dd('22');
                $tprice=0;
                 foreach (session('addToCart') as $total){
                     $tprice+=$total['price'];
@@ -56,6 +57,6 @@ class CartController extends Controller
 
         }
         else
-            return response()->json(['route' => route('login')],500);
+            return response()->json(['route' => route('login')],200);
     }
 }
