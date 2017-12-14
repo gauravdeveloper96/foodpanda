@@ -29,7 +29,7 @@
         {{ Html::style('css/RestaurantMenu.css') }}
         {{ Html::style('css/rateit.css') }}
 
-        {!! Html::script('http://maps.googleapis.com/maps/api/js?v=3&sensor=false&amp;libraries=places&key=AIzaSyADZWdKQx3dXmvQZ04M6pZhZaBtSdaoOxw') !!}
+        {!! Html::script('//maps.googleapis.com/maps/api/js?v=3&sensor=false&amp;libraries=places&key=AIzaSyADZWdKQx3dXmvQZ04M6pZhZaBtSdaoOxw') !!}
 
         @endif
 

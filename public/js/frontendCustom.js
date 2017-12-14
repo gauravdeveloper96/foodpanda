@@ -79,24 +79,23 @@ $(document).ready(function () {
                     $(".basket p").append('<div class="handle-counter" id="handleCounter">\n\
 <button class="counter-minus btn btn-primary">-</button> <input name="quantity" type="text" value="1"><button class="counter-plus btn btn-primary">+</button>' + '<div class="name-item">' + item.name + '</div>' + '<div class="price-item">' + item.price + '<div>' + '<br>');
                 });
-                var num = 1;
-
-                $(document).on('click', '.counter-plus', function () {
-
-                    $(this).prev().val(++num);
-
-                });
-                $(document).on('click', '.counter-minus', function (e) {
-                    if ($(this).next().val() == 1) {
-                        e.preventDefault();
-
-                    } else {
-                        $(this).next().val(--num);
-                    }
-                });
-
             }
         });
+    });
+    var num = 1;
+
+    $(document).on('click', '.counter-plus', function () {
+
+        $(this).prev().val(++num);
+
+    });
+    $(document).on('click', '.counter-minus', function (e) {
+        if ($(this).next().val() == 1) {
+            e.preventDefault();
+
+        } else {
+            $(this).next().val(--num);
+        }
     });
 
 
