@@ -77,27 +77,68 @@ $(document).ready(function () {
                 $(".basket i").hide();
                 $.each(items, function (i, item) {
                     $(".basket p").append('<div class="handle-counter" id="handleCounter">\n\
-<button class="counter-minus btn btn-primary">-</button> <input name="quantity" type="text" value="1"><button class="counter-plus btn btn-primary">+</button>' + '<div class="name-item">' + item.name + '</div>' + '<div class="price-item">' + item.price + '<div>' + '<br>');
+<button class="counter-minus btn btn-primary">-</button> <input name="quantity" data-price="' + item.price + '"  type="text" value="1"><button class="counter-plus btn btn-primary">+</button>' + '<div class="name-item">' + item.name + '</div>' + '<div class="price-item">' + item.price + '</div>' + '<br>' + '</div>');
+                
+
+
+
+
+
+
                 });
             }
         });
     });
-    var num = 1;
-
     $(document).on('click', '.counter-plus', function () {
-
-        $(this).prev().val(++num);
-
+        var $this = $(this),
+                initVal = parseInt($this.parent().find('input').val());
+        initVal++;
+        $this.parent().find('input').val(initVal);
+        console.log(parseInt($this.parent().find('input').attr('data-price')) * initVal);
+        var price = parseInt($this.parent().find('input').attr('data-price')) * initVal;
+        $this.parent().find('.price-item').text(price);
     });
     $(document).on('click', '.counter-minus', function (e) {
-        if ($(this).next().val() == 1) {
+
+        var $this = $(this),
+                initVal = parseInt($this.parent().find('input').val());
+        initVal--;
+        if (initVal == 0) {
             e.preventDefault();
-
         } else {
-            $(this).next().val(--num);
+            $this.parent().find('input').val(initVal);
         }
+        console.log(parseInt($this.parent().find('input').attr('data-price')) * initVal);
+        var price = parseInt($this.parent().find('input').attr('data-price')) * initVal;
+        $this.parent().find('.price-item').text(price);
+//                       
     });
-
+//     var urlsrch = $('.items-add').attr('href');
+//
+//        $.ajax({
+//            url: urlsrch,
+//            dataType: 'json',
+//            type: 'get',
+////            data: {
+////                name: itemName,
+////                price: itemPrice
+////            },
+//            success: function (items) {
+//                $(".basket p").html('');
+//                $(".basket i").hide();
+//                $.each(items, function (i, item) {
+//                    $(".basket p").append('<div class="handle-counter" id="handleCounter">\n\
+//<button class="counter-minus btn btn-primary">-</button> <input name="quantity" data-price="' + item.price + '"  type="text" value="1"><button class="counter-plus btn btn-primary">+</button>' + '<div class="name-item">' + item.name + '</div>' + '<div class="price-item">' + item.price + '</div>' + '<br>' + '</div>');
+//                
+//
+//
+//
+//
+//
+//
+//                });
+//            }
+//        });
 
 });
 

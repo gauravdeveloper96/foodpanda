@@ -94,6 +94,7 @@
             <div class="basket">
                 <i class="fa fa-shopping-basket" aria-hidden="true"></i><br>
                 <p> Add items into basket</p>
+                
                 <div class="cal-amt">
                     <div class="total">
                         <h5>Subtotal</h5>
