@@ -113,32 +113,32 @@ $(document).ready(function () {
         $this.parent().find('.price-item').text(price);
 //                       
     });
-//     var urlsrch = $('.items-add').attr('href');
-//
-//        $.ajax({
-//            url: urlsrch,
-//            dataType: 'json',
-//            type: 'get',
-////            data: {
-////                name: itemName,
-////                price: itemPrice
-////            },
-//            success: function (items) {
-//                $(".basket p").html('');
-//                $(".basket i").hide();
-//                $.each(items, function (i, item) {
-//                    $(".basket p").append('<div class="handle-counter" id="handleCounter">\n\
-//<button class="counter-minus btn btn-primary">-</button> <input name="quantity" data-price="' + item.price + '"  type="text" value="1"><button class="counter-plus btn btn-primary">+</button>' + '<div class="name-item">' + item.name + '</div>' + '<div class="price-item">' + item.price + '</div>' + '<br>' + '</div>');
-//                
-//
-//
-//
-//
-//
-//
-//                });
-//            }
-//        });
+     var urlsrch = $('.items-add').attr('href');
+
+        $.ajax({
+            url: urlsrch,
+            dataType: 'json',
+            type: 'get',
+//            data: {
+//                name: itemName,
+//                price: itemPrice
+//            },
+            success: function (items) {
+                $(".basket p").html('');
+                $(".basket i").hide();
+                $.each(items, function (i, item) {
+                    $(".basket p").append('<div class="handle-counter" id="handleCounter">\n\
+<button class="counter-minus btn btn-primary">-</button> <input name="quantity" data-price="' + item.price + '"  type="text" value="1"><button class="counter-plus btn btn-primary">+</button>' + '<div class="name-item">' + item.name + '</div>' + '<div class="price-item">' + item.price + '</div>' + '<br>' + '</div>');
+                
+
+
+
+
+
+
+                });
+            }
+        });
 
 });
 
