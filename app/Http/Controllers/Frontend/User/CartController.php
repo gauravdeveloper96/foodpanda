@@ -54,6 +54,6 @@ class CartController extends Controller
             
         }
         else
-            return response()->json(['route' => route('login')],200);
+            return response()->json(['route' => route('login')],500);
     }
 }
