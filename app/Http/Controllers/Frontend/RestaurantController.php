@@ -101,6 +101,8 @@ class RestaurantController extends Controller
                         ->select('id', 'name', 'fileentry_id')
                         ->get();
 
+                    $cart = session()->get('addToCart');
+
                     $RestroMenu->transform(function ($restroSingle, $key) {
                         $restroSingle->groupedItems = $restroSingle->Items->groupBy('category_id')->toArray();
                         return $restroSingle;
@@ -118,7 +120,7 @@ class RestaurantController extends Controller
                             ->groupBy('category')
                             ->get();
                     }
-                    return view('frontend.RestaurantMenu', compact('RestroMenu', 'RestroCat'));
+                    return view('frontend.RestaurantMenu',compact('RestroMenu', 'RestroCat','cart'));
                 } else return back();
             }
         }
