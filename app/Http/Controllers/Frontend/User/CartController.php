@@ -39,7 +39,7 @@ class CartController extends Controller
                 session()->put('addToCart',[$item]);
                  $tprice= $item['price'];
                  //dd('11');
-                return json_encode(session('addToCart'),$tprice);
+                return json_encode(session('addToCart'), $tprice);
             }
             else {
                 session()->push('addToCart',$item);
@@ -48,7 +48,8 @@ class CartController extends Controller
                     $tprice+=$total['price'];
                 }
                
-                return json_encode(session('addToCart'),$tprice);
+                return json_encode(session('addToCart'), $tprice);
+                
             }
             
         }
