@@ -39,13 +39,13 @@ class CartController extends Controller
             if(empty(session('addToCart'))){
                 session()->put('addToCart',[$item]);
                  $tprice= $item['price'];
-                 dd('11');
+//                 dd('11');
                 return json_encode(session('addToCart'), $tprice);
             }
             else {
                 session()->push('addToCart',$item);
 //                dd(session('addToCart'));
-                dd('22');
+//                dd('22');
                $tprice=0;
                 foreach (session('addToCart') as $total){
                     $tprice+=$total['price'];
