@@ -147,7 +147,7 @@
 #app-layout .my-order {
     background-color: #fff;
 
-
+overflow-y: scroll; height:400px;
 
 }    
 
